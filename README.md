@@ -1,6 +1,6 @@
 # back-end-challenge
 
-> Desafio para os futuros back-end's do @Personare
+> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
 
 ## Cenário
 
