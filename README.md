@@ -9,13 +9,15 @@
 ## Pré-requisitos
 
 - PHP >= 5.6
-- Orientação a objetos
+- Orientado a objetos
 - Test Driven Development
 
 ## Diferenciais
 
 - Boa documentação
-- Utilizar DDD (Domain Driven Design)
+- Não utilizar framework
+- Utilização de DDD (Domain Driven Design)
+- Implementar Integração Contínua
 
 ## Dúvidas
 
