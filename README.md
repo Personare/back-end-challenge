@@ -19,4 +19,4 @@
 
 ## Dúvidas
 
-Se surgir alguma dúvida, [abra uma issue.](./issues/new)
+Se surgir alguma dúvida, consulte as nossas [issues](https://github.com/Personare/back-end-challenge/issues) e se não encontrar a resposta, sinta-se à vontade para abrir uma nova =]
