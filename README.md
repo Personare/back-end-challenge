@@ -4,6 +4,20 @@
 
 ## Introdução
 
+A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente. Essa é a única feature que está faltando para tudo funcionar perfeitamente!
+
+**Então, essa é a sua missão!**
+
+É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+
+E as especificações são:
+
+- Conversões:
+    - De Real para Dólar
+    - De Dólar para Real
+    - De Real para Euro
+    - De Euro para Real
+
 ## Instruções
 
 1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
@@ -23,6 +37,7 @@
 - Não utilizar framework
 - Utilização de DDD (Domain Driven Design)
 - Implementar integração contínua
+- Testes de aceitação
 
 ## Dúvidas
 
