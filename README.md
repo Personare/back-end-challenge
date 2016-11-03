@@ -29,6 +29,7 @@ E as especificações são:
 - PHP >= 5.6
 - Orientado a objetos
 - Test Driven Development
+- A API deve retornar em formato de `json`
 
 ## Diferenciais
 
