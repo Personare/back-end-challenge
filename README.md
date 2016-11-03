@@ -4,7 +4,7 @@
 
 ## Introdução
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente. Essa é a única feature que está faltando para tudo funcionar perfeitamente!
+A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
 
 **Então, essa é a sua missão!**
 
