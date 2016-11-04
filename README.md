@@ -12,6 +12,8 @@ A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, po
 
 E as especificações são:
 
+- A requisição deve receber a cotação via parâmetro
+- A resposta deve conter o valor convertido e o símbolo da moeda
 - Conversões:
     - De Real para Dólar
     - De Dólar para Real
