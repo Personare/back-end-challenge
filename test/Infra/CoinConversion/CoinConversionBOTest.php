@@ -31,4 +31,29 @@ class CoinConversionBOTest extends TestCase
         // assertions
         $this->assertEquals($expectedValue, $convertedValue);
     }
+
+    public function testConvertTwoBrlCurrencyToUsdCurrency()
+    {
+        // setup
+        $from = new BrlCurrency();
+        $to = new UsdCurrency();
+        $value = 2;
+        $quotationValue = 0.315313;
+        $expectedValue = $quotationValue * $value;
+
+        $quotation = new Quotation($from, $to, $quotationValue);
+
+        /** @var CoinConversionDS|\PHPUnit_Framework_MockObject_MockObject $coinConversionDS */
+        $coinConversionDS = $this->getMockBuilder('\\CoinConversion\\CoinConversionDS')->getMock();
+        $coinConversionDS->method('getQuotation')
+            ->with($this->equalTo($from), $this->equalTo($to))
+            ->will($this->returnValue($quotation));
+
+        // execution
+        $coinConversionBO = new CoinConversionBO($coinConversionDS);
+        $convertedValue = $coinConversionBO->convert($from, $to, $value);
+
+        // assertions
+        $this->assertEquals($expectedValue, $convertedValue);
+    }
 }

@@ -33,6 +33,6 @@ class Quotation
 
     public function calculateFrom($value)
     {
-        return $this->value;
+        return $this->value * $value;
     }
 }
