@@ -29,6 +29,6 @@ class CoinConversionBO
     {
         /** @var Quotation $quotation */
         $quotation = $this->coinConversionDS->getQuotation($from, $to);
-        return $quotation->calculateFrom($value);
+        return $quotation->calculateFor($value);
     }
 }

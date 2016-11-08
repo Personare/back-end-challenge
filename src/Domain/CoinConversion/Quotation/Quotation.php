@@ -31,7 +31,7 @@ class Quotation
         $this->value = $value;
     }
 
-    public function calculateFrom($value)
+    public function calculateFor($value)
     {
         return $this->value * $value;
     }
