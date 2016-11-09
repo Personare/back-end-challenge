@@ -51,6 +51,7 @@ Não foi feito validação caso entre com combinação inválido (ex: from=BRL e
 - Como foi solicitado não utilizar framework, contruí de forma bem rudimentar o MVC, onde a rota é através de arquivos .php na pasta html que chamam ações em Controllers diretamente. A Controller trabalha nos parâmetros e envia-os para os [BO's](https://en.wikipedia.org/wiki/Business_object), que retorna algum objeto de modelo. E por fim ela transforma a informação para a view.
 - Por questões de facilidade, não criei nada abstraindo a camada de visualização. Apenas retornando a string diretamente. Caso fosse um projeto maior, ou mesmo entrarem novas funcionalidades aumentando a complexidade, será necessário abstrair isto também.
 - Os testes unitários estão apenas na camada de domínio, a camada de infraestrutura e integrações estão são validadas por testes de integração.
+- Os testes de integração destroem os dados de cotação do banco de dados. Sendo assim, não se esqueça de restaurá-los caso queira usar novamente o micro-webservice pela URL novamente.
 
 # back-end-challenge
 
