@@ -1,38 +1,41 @@
 <?php
 namespace CoinConversion\Quotation;
 
-use CoinConversion\Currency\BrlCurrency;
-use CoinConversion\Currency\UsdCurrency;
+use CoinConversion\Currency\Currency;
 
 class Quotation
 {
     /**
-     * @var BrlCurrency
+     * @var Currency
      */
     private $from;
     /**
-     * @var UsdCurrency
+     * @var Currency
      */
     private $to;
     /**
      * @var float
      */
-    private $value;
+    private $quotationValue;
 
     /**
-     * @param BrlCurrency $from
-     * @param UsdCurrency $to
-     * @param float $value
+     * @param Currency $from
+     * @param Currency $to
+     * @param float $quotationValue
      */
-    public function __construct($from, $to, $value)
+    public function __construct(Currency $from, Currency $to, $quotationValue)
     {
         $this->from = $from;
         $this->to = $to;
-        $this->value = $value;
+        $this->quotationValue = $quotationValue;
     }
 
+    /**
+     * @param float $value
+     * @return float
+     */
     public function calculateFor($value)
     {
-        return $this->value * $value;
+        return $this->quotationValue * $value;
     }
 }
