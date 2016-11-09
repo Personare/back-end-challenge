@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  db:
+    image: mysql:5.5.51
+    volumes:
+      - ./docker/conf/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./docker/conf/mysql/initial-dump.sql:/docker-entrypoint-initdb.d/initial-dump.sql
+      - ./docker/volumes/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=coin_conversion
+    ports:
+      - 3306:3306
+
+  web:
+    build: .
+    image: personare-back-end-challenge:latest
+    environment:
+      - MYSQL_HOSTNAME=db
+      - MYSQL_DATABASE=coin_conversion
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=
+    volumes:
+      - .:/var/www
+    ports:
+      - 80:80
+    links:
+      - db
+    depends_on:
+      - db

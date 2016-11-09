@@ -13,14 +13,9 @@
         </whitelist>
     </filter>
 
-    <logging>
-        <log type="coverage-html" target="./test/coverage/html/"/>
-        <log type="coverage-clover" target="./test/coverage/coverage.xml"/>
-    </logging>
-
     <groups>
-        <exclude>
+        <include>
             <group>integration-test</group>
-        </exclude>
+        </include>
     </groups>
 </phpunit>

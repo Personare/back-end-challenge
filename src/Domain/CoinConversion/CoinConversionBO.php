@@ -2,19 +2,20 @@
 namespace CoinConversion;
 
 use CoinConversion\Currency\Currency;
-use CoinConversion\Quotation\Quotation;
+use CoinConversion\Currency\CurrencyQuote;
+use CoinConversion\Quotation\QuotationDS;
 
 class CoinConversionBO
 {
     /**
-     * @var CoinConversionDS
+     * @var QuotationDS
      */
     private $coinConversionDS;
 
     /**
-     * @param CoinConversionDS $coinConversionDS
+     * @param QuotationDS $coinConversionDS
      */
-    public function __construct($coinConversionDS)
+    public function __construct(QuotationDS $coinConversionDS)
     {
         $this->coinConversionDS = $coinConversionDS;
     }
@@ -23,12 +24,12 @@ class CoinConversionBO
      * @param Currency $from
      * @param Currency $to
      * @param float $value
-     * @return float
+     * @return CurrencyQuote
      */
     public function convert(Currency $from, Currency $to, $value)
     {
-        /** @var Quotation $quotation */
         $quotation = $this->coinConversionDS->getQuotation($from, $to);
-        return $quotation->calculateFor($value);
+        $quotedPrice = $quotation->calculateFor($value);
+        return new CurrencyQuote($to, $quotedPrice);
     }
 }

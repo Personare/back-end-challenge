@@ -1,4 +1,6 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-echo "hello world!";
+use CoinConversion\CoinConversionController;
+
+echo CoinConversionController::getInstance()->doConversion($_GET);
