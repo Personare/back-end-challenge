@@ -3,12 +3,14 @@ namespace CoinConversion\Currency;
 
 class BrlCurrency implements Currency
 {
+    const ID = 'BRL';
+
     /**
      * @return string
      */
     public function getId()
     {
-        return 'BRL';
+        return self::ID;
     }
 
     /**

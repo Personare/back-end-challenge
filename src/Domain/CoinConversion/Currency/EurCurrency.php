@@ -3,12 +3,14 @@ namespace CoinConversion\Currency;
 
 class EurCurrency implements Currency
 {
+    const ID = 'EUR';
+
     /**
      * @return string
      */
     public function getId()
     {
-        return 'EUR';
+        return self::ID;
     }
 
     /**

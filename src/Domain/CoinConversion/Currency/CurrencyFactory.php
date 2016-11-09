@@ -6,11 +6,11 @@ class CurrencyFactory
     public static function build($id)
     {
         switch (strtoupper($id)) {
-            case 'BRL':
+            case BrlCurrency::ID:
                 return new BrlCurrency();
-            case 'USD':
+            case UsdCurrency::ID:
                 return new UsdCurrency();
-            case 'EUR':
+            case EurCurrency::ID:
                 return new EurCurrency();
         }
         throw new \InvalidArgumentException("Not found currency type '{$id}'.");

@@ -3,12 +3,14 @@ namespace CoinConversion\Currency;
 
 class UsdCurrency implements Currency
 {
+    const ID = 'USD';
+
     /**
      * @return string
      */
     public function getId()
     {
-        return 'USD';
+        return self::ID;
     }
 
     /**
