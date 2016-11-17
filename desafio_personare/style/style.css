@@ -1,0 +1,148 @@
+/* Título */
+header {
+	background-color: lightgrey;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+	height: 60px;
+	width: 1000px;
+	max-width: 1000px;
+	min-width: 600px;
+}
+
+#titulo {
+    text-align: center;
+	font-size: 20px;
+	font-style: Verdana;
+}
+
+#cabeca {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+
+/* TAGs do copo */
+
+main {
+	background-color: lightgrey;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+	height: 300px;
+	width: 1000px;
+	max-width: 1000px;
+	min-width: 600px;
+}
+
+body {
+	background-color: grey;
+}
+
+p {
+    background-color: lightgrey;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+	height: 20px;
+	width: 100px;
+
+    text-align: center;
+}
+
+/* Divs do corpo */
+
+#texto {
+    position: relative;
+	
+	height: 50px;
+	width: 1000px;
+	
+}
+
+#campo {
+    position: relative;
+	
+	height: 50px;
+	width: 1000px;
+}
+
+/* Textos do copo */
+
+#t1 {
+    position: relative;
+	left: 10%;
+	top: 20%;
+}
+
+#t2 {
+    position: relative;
+	left: 30%;
+	top: -60%;
+}
+
+#t3 {
+    position: absolute;
+	left: 50%;
+	top: -15%;
+}
+
+#t4 {
+    position: absolute;
+	left: 70%;
+	top: -15%;
+}
+
+/* Campos para preenchimento */
+
+#valor {
+    position: absolute;
+	left: 10%;
+	top: 20%;
+
+    width: 100px;
+}
+
+#cotacao {
+    position: absolute;
+	left: 30%;
+	top: 20%;
+
+    width: 100px;
+}
+
+#tipo_de {
+    position: absolute;
+	left: 50%;
+	top: 20%;
+
+    width: 100px;
+}
+
+#tipo_para {
+    position: absolute;
+	left: 70%;
+	top: 20%;
+
+    width: 100px;
+}
+
+#enviar {
+    position: absolute;
+    left: 90%;
+    top: 20%;
+}
+
+#corpo {
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+
+#resposta{
+    position: absolute;
+    left: 10%;
+}

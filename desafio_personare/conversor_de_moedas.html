@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+	    <script src="front_end/jquery-3.1.1.min.js"></script>
+		<script src="front_end/javascript.js"></script>
+		<link rel="stylesheet" href="style/style.css" media="screen">
+		<title>Desafio Personare</title>
+	</head>
+    <body>
+	    <header id="cabeca">
+		    <div>
+			    <h3 id="titulo">Desafio Personare</h3>
+			</div>
+	    </header>
+		<main id="corpo">
+		<div>
+	        <form id="formulario">
+                <div id="texto">
+			        <p id="t1"> Moeda: </p>
+                    <p id="t2"> Cotação: </p>
+                    <p id="t3"> Converter de: </p>
+                    <p id="t4"> para: </p>
+                </div>            
+                <div id="campo">
+			        <input type="text" id="valor" maxlength="10">
+			        <input type="text" id="cotacao" maxlength="4">
+			        <select id="tipo_de">
+				        <option value="real" id="1">Real</option>
+				        <option value="dolar" id="2">Dólar</option>
+				        <option value="euro" id="3">Euro</option>
+			        </select>          
+                    <select id="tipo_para">
+				        <option value="real" id="1">Real</option>
+				        <option value="dolar" id="2">Dólar</option>
+				        <option value="euro" id="3">Euro</option>
+			        </select>
+                    <br>
+                    <button type="submit" id="enviar">Converter!</button>
+                </div>
+                <hr />
+		    </form>
+		</div>
+		<div id="resposta"></div>
+		</main>
+	</body>
+</html>
