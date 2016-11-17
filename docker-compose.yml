@@ -1,0 +1,6 @@
+front:
+    image: nimmis/apache-php5
+	ports:
+	- "80:80"
+	volumes:
+	- ./desafio_personare
