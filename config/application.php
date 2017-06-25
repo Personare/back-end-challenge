@@ -1,7 +1,7 @@
 <?php
 
 define('DECIMALS', 2);
-define('RATES_FILE', 'rates.json');
-define('SYMBOLS_FILE', 'symbols.json');
+define('RATES_FILE', __DIR__ . '/rates.json');
+define('SYMBOLS_FILE', __DIR__ . '/symbols.json');
 
 ?>
