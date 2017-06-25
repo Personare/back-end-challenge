@@ -1,6 +1,6 @@
 <?php
 
-require 'config.php';
+require '../config/application.php';
 
 $rates = json_decode(file_get_contents(RATES_FILE), true);
 $symbols = json_decode(file_get_contents(SYMBOLS_FILE), true);
