@@ -1,4 +1,7 @@
 {
+  "require": {
+    "php": "^5.6.30"
+  },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*",
     "squizlabs/php_codesniffer": "*"
