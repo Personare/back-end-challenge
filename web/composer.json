@@ -1,5 +1,0 @@
-{
-  "require-dev": {
-    "heroku/heroku-buildpack-php": "*"
-  }
-}
