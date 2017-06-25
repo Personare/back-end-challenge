@@ -2,23 +2,45 @@
 
 require '../config/application.php';
 
-function currency_formatter($value)
+class CurrencyConverter
 {
-    return number_format(floatval($value), DECIMALS);
+    public function __construct($from, $to, $value)
+    {
+        $this->from = strtoupper($from);
+        $this->to = strtoupper($to);
+        $this->value = $this->currencyFormatter($value);
+
+        $this->loadRates();
+        $this->loadSymbols();
+    }
+
+    private function currencyFormatter($value)
+    {
+        return number_format(floatval($value), DECIMALS);
+    }
+
+    private function loadRates()
+    {
+        $this->rates = json_decode(file_get_contents(RATES_FILE), true);
+    }
+
+    private function loadSymbols()
+    {
+        $this->symbols = json_decode(file_get_contents(SYMBOLS_FILE), true);
+    }
+
+    public function convert()
+    {
+        $rate = $this->currencyFormatter($this->rates[$this->from][$this->to]);
+        $converted_value = $this->currencyFormatter($this->value * $rate);
+
+        $convertion['original_value'] = "{$this->symbols[$this->from]} $this->value";
+        $convertion['converted_value'] = "{$this->symbols[$this->to]} $converted_value";
+
+        return json_encode($convertion);
+    }
 }
 
-$rates = json_decode(file_get_contents(RATES_FILE), true);
-$symbols = json_decode(file_get_contents(SYMBOLS_FILE), true);
+$currency_converter = new CurrencyConverter($_GET['from'], $_GET['to'], $_GET['value']);
 
-$from = strtoupper($_GET['from']);
-$to = strtoupper($_GET['to']);
-$value = currency_formatter($_GET['value']);
-
-$rate = currency_formatter($rates[$from][$to]);
-
-$converted_value = currency_formatter($value * $rate);
-
-$output['original_value'] = "${symbols[$from]} $value";
-$output['converted_value'] = "{$symbols[$to]} $converted_value";
-
-echo json_encode($output);
+echo $currency_converter->convert();
