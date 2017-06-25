@@ -41,6 +41,8 @@ class CurrencyConverter
     }
 }
 
+# Ad try/catch
+
 $currency_converter = new CurrencyConverter($_GET['from'], $_GET['to'], $_GET['value']);
 
 echo $currency_converter->convert();
