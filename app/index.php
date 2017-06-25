@@ -2,7 +2,8 @@
 
 require '../config/application.php';
 
-function currency_formatter($value){
+function currency_formatter($value)
+{
     return number_format(floatval($value), DECIMALS);
 }
 
@@ -21,5 +22,3 @@ $output['original_value'] = "${symbols[$from]} $value";
 $output['converted_value'] = "{$symbols[$to]} $converted_value";
 
 echo json_encode($output);
-
-?>

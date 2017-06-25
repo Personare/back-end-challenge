@@ -1,5 +1,6 @@
 {
   "require-dev": {
-    "heroku/heroku-buildpack-php": "*"
+    "heroku/heroku-buildpack-php": "*",
+    "squizlabs/php_codesniffer": "*"
   }
 }
