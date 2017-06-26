@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fellipecastro/back-end-challenge.svg?branch=master)](https://travis-ci.org/fellipecastro/back-end-challenge)
+
 # back-end-challenge
 
 > Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
