@@ -14,10 +14,10 @@ try {
     $conversion = $calculator->calculate($params['from'], $params['to'], $params['value']);
 
     $response_handler->printConversion($conversion);
-} catch (\CurrencyConverter\RateNotFoundException $e) {
-    $response_handler->printException($e->getMessage(), 404);
 } catch (\CurrencyConverter\InvalidParametersException $e) {
     $response_handler->printException($e->getMessage(), 400);
+} catch (\CurrencyConverter\RateNotFoundException $e) {
+    $response_handler->printException($e->getMessage(), 404);
 } catch (Exception $e) {
     $response_handler->printException($e->getMessage(), 500);
 }
