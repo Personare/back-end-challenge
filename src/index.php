@@ -1,8 +1,8 @@
 <?php
 
-require_once('RequestHandler.class.php');
-require_once('Calculator.class.php');
-require_once('ResponseHandler.class.php');
+require_once('RequestHandler.php');
+require_once('Calculator.php');
+require_once('ResponseHandler.php');
 
 $response_handler = new \CurrencyConverter\ResponseHandler();
 
