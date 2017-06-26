@@ -1,12 +1,8 @@
 language: php
 php:
     - '7.1'
-install:
-    - bin/ci/install_dependencies.sh
 before_script:
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
 script:
     - vendor/bin/phpunit --coverage-clover=coverage.xml tests/
-after_success:
-    - bash <(curl -s https://codecov.io/bash)
