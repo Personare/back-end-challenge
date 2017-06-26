@@ -8,15 +8,10 @@ $response_handler = new \CurrencyConverter\ResponseHandler();
 
 try {
     $request_handler = new \CurrencyConverter\RequestHandler($_GET);
-    $params = $request_handler->validParams();
+    $params = $request_handler->sanitizedParams();
 
-    $calculator = new \CurrencyConverter\Calculator(
-        $params['from'],
-        $params['to'],
-        $params['value']
-    );
-
-    $conversion = $calculator->calculate();
+    $calculator = new \CurrencyConverter\Calculator();
+    $conversion = $calculator->calculate($params['from'], $params['to'], $params['value']);
 
     $response_handler->printConversion($conversion);
 } catch (\CurrencyConverter\RateNotFoundException $e) {

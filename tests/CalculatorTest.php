@@ -11,9 +11,12 @@ class CalculatorTest extends TestCase
 {
     public function testCalculateReturnsAnArray(): void
     {
-        $calculator = new Calculator('BRL', 'USD', 2.0);
+        # mocar tests
+        # parametros em variaveis
 
-        $conversion = $calculator->calculate();
+        $calculator = new Calculator();
+
+        $conversion = $calculator->calculate('BRL', 'USD', 2.0);
 
         $this->assertInternalType('array', $conversion);
     }

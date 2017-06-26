@@ -15,17 +15,26 @@ class RequestHandler
         $this->required_keys = ['from', 'to', 'value'];
     }
 
-    public function validParams(): array
+    public function sanitizedParams(): array
+    {
+        $this->checkValidParams();
+
+        $this->params['from'] = strtoupper($this->params['from']);
+        $this->params['to'] = strtoupper($this->params['to']);
+        $this->params['value'] = floatval($this->params['value']);
+
+        return $this->params;
+    }
+
+    private function checkValidParams(): void
     {
         foreach ($this->required_keys as $required_key) {
             if (empty($this->params[$required_key])) {
                 throw new InvalidParametersException(
-                    "Couldn't find valid parameters: 'from', 'to' and 'value'."
+                    "Valid parameters are: 'from', 'to' and 'value'."
                 );
             }
         }
-
-        return $this->params;
     }
 }
 

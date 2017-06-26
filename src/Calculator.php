@@ -8,25 +8,16 @@ require_once(__DIR__ . '/../config/application.php');
 
 class Calculator
 {
+    private $rates;
+    private $symbols;
     private $from;
     private $to;
     private $value;
-    private $rates;
-    private $symbols;
 
-    public function __construct($from, $to, $value)
+    public function __construct()
     {
-        $this->from = strtoupper($from);
-        $this->to = strtoupper($to);
-        $this->value = floatval($value);
-
         $this->loadRates();
         $this->loadSymbols();
-    }
-
-    private function format($value): string
-    {
-        return number_format($value, 2);
     }
 
     private function loadRates(): void
@@ -39,8 +30,12 @@ class Calculator
         $this->symbols = json_decode(file_get_contents(SYMBOLS_PATH), true);
     }
 
-    public function calculate(): array
+    public function calculate($from, $to, $value): array
     {
+        $this->from = $from;
+        $this->to = $to;
+        $this->value = $value;
+
         $rate = $this->getRate();
 
         $original_value = $this->format($this->value);
@@ -61,6 +56,11 @@ class Calculator
         }
 
         throw new RateNotFoundException('No rate available for the given currencies.');
+    }
+
+    private function format($value): string
+    {
+        return number_format($value, 2);
     }
 }
 

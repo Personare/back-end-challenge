@@ -6,11 +6,6 @@ namespace CurrencyConverter;
 
 class ResponseHandler
 {
-    private function header(): void
-    {
-        header('Content-Type: application/json; charset=utf-8');
-    }
-
     public function printConversion($response): void
     {
         $this->header();
@@ -27,6 +22,11 @@ class ResponseHandler
         http_response_code($status_code);
 
         echo json_encode(array('error' => $message));
+    }
+
+    private function header(): void
+    {
+        header('Content-Type: application/json; charset=utf-8');
     }
 
     public function __destruct()
