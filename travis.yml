@@ -1,0 +1,5 @@
+language: php
+php:
+  - '7.1'
+install:
+  - ./bin/ci/install_dependencies.sh
