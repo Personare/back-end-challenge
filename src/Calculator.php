@@ -64,7 +64,6 @@ class Calculator
     }
 }
 
-
 class RateNotFoundException extends \Exception
 {
 }
