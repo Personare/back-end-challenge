@@ -18,82 +18,67 @@ class CalculatorTest extends TestCase
 
     public function testLoadRatesShouldSetAnArray(): void
     {
-        $rates = $this->getPropertyValue($this->calculator, 'rates');
-
-        $this->assertInternalType('array', $rates);
+        $this->assertInternalType('array', $this->getPropertyValue($this->calculator, 'rates'));
     }
 
     public function testLoadSymbolsShouldSetAnArray(): void
     {
-        $symbols = $this->getPropertyValue($this->calculator, 'symbols');
-
-        $this->assertInternalType('array', $symbols);
+        $this->assertInternalType('array', $this->getPropertyValue($this->calculator, 'symbols'));
     }
 
     public function testCalculateShouldReturnAnArray(): void
     {
-        $conversion = $this->calculator->calculate('USD', 'BRL', 3.45);
-
-        $this->assertInternalType('array', $conversion);
+        $this->assertInternalType('array', $this->calculator->calculate('USD', 'BRL', 3.45));
     }
 
     public function testCalculateShouldReturnOriginalValue(): void
     {
-        $conversion = $this->calculator->calculate('USD', 'BRL', 3.45);
-
-        $this->assertEquals('$ 3.45', $conversion['original_value']);
+        $this->assertEquals(
+            '$ 3.45',
+            $this->calculator->calculate('USD', 'BRL', 3.45)['original_value']
+        );
     }
 
     public function testCalculateShouldReturnConvertedValue(): void
     {
-        $conversion = $this->calculator->calculate('USD', 'BRL', 3.45);
-
-        $this->assertEquals('R$ 6.90', $conversion['converted_value']);
+        $this->assertEquals(
+            'R$ 6.90',
+            $this->calculator->calculate('USD', 'BRL', 3.45)['converted_value']);
     }
 
     public function testSetParamsShouldSetFrom(): void
     {
         $this->invokeMethod($this->calculator, 'setParams', array('USD', 'BRL', 3.45));
 
-        $from = $this->getPropertyValue($this->calculator, 'from');
-
-        $this->assertEquals('USD', $from);
+        $this->assertEquals('USD', $this->getPropertyValue($this->calculator, 'from'));
     }
 
     public function testSetParamsShouldSetTo(): void
     {
         $this->invokeMethod($this->calculator, 'setParams', array('USD', 'BRL', 3.45));
 
-        $to = $this->getPropertyValue($this->calculator, 'to');
-
-        $this->assertEquals('BRL', $to);
+        $this->assertEquals('BRL', $this->getPropertyValue($this->calculator, 'to'));
     }
 
     public function testSetParamsShouldSetValue(): void
     {
         $this->invokeMethod($this->calculator, 'setParams', array('USD', 'BRL', 3.45));
 
-        $value = $this->getPropertyValue($this->calculator, 'value');
-
-        $this->assertEquals(3.45, $value);
+        $this->assertEquals(3.45, $this->getPropertyValue($this->calculator, 'value'));
     }
 
     public function testGetRateShouldReturnAFloat(): void
     {
         $this->invokeMethod($this->calculator, 'setParams', array('USD', 'BRL', 3.45));
 
-        $rate = $this->invokeMethod($this->calculator, 'getRate');
-
-        $this->assertInternalType('float', $rate);
+        $this->assertInternalType('float', $this->invokeMethod($this->calculator, 'getRate'));
     }
 
     public function testGetRateShouldReturnRate(): void
     {
         $this->invokeMethod($this->calculator, 'setParams', array('USD', 'BRL', 3.45));
 
-        $rate = $this->invokeMethod($this->calculator, 'getRate');
-
-        $this->assertEquals(2.0, $rate);
+        $this->assertEquals(2.0, $this->invokeMethod($this->calculator, 'getRate'));
     }
 
     public function testGetRateShouldRaiseExceptionForUnknownFrom(): void
@@ -114,17 +99,28 @@ class CalculatorTest extends TestCase
         $rate = $this->invokeMethod($this->calculator, 'getRate');
     }
 
+    public function testGetRateShouldRaiseExceptionForRateNotFound(): void
+    {
+        $this->invokeMethod($this->calculator, 'setParams', array('USD', 'EUR', 3.45));
+
+        $this->expectException(RateNotFoundException::class);
+
+        $rate = $this->invokeMethod($this->calculator, 'getRate');
+    }
+
     public function testFormatShouldReturnAString(): void
     {
-        $formatted_number = $this->invokeMethod($this->calculator, 'format', array(3.45));
-
-        $this->assertInternalType('string', $formatted_number);
+        $this->assertInternalType(
+            'string',
+            $this->invokeMethod($this->calculator, 'format', array(3.45))
+        );
     }
 
     public function testFormatShouldReturnAFormattedNumberWithTwoDecimals(): void
     {
-        $formatted_number = $this->invokeMethod($this->calculator, 'format', array(3.4536));
-
-        $this->assertEquals('3.45', $formatted_number);
+        $this->assertEquals(
+            '3.45',
+            $this->invokeMethod($this->calculator, 'format', array(3.4536))
+        );
     }
 }
