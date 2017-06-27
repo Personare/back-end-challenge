@@ -32,9 +32,7 @@ class Calculator
 
     public function calculate($from, $to, $value): array
     {
-        $this->from = $from;
-        $this->to = $to;
-        $this->value = $value;
+        $this->setParams($from, $to, $value);
 
         $rate = $this->getRate();
 
@@ -45,6 +43,13 @@ class Calculator
         $conversion['converted_value'] = "{$this->symbols[$this->to]} $converted_value";
 
         return $conversion;
+    }
+
+    private function setParams($from, $to, $value)
+    {
+        $this->from = $from;
+        $this->to = $to;
+        $this->value = $value;
     }
 
     private function getRate(): float
