@@ -11,19 +11,21 @@ use \CurrencyConverter\InvalidParametersException as InvalidParametersException;
 use \CurrencyConverter\RateNotFoundException as RateNotFoundException;
 
 try {
+    $response_handler = new ResponseHandler();
+
     $request_handler = new RequestHandler($_GET);
     $params = $request_handler->sanitizedParams();
 
     $calculator = new Calculator();
     $conversion = $calculator->calculate($params['from'], $params['to'], $params['value']);
 
-    ResponseHandler::print($conversion, 200);
+    $response_handler->buildResponse($conversion, 200);
 } catch (InvalidParametersException $e) {
-    ResponseHandler::printException($e->getMessage(), 400);
+    $response_handler->buildException($e->getMessage(), 400);
 } catch (RateNotFoundException $e) {
-    ResponseHandler::printException($e->getMessage(), 404);
+    $response_handler->buildException($e->getMessage(), 404);
 } catch (Exception $e) {
-    ResponseHandler::printException($e->getMessage(), 500);
+    $response_handler->buildException($e->getMessage(), 500);
 } finally {
-    exit;
+    $response_handler->output();
 }
