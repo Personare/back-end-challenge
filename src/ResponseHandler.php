@@ -22,12 +22,15 @@ class ResponseHandler
 
     public function output(): void
     {
+        $this->header();
+
+        echo json_encode($this->response);
+    }
+
+    protected function header(): void
+    {
         header('Content-Type: application/json; charset=utf-8');
 
         http_response_code($this->status_code);
-
-        echo json_encode($this->response);
-
-        exit;
     }
 }

@@ -42,6 +42,7 @@ class ResponseHandlerTest extends TestCase
     public function testBuildExceptionShouldCallBuildResponse(): void
     {
         $message = 'No rate available for the given currencies.';
+        $status_code = 400;
 
         $mock = $this->getMockBuilder(ResponseHandler::class)
                      ->setMethods(array('buildResponse'))
@@ -49,8 +50,29 @@ class ResponseHandlerTest extends TestCase
 
         $mock->expects($this->once())
              ->method('buildResponse')
-             ->with(array('error' => $message));
+             ->with(array('error' => $message), $status_code);
 
-        $mock->buildException($message, 400);
+        $mock->buildException($message, $status_code);
+    }
+
+    public function testOutputShouldPrintOutput(): void
+    {
+        $conversion = array('original_value' => '$ 3.45', 'converted_value' => 'R$ 6.90');
+        $expected_output = json_encode($conversion);
+
+        $mock = $this->getMockBuilder(ResponseHandler::class)
+                     ->setMethods(array('header'))
+                     ->getMock();
+
+        $mock->expects($this->once())
+             ->method('header');
+
+        $mock->buildResponse($conversion, 200);
+
+        ob_start();
+        $mock->output();
+        $output = ob_get_clean();
+
+        $this->assertEquals($expected_output, $output);
     }
 }

@@ -31,4 +31,6 @@ try {
     $response_handler->buildException($e->getMessage(), 500);
 } finally {
     $response_handler->output();
+
+    exit;
 }
