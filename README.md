@@ -39,6 +39,11 @@
 
   OR
 
+  * **Code:** 404 NOT FOUND <br>
+    **Content:** `{ error: "No symbol available for currency 'BRL'." }`
+
+  OR
+
   * **Code:** 500 INTERNAL SERVER ERROR <br>
 
 * **Sample Call:**

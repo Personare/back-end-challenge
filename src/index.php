@@ -9,6 +9,7 @@ use \CurrencyConverter\RequestHandler as RequestHandler;
 use \CurrencyConverter\Calculator as Calculator;
 use \CurrencyConverter\InvalidParametersException as InvalidParametersException;
 use \CurrencyConverter\RateNotFoundException as RateNotFoundException;
+use \CurrencyConverter\SymbolNotFoundException as SymbolNotFoundException;
 
 try {
     $response_handler = new ResponseHandler();
@@ -23,6 +24,8 @@ try {
 } catch (InvalidParametersException $e) {
     $response_handler->buildException($e->getMessage(), 400);
 } catch (RateNotFoundException $e) {
+    $response_handler->buildException($e->getMessage(), 404);
+} catch (SymbolNotFoundException $e) {
     $response_handler->buildException($e->getMessage(), 404);
 } catch (Exception $e) {
     $response_handler->buildException($e->getMessage(), 500);

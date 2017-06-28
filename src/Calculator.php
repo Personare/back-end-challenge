@@ -39,8 +39,8 @@ class Calculator
         $original_value = $this->format($this->value);
         $converted_value = $this->format($this->value * $rate);
 
-        $conversion['original_value'] = "{$this->symbols[$this->from]} $original_value";
-        $conversion['converted_value'] = "{$this->symbols[$this->to]} $converted_value";
+        $conversion['original_value'] = "{$this->getSymbol($this->from)} $original_value";
+        $conversion['converted_value'] = "{$this->getSymbol($this->to)} $converted_value";
         $conversion['rate'] = $this->format($rate);
 
         return $conversion;
@@ -64,6 +64,15 @@ class Calculator
         throw new RateNotFoundException('No rate available for the given currencies.');
     }
 
+    private function getSymbol($currency): string
+    {
+        if (array_key_exists($currency, $this->symbols)) {
+            return $this->symbols[$currency];
+        }
+
+        throw new SymbolNotFoundException("No symbol available for currency '{$currency}'.");
+    }
+
     private function format($value): string
     {
         return number_format($value, 2);
@@ -71,5 +80,9 @@ class Calculator
 }
 
 class RateNotFoundException extends \Exception
+{
+}
+
+class SymbolNotFoundException extends \Exception
 {
 }
