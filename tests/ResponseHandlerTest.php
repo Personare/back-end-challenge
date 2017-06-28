@@ -20,7 +20,7 @@ class ResponseHandlerTest extends TestCase
     {
         $conversion = array('original_value' => '$ 3.45', 'converted_value' => 'R$ 6.90');
 
-        $this->response_handler->buildResponse($conversion, 200);
+        $this->response_handler->buildResponse($conversion, STATUS_CODE_SUCCESS);
 
         $response = $this->getPropertyValue($this->response_handler, 'response');
 
