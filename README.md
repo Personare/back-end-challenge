@@ -23,7 +23,7 @@
 * **Success Response:**
 
   * **Code:** 200 <br>
-    **Content:** `{ original_value: "$ 3.45", converted_value: "R$ 6.90" }`
+    **Content:** `{ original_value: "$ 3.45", converted_value: "R$ 6.90", rate: "2.00" }`
  
 * **Error Response:**
 
@@ -34,6 +34,10 @@
 
   * **Code:** 404 NOT FOUND <br>
     **Content:** `{ error: "No rate available for the given currencies." }`
+
+  OR
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br>
 
 * **Sample Call:**
 

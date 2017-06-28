@@ -41,6 +41,7 @@ class Calculator
 
         $conversion['original_value'] = "{$this->symbols[$this->from]} $original_value";
         $conversion['converted_value'] = "{$this->symbols[$this->to]} $converted_value";
+        $conversion['rate'] = $this->format($rate);
 
         return $conversion;
     }

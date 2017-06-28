@@ -47,6 +47,14 @@ class CalculatorTest extends TestCase
         );
     }
 
+    public function testCalculateShouldReturnRate(): void
+    {
+        $this->assertEquals(
+            '2.00',
+            $this->calculator->calculate('USD', 'BRL', 3.45)['rate']
+        );
+    }
+
     public function testSetParamsShouldSetFrom(): void
     {
         $this->invokeMethod($this->calculator, 'setParams', array('USD', 'BRL', 3.45));
