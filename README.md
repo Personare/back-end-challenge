@@ -52,8 +52,8 @@
 
 ## Requirements
 
-* PHP 7.1.6
-* Composer 1.4.2
+* PHP ^7.1.6
+* Composer ^1.4.2
 
 ## Setup
 
