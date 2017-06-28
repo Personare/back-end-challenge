@@ -30,7 +30,7 @@ class ResponseHandlerTest extends TestCase
     public function testBuildResponseShouldSetStatusCode(): void
     {
         $conversion = array('original_value' => '$ 3.45', 'converted_value' => 'R$ 6.90');
-        $given_status_code = 200;
+        $given_status_code = STATUS_CODE_SUCCESS;
 
         $this->response_handler->buildResponse($conversion, $given_status_code);
 
@@ -42,7 +42,7 @@ class ResponseHandlerTest extends TestCase
     public function testBuildExceptionShouldCallBuildResponse(): void
     {
         $message = 'No rate available for the given currencies.';
-        $status_code = 400;
+        $status_code = STATUS_CODE_BAD_REQUEST;
 
         $mock = $this->getMockBuilder(ResponseHandler::class)
                      ->setMethods(array('buildResponse'))
@@ -64,7 +64,7 @@ class ResponseHandlerTest extends TestCase
                      ->setMethods(array('header'))
                      ->getMock();
 
-        $mock->buildResponse($conversion, 200);
+        $mock->buildResponse($conversion, STATUS_CODE_SUCCESS);
 
         ob_start();
         $mock->output();

@@ -2,6 +2,8 @@
 
 namespace CurrencyConverter;
 
+require_once(__DIR__ . '/../config/application.php');
+
 class TestCase extends \PHPUnit\Framework\TestCase
 {
     public function invokeMethod(&$object, $method_name, array $parameters = array())

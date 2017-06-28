@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace CurrencyConverter;
 
-require_once(__DIR__ . '/../config/application.php');
-
 class Calculator
 {
     private $rates;
