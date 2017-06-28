@@ -13,8 +13,6 @@ class ResponseHandler
         http_response_code($status_code);
 
         echo json_encode($response);
-
-        exit;
     }
 
     public static function printException($message, $status_code): void
