@@ -13,11 +13,11 @@ try {
     $calculator = new \CurrencyConverter\Calculator();
     $conversion = $calculator->calculate($params['from'], $params['to'], $params['value']);
 
-    $response_handler->printConversion($conversion);
+    \CurrencyConverter\ResponseHandler::print($conversion, 200);
 } catch (\CurrencyConverter\InvalidParametersException $e) {
-    $response_handler->printException($e->getMessage(), 400);
+    \CurrencyConverter\ResponseHandler::printException($e->getMessage(), 400);
 } catch (\CurrencyConverter\RateNotFoundException $e) {
-    $response_handler->printException($e->getMessage(), 404);
+    \CurrencyConverter\ResponseHandler::printException($e->getMessage(), 404);
 } catch (Exception $e) {
-    $response_handler->printException($e->getMessage(), 500);
+    \CurrencyConverter\ResponseHandler::printException($e->getMessage(), 500);
 }

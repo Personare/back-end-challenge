@@ -6,31 +6,19 @@ namespace CurrencyConverter;
 
 class ResponseHandler
 {
-    public function printConversion($response): void
+    public static function print($response, $status_code): void
     {
-        $this->header();
-
-        http_response_code(200);
-
-        echo json_encode($response);
-    }
-
-    public function printException($message, $status_code): void
-    {
-        $this->header();
+        header('Content-Type: application/json; charset=utf-8');
 
         http_response_code($status_code);
 
-        echo json_encode(array('error' => $message));
-    }
+        echo json_encode($response);
 
-    private function header(): void
-    {
-        header('Content-Type: application/json; charset=utf-8');
-    }
-
-    public function __destruct()
-    {
         exit;
+    }
+
+    public static function printException($message, $status_code): void
+    {
+        self::print(array('error' => $message), $status_code);
     }
 }
