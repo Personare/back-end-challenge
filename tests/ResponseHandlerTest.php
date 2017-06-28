@@ -64,9 +64,6 @@ class ResponseHandlerTest extends TestCase
                      ->setMethods(array('header'))
                      ->getMock();
 
-        $mock->expects($this->once())
-             ->method('header');
-
         $mock->buildResponse($conversion, 200);
 
         ob_start();
