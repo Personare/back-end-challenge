@@ -4,6 +4,8 @@
 ----
   Calculate currency exchange rates.
 
+## API documentation
+
 * **URL**
 
   /?from=&to=&value=
