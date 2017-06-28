@@ -53,7 +53,7 @@
 ## Requirements
 
 * PHP ^7.1.3
-* Composer ^1.4.2
+* Composer ^1.4.1
 
 ## Setup
 
