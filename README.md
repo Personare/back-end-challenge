@@ -42,3 +42,28 @@
 * **Sample Call:**
 
   ```curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://currency-converter.fellipecastro.com/\?from\=USD\&to\=BRL\&value\=3.45```
+
+## Requirements
+
+* PHP 7.1.3
+* Composer 1.4.2
+
+## Setup
+
+  ```composer install```
+
+## Usage
+
+  ```php -S 0.0.0.0:8000 -t src/```
+
+## Test
+
+  ```vendor/bin/phpunit --testdox tests/```
+
+## Source code check
+
+  ```vendor/bin/phpcs --standard=PSR2 src/ tests/```
+
+## Interactive shell
+
+  ```php -a```
