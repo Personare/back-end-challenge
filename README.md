@@ -1,51 +1,42 @@
-# back-end-challenge
-
 [![Build Status](https://travis-ci.org/fellipecastro/back-end-challenge.svg?branch=master)](https://travis-ci.org/fellipecastro/back-end-challenge)
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+**Currency Converter**
+----
+  Calculate currency exchange rates.
 
-## Introdução
+* **URL**
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+  /?from=&to=&value=
 
-**Então, essa é a sua missão!**
+* **Method:**
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+  `GET`
 
-E as especificações são:
+*  **URL Params**
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+   **Required:**
 
-## Instruções
+   `from=[string]`
+   `to=[string]`
+   `value=[float]`
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+* **Success Response:**
 
-## Pré-requisitos
+  * **Code:** 200 <br />
+    **Content:** `{ original_value: "$ 3.45", converted_value: "R$ 6.90" }`
+ 
+* **Error Response:**
 
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+  <_Most endpoints will have many ways they can fail. From unauthorized access, to wrongful parameters etc. All of those should be liste d here. It might seem repetitive, but it helps prevent assumptions from being made where they should be._>
 
-## Diferenciais
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error: "Valid parameters are: 'from', 'to' and 'value'." }`
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
-- Testes de aceitação
+  OR
 
-## Dúvidas
+  * **Code:** 404 NOT FOUND <br />
+    **Content:** `{ error: "No rate available for the given currencies." }`
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+* **Sample Call:**
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+  ```curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://currency-converter.fellipecastro.com/\?from\=USD\&to\=BRL\&value\=3.45```
