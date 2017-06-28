@@ -1,0 +1,6 @@
+{
+    name: "Currency Converter",
+    description: "Calculate currency exchange rates.",
+    repository: "https://github.com/fellipecastro/back-end-challenge",
+    addons: [ ]
+}
