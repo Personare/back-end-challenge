@@ -9,7 +9,24 @@ require_once('src/RequestHandler.php');
 
 class RequestHandlerTest extends TestCase
 {
-    protected $request_handler;
+    public function testConstructShouldSetParams(): void
+    {
+        $params = array('from' => 'USD', 'to' => 'BRL', 'value' => '3.45');
+
+        $request_handler = new RequestHandler($params);
+
+        $this->assertEquals($params, $this->getPropertyValue($request_handler, 'params'));
+    }
+
+    public function testConstructShouldSetRequiredKeys(): void
+    {
+        $params = array('from' => 'USD', 'to' => 'BRL', 'value' => '3.45');
+        $required_keys = ['from', 'to', 'value'];
+
+        $request_handler = new RequestHandler($params);
+
+        $this->assertEquals($required_keys, $this->getPropertyValue($request_handler, 'required_keys'));
+    }
 
     public function testSanitizedParamsShouldReturnAnArray(): void
     {
