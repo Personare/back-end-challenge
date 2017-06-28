@@ -24,7 +24,7 @@
 
 * **Success Response:**
 
-  * **Code:** 200 <br>
+  * **Code:** 200 SUCCESS <br>
     **Content:** `{ original_value: "$ 3.45", converted_value: "R$ 6.90", rate: "2.00" }`
  
 * **Error Response:**
