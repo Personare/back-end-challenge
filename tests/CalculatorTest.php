@@ -43,7 +43,8 @@ class CalculatorTest extends TestCase
     {
         $this->assertEquals(
             'R$ 6.90',
-            $this->calculator->calculate('USD', 'BRL', 3.45)['converted_value']);
+            $this->calculator->calculate('USD', 'BRL', 3.45)['converted_value']
+        );
     }
 
     public function testSetParamsShouldSetFrom(): void
