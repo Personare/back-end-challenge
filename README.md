@@ -52,7 +52,7 @@
 
 ## Requirements
 
-* PHP ^7.1.6
+* PHP ^7.1.3
 * Composer ^1.4.2
 
 ## Setup
