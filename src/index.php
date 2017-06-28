@@ -4,9 +4,9 @@ require_once('RequestHandler.php');
 require_once('Calculator.php');
 require_once('ResponseHandler.php');
 
+use \CurrencyConverter\ResponseHandler as ResponseHandler;
 use \CurrencyConverter\RequestHandler as RequestHandler;
 use \CurrencyConverter\Calculator as Calculator;
-use \CurrencyConverter\ResponseHandler as ResponseHandler;
 use \CurrencyConverter\InvalidParametersException as InvalidParametersException;
 use \CurrencyConverter\RateNotFoundException as RateNotFoundException;
 
