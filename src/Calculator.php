@@ -64,6 +64,11 @@ class Calculator
         throw new RateNotFoundException('No rate available for the given currencies.');
     }
 
+    private function format($value): string
+    {
+        return number_format($value, 2);
+    }
+
     private function getSymbol($currency): string
     {
         if (array_key_exists($currency, $this->symbols)) {
@@ -71,11 +76,6 @@ class Calculator
         }
 
         throw new SymbolNotFoundException("No symbol available for currency '{$currency}'.");
-    }
-
-    private function format($value): string
-    {
-        return number_format($value, 2);
     }
 }
 

@@ -117,6 +117,22 @@ class CalculatorTest extends TestCase
         $rate = $this->invokeMethod($this->calculator, 'getRate');
     }
 
+    public function testFormatShouldReturnAString(): void
+    {
+        $this->assertInternalType(
+            'string',
+            $this->invokeMethod($this->calculator, 'format', array(3.45))
+        );
+    }
+
+    public function testFormatShouldReturnAFormattedNumberWithTwoDecimals(): void
+    {
+        $this->assertEquals(
+            '3.45',
+            $this->invokeMethod($this->calculator, 'format', array(3.4536))
+        );
+    }
+
     public function testGetSymbolShouldReturnAString(): void
     {
         $this->assertInternalType(
@@ -138,21 +154,5 @@ class CalculatorTest extends TestCase
         $this->expectException(SymbolNotFoundException::class);
 
         $rate = $this->invokeMethod($this->calculator, 'getSymbol', array('AUD'));
-    }
-
-    public function testFormatShouldReturnAString(): void
-    {
-        $this->assertInternalType(
-            'string',
-            $this->invokeMethod($this->calculator, 'format', array(3.45))
-        );
-    }
-
-    public function testFormatShouldReturnAFormattedNumberWithTwoDecimals(): void
-    {
-        $this->assertEquals(
-            '3.45',
-            $this->invokeMethod($this->calculator, 'format', array(3.4536))
-        );
     }
 }
