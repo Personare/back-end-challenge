@@ -68,8 +68,7 @@ class ResponseHandlerTest extends TestCase
 
         ob_start();
         $mock->output();
-        $output = ob_get_clean();
 
-        $this->assertEquals($expected_output, $output);
+        $this->assertEquals($expected_output, ob_get_clean());
     }
 }
