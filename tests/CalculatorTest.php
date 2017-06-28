@@ -117,6 +117,29 @@ class CalculatorTest extends TestCase
         $rate = $this->invokeMethod($this->calculator, 'getRate');
     }
 
+    public function testGetSymbolShouldReturnAString(): void
+    {
+        $this->assertInternalType(
+            'string',
+            $this->invokeMethod($this->calculator, 'getSymbol', array('BRL'))
+        );
+    }
+
+    public function testGetSymbolShouldReturnSymbol(): void
+    {
+        $this->assertEquals(
+            'R$',
+            $this->invokeMethod($this->calculator, 'getSymbol', array('BRL'))
+        );
+    }
+
+    public function testGetSymbolShouldRaiseExceptionForUnknownCurrency(): void
+    {
+        $this->expectException(SymbolNotFoundException::class);
+
+        $rate = $this->invokeMethod($this->calculator, 'getSymbol', array('AUD'));
+    }
+
     public function testFormatShouldReturnAString(): void
     {
         $this->assertInternalType(
