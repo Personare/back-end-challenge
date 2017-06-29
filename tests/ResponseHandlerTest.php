@@ -44,15 +44,15 @@ class ResponseHandlerTest extends TestCase
         $message = 'No rate available for the given currencies.';
         $status_code = STATUS_CODE_BAD_REQUEST;
 
-        $mock = $this->getMockBuilder(ResponseHandler::class)
-                     ->setMethods(array('buildResponse'))
-                     ->getMock();
+        $response_handler = $this->getMockBuilder(ResponseHandler::class)
+                                 ->setMethods(array('buildResponse'))
+                                 ->getMock();
 
-        $mock->expects($this->once())
-             ->method('buildResponse')
-             ->with(array('error' => $message), $status_code);
+        $response_handler->expects($this->once())
+                         ->method('buildResponse')
+                         ->with(array('error' => $message), $status_code);
 
-        $mock->buildException($message, $status_code);
+        $response_handler->buildException($message, $status_code);
     }
 
     public function testOutputShouldPrintOutput(): void
@@ -60,14 +60,14 @@ class ResponseHandlerTest extends TestCase
         $conversion = array('original_value' => '$ 3.45', 'converted_value' => 'R$ 6.90');
         $expected_output = json_encode($conversion);
 
-        $mock = $this->getMockBuilder(ResponseHandler::class)
-                     ->setMethods(array('header'))
-                     ->getMock();
+        $response_handler = $this->getMockBuilder(ResponseHandler::class)
+                                 ->setMethods(array('header'))
+                                 ->getMock();
 
-        $mock->buildResponse($conversion, STATUS_CODE_SUCCESS);
+        $response_handler->buildResponse($conversion, STATUS_CODE_SUCCESS);
 
         ob_start();
-        $mock->output();
+        $response_handler->output();
 
         $this->assertEquals($expected_output, ob_get_clean());
     }
