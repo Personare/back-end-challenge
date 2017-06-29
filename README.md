@@ -1,49 +1,80 @@
-# back-end-challenge
+[![Build Status](https://travis-ci.org/fellipecastro/back-end-challenge.svg?branch=master)](https://travis-ci.org/fellipecastro/back-end-challenge)
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+**Currency Converter**
+----
+  Calculate currency exchange rates.
 
-## Introdução
+## API documentation
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+* **URL**
 
-**Então, essa é a sua missão!**
+  /?from=&to=&value=
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+* **Method:**
 
-E as especificações são:
+  `GET`
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+*  **URL Params**
 
-## Instruções
+   **Required:**
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+   `from=[string]` <br>
+   `to=[string]` <br>
+   `value=[float]` <br>
 
-## Pré-requisitos
+* **Success Response:**
 
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+  * **Code:** 200 SUCCESS <br>
+    **Content:** `{ original_value: "$ 3.45", converted_value: "R$ 6.90", rate: "2.00" }`
+ 
+* **Error Response:**
 
-## Diferenciais
+  * **Code:** 400 BAD REQUEST <br>
+    **Content:** `{ error: "Valid parameters are: 'from', 'to' and 'value'." }`
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
-- Testes de aceitação
+  OR
 
-## Dúvidas
+  * **Code:** 404 NOT FOUND <br>
+    **Content:** `{ error: "No rate available for the given currencies." }`
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+  OR
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+  * **Code:** 404 NOT FOUND <br>
+    **Content:** `{ error: "No symbol available for currency 'BRL'." }`
+
+  OR
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br>
+
+* **Sample Call:**
+
+  ```curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://currency-converter.fellipecastro.com/\?from\=USD\&to\=BRL\&value\=3.45```
+
+## Requirements
+
+* PHP ^7.1.3
+* Composer ^1.4.1
+
+## Setup
+
+  ```composer install```
+
+## Usage
+
+  ```php -S 0.0.0.0:8000 -t src/```
+
+## Test
+
+  ```vendor/bin/phpunit --testdox tests/```
+
+## Source code check
+
+  ```vendor/bin/phpcs --standard=PSR2 src/ tests/```
+
+## Interactive shell
+
+  ```php -a```
+
+## Deploy
+
+  [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
