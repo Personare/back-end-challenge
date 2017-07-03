@@ -1,0 +1,21 @@
+{
+    "repositories": [{
+        "type": "path", 
+        "url": "packages/money-convert",
+        "options": {
+            "symlink": false
+        },
+        "packagist.org": false
+    }],
+
+    "require": {
+        "phpunit/phpunit": "5.5.*",
+        "money-convert": "*"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Service\\": "services/"
+        }
+    }
+}
