@@ -30,4 +30,7 @@ php -S localhost:3000 - Para inicar a aplicação
 (Exemplo de conversão de Real para Dolar)
 http://localhost:3000?from=BRL&to=USD&value=10
 
-OBS: Para rodar os testes no package money-convert vá até vendor\money-convert\vendor\bin\phpunit tests/
+OBS: Para rodar os testes no package money-convert, execute o comando: 
+```
+vendor\bin\phpunit vendor/money-convert/tests/
+```
