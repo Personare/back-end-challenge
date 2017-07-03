@@ -46,10 +46,10 @@ class ConversorTest extends TestCase
     public function valueProvider()
     {
         return [
-            ['BRL', 'USD', 5,   16.45],
-            ['USD', 'BRL', 6,   1.80],
-            ['BRL', 'EUR', 10,  37.60],
-            ['EUR', 'BRL', 7,   1.82]
+            ['BRL', 'USD', 5,   "$ 16.45"],
+            ['USD', 'BRL', 6,   "R$ 1.8"],
+            ['BRL', 'EUR', 10,  "&#8364 37.6"],
+            ['EUR', 'BRL', 7,   "R$ 1.82"]
         ];
     }
 }

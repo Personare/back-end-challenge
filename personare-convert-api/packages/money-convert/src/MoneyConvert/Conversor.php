@@ -37,11 +37,12 @@ class Conversor
 	public function getQuotation()
 	{
 		
-		if (($quot = $this->getQuotationFromExternalApi($this->from, $this->base))
-			&& !$this->test_mode) {
+		if (!$this->test_mode && ($quot = $this->getQuotationFromExternalApi($this->from, $this->base))) {
 			return $quot;  	
+		
 		} elseif ($quot = $this->getQuotationFromDefault($this->from, $this->base)) {
 			return $quot;
+		
 		} else {
 			return false; 
 		}
@@ -58,7 +59,13 @@ class Conversor
 			return false; 
 
 		$quotation = $this->getQuotation();
-		return $value * $quotation; 
+		
+		if (!$quotation)
+			return false; 
+
+		$symbol 	= $this->getCurrentSymbol();
+
+		return $symbol . " " . ($value * $quotation);  
 	}
 
 	/**
@@ -76,6 +83,21 @@ class Conversor
 		];
 
 		return isset($quotation[$this->from."-".$this->base]) ? $quotation[$this->from."-".$this->base] : false;  
+	}
+
+	/**
+	 * Função que obtém o símbolo da moeda convertida.
+	 * @return string
+	 */
+	private function getCurrentSymbol()
+	{
+		$arr_symbol = [
+			'BRL' => 'R$',
+			'USD' => '$',
+			'EUR' => '&#8364'
+		];
+
+		return isset($arr_symbol[$this->base]) ? $arr_symbol[$this->base] : false;  
 	}
 	
 	/**

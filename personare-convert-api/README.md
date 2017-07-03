@@ -26,7 +26,8 @@ composer update - Para instalar todos os componentes necessários
 php -S localhost:3000 - Para inicar a aplicação
 ```
 
-6) Acesse http://localhost:3000 e veja a aplicação rodando. :)
-
+6) Para acessar o servico, entre com: 
+(Exemplo de conversão de Real para Dolar)
+http://localhost:3000?from=BRL&to=USD&value=10
 
 OBS: Para rodar os testes no package money-convert vá até vendor\money-convert\vendor\bin\phpunit tests/
