@@ -16,6 +16,7 @@ curl 'http://localhost:8000/?value=3.5&currency_to=brl&currency_from=usd&exchang
 * **exchange:** Taxa de câmbio a ser usada
 
 Possíveis valores para os parâmetros `currency_to` e `currency_from` são: 'brl', 'usd' e 'eur'.
+
 OBS.: Caso o parâmetro `exchange` não seja passado e o parâmetro `currency_to` seja 'brl', usaremos a taxa de câmbio fornecida por https://economia.awesomeapi.com.br
 
 ## Retornos esperados
