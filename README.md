@@ -1,3 +1,4 @@
+![Build Status](https://api.travis-ci.org/cesarFrias/back-end-challenge.svg?branch=cesar-frias)
 # back-end-challenge
 
 > Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
