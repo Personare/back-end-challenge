@@ -15,7 +15,7 @@ class CurrencyConverterBlackBoxTest extends TestCase
     }
 
     public function testRetursStatusErrorAndHashOnClassMisuse(){
-        $cc = new CurrencyConverter(null, 'brl', null, null);
+        $cc = new CurrencyConverter(null, null, null, null);
         $returned_value = $cc->build();
 
         $this->assertEquals(400, $cc->status());
