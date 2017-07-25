@@ -4,4 +4,4 @@ php:
 before-script:
     - composer install
 script:
-    - vendor/bin/phpunit --bootstrap src/CurrencyConverter.php tests/
+    - phpunit --bootstrap src/CurrencyConverter.php tests/
