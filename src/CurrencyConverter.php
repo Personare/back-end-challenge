@@ -19,7 +19,7 @@ class CurrencyConverter
     }
 
     private function setExchange($exchange){
-        if (!isset($exchange)){
+        if (!isset($exchange) && this->currency_to == 'brl'){
             $url = 'https://economia.awesomeapi.com.br/json/' . $this->currency_from . '-' . $this->currency_to . '/1';
             $response = file_get_contents($url);
             $response = json_decode($response, true);
