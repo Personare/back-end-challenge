@@ -1,0 +1,7 @@
+language: php
+php:
+    - '7.1'
+before-script:
+    - composer install
+script:
+    - phpunit --bootstrap src/CurrencyConverter.php tests/
