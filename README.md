@@ -40,7 +40,6 @@ E as especificações são:
 - Não utilizar framework
 - Utilização de DDD (Domain Driven Design)
 - Implementar integração contínua
-- Testes de aceitação
 
 ## Dúvidas
 
