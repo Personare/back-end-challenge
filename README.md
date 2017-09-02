@@ -4,7 +4,9 @@ Esta aplicação tem como base a conversão de moedas.
 
 Esta aplicação tem como base o docker utilizando o docker compose.
 
-`docker-compose up -d`
+```
+docker-compose up -d
+```
 
 ## Instalar dependencias do PHP
 
