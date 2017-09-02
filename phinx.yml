@@ -1,0 +1,15 @@
+paths:
+    migrations: resources/database/migrations
+    seeds: resources/database/seeds
+
+environments:
+    default_migration_table: migrations
+    default_database: development
+    development:
+        adapter: mysql
+        host: mysql
+        name: exchange
+        user: root
+        pass: 'w2hUfbf2NruhbQrG'
+        port: 3306
+        charset: utf8

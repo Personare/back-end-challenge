@@ -1,48 +1,39 @@
-# back-end-challenge
+Esta aplicação tem como base a conversão de moedas. Tem como base o docker utilizando o docker compose.
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+##  Rodar projeto
 
-## Introdução
+`docker-compose up -d`
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+## Instalar dependencias do PHP
 
-**Então, essa é a sua missão!**
+Esta aplicação utiliza o composer como gerenciador de dependências
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+Para instalar as dependencias executar o comando:
 
-E as especificações são:
+```
+docker-compose exec php composer install
+```
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+Qualquer outro comando composer deve ser executado da seguinte forma:
 
-## Instruções
+```
+docker-compose exec php composer ...
+```
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+## Base de dados
 
-## Pré-requisitos
+Para esta aplicação foi utilizada a técnica de migrations, e para executa-las utilize os comandos abaixo
 
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+```
+docker-compose exec php php vendor/bin/phinx migrate
+```
 
-## Diferenciais
+Para popular os dados do utilize o seguinte comando:
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+`docker-compose exec php php vendor/bin/phinx seed:run`
 
-## Dúvidas
+## Testes Unitários
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+Para executar os testes unitários utilize o comando abaixo
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+`docker-compose exec php phpunit`
