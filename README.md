@@ -53,5 +53,9 @@ http://localhost:1234/exchange/{amount}/{from}/{to}/{rate}
 
 Exemplo
 ```
+http://localhost:1234/exchange/23.00/BRL/USD/0.31
 http://localhost:1234/exchange/187.65/USD/BRL/3.13
+
+http://localhost:1234/exchange/12.00/BRL/EUR/0.26
+http://localhost:1234/exchange/65.12/EUR/BRL/4.08
 ```
