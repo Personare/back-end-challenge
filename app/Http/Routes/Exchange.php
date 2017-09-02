@@ -18,6 +18,6 @@ class Exchange
      */
     public function map(RouteCollection $route)
     {
-        $route->get('/exchange/{value}/{from}/to/{to}/{rate}', [ExchangeController::class, 'index']);
+        $route->get('/exchange/{value}/{from}/{to}/{rate}', [ExchangeController::class, 'index']);
     }
 }

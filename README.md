@@ -30,10 +30,26 @@ docker-compose exec php php vendor/bin/phinx migrate
 
 Para popular os dados do utilize o seguinte comando:
 
-`docker-compose exec php php vendor/bin/phinx seed:run`
+```
+docker-compose exec php php vendor/bin/phinx seed:run
+```
 
 ## Testes Unitários
 
 Para executar os testes unitários utilize o comando abaixo
 
-`docker-compose exec php phpunit`
+```
+docker-compose exec php phpunit
+```
+
+## Acessando a conversão de moedas
+
+Rota
+```
+http://localhost:1234/exchange/{amount}/{from}/{to}/{rate}
+```
+
+Exemplo
+```
+http://localhost:1234/exchange/187.65/USD/BRL/3.13
+```
