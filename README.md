@@ -1,6 +1,8 @@
-Esta aplicação tem como base a conversão de moedas. Tem como base o docker utilizando o docker compose.
+Esta aplicação tem como base a conversão de moedas.
 
-##  Rodar projeto
+##  Instalar Projeto
+
+Esta aplicação tem como base o docker utilizando o docker compose.
 
 `docker-compose up -d`
 
