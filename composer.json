@@ -4,7 +4,8 @@
     "league/fractal": "^0.17.0",
     "league/route": "^3.0",
     "vlucas/phpdotenv": "^2.4",
-    "zendframework/zend-diactoros": "^1.5"
+    "zendframework/zend-diactoros": "^1.5",
+    "guzzlehttp/guzzle": "~6.0"
   },
   "require-dev": {
     "robmorgan/phinx": "^0.8.1",
