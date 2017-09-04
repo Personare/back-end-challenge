@@ -1,48 +1,72 @@
-# back-end-challenge
+Esta aplicação tem como base a conversão de moedas.
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+##  Instalar Projeto
 
-## Introdução
+Esta aplicação tem como base o docker utilizando o docker compose.
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+```
+docker-compose up -d
+```
 
-**Então, essa é a sua missão!**
+## Instalar dependencias do PHP
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+Esta aplicação utiliza o composer como gerenciador de dependências
 
-E as especificações são:
+Para instalar as dependencias executar o comando:
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+```
+docker-compose exec php composer install
+```
 
-## Instruções
+Qualquer outro comando composer deve ser executado da seguinte forma:
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+```
+docker-compose exec php composer ...
+```
 
-## Pré-requisitos
+## Base de dados
 
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+Para esta aplicação foi utilizada a técnica de migrations, e para executa-las utilize os comandos abaixo
 
-## Diferenciais
+```
+docker-compose exec php php vendor/bin/phinx migrate
+```
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+Para popular os dados do utilize o seguinte comando:
 
-## Dúvidas
+```
+docker-compose exec php php vendor/bin/phinx seed:run
+```
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+## Testes Unitários
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+Para executar os testes unitários utilize o comando abaixo
+
+```
+docker-compose exec php phpunit
+```
+
+## Acessando a conversão de moedas
+
+Rota
+```
+http://localhost:1234/exchange/{amount}/{from}/{to}/{rate}
+```
+
+Exemplo com taxa para conversão
+```
+http://localhost:1234/exchange/23.00/BRL/USD/0.31
+http://localhost:1234/exchange/187.65/USD/BRL/3.13
+
+http://localhost:1234/exchange/12.00/BRL/EUR/0.26
+http://localhost:1234/exchange/65.12/EUR/BRL/4.08
+```
+
+Exemplo sem taxa para conversão
+```
+http://localhost:1234/exchange/23.00/BRL/USD
+http://localhost:1234/exchange/187.65/USD/BRL
+
+http://localhost:1234/exchange/12.00/BRL/EUR
+http://localhost:1234/exchange/65.12/EUR/BRL
+```
