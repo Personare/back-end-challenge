@@ -53,11 +53,20 @@ Rota
 http://localhost:1234/exchange/{amount}/{from}/{to}/{rate}
 ```
 
-Exemplo
+Exemplo com taxa para conversão
 ```
 http://localhost:1234/exchange/23.00/BRL/USD/0.31
 http://localhost:1234/exchange/187.65/USD/BRL/3.13
 
 http://localhost:1234/exchange/12.00/BRL/EUR/0.26
 http://localhost:1234/exchange/65.12/EUR/BRL/4.08
+```
+
+Exemplo sem taxa para conversão
+```
+http://localhost:1234/exchange/23.00/BRL/USD
+http://localhost:1234/exchange/187.65/USD/BRL
+
+http://localhost:1234/exchange/12.00/BRL/EUR
+http://localhost:1234/exchange/65.12/EUR/BRL
 ```
