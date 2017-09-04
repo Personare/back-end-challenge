@@ -25,7 +25,7 @@ class GetCurrencyByIso
      * @param string $from
      * @return Currency
      */
-    public function from($from): \Domain\ValueObject\Currency
+    public function iso($from): Currency
     {
         $record = $this->repository->getByIso($from);
 

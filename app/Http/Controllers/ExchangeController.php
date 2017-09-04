@@ -54,8 +54,8 @@ class ExchangeController extends Controller
      */
     public function index(ServerRequestInterface $request, ResponseInterface $response, $args): JsonResponse
     {
-        $fromCurrency = $this->getCurrencyByIso->from($args['from']);
-        $toCurrency = $this->getCurrencyByIso->from($args['to']);
+        $fromCurrency = $this->getCurrencyByIso->iso($args['from']);
+        $toCurrency = $this->getCurrencyByIso->iso($args['to']);
 
         if ($fromCurrency && $toCurrency) {
             $this->exchangeRate->value($args['value']);
