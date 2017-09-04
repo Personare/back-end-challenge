@@ -12,7 +12,7 @@ class ExchangeRate
     /**
      * @var float
      */
-    private $value;
+    private $amount;
 
     /**
      * @param mixed $rate
@@ -26,12 +26,12 @@ class ExchangeRate
     }
 
     /**
-     * @param float $value
+     * @param float $amount
      * @return $this
      */
-    public function value(float $value)
+    public function amount(float $amount)
     {
-        $this->value = $value;
+        $this->amount = $amount;
 
         return $this;
     }
@@ -41,6 +41,6 @@ class ExchangeRate
      */
     public function convertion(): float
     {
-        return $this->rate * $this->value;
+        return $this->rate * $this->amount;
     }
 }

@@ -58,7 +58,7 @@ class ExchangeController extends Controller
         $toCurrency = $this->getCurrencyByIso->iso($args['to']);
 
         if ($fromCurrency && $toCurrency) {
-            $this->exchangeRate->value($args['value']);
+            $this->exchangeRate->amount($args['value']);
             $this->exchangeRate->rate($this->getRate($args));
 
             $from = new Money($args['value'], $fromCurrency);

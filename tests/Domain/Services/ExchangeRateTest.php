@@ -24,7 +24,7 @@ class ExchangeRateTest extends TestBase
      */
     public function testExchangeRateConvertion($value, $rate, $exchange, $expected)
     {
-        $this->service->value($value);
+        $this->service->amount($value);
         $this->service->rate($rate);
 
         $this->assertEquals($expected, $this->service->convertion() === $exchange);
