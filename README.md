@@ -5,6 +5,10 @@ Esta aplicação tem como base a conversão de moedas.
 Esta aplicação tem como base o docker utilizando o docker compose.
 
 ```
+Copiar o arquivo .env.example para .env
+```
+
+```
 docker-compose up -d
 ```
 
