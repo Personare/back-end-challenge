@@ -39,4 +39,12 @@ class Router
         $this->collection = new RouteCollection($this->container);
         $this->collection->setStrategy(new JsonStrategy);
     }
+
+    /**
+     * @return RouteCollection
+     */
+    public function collection()
+    {
+        return $this->collection;
+    }
 }
