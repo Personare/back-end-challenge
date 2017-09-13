@@ -19,8 +19,12 @@ class ExchangeController extends Controller
     {
         try {
             $from = Currency::factory($args['from']);
+            $to = Currency::factory($args['to']);
 
-            return $this->response(['from' => $from->symbol(1)]);
+            return $this->response([
+                'from' => $from->symbol($args['amount']),
+                'to' => $to->symbol($args['amount']),
+            ]);
         } catch (\Exception $exception) {
             return $this->responseException($exception);
         }

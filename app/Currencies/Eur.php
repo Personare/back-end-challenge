@@ -2,7 +2,7 @@
 
 namespace App\Currencies;
 
-class Eur
+class Eur implements CurrencyInterface
 {
 
     /**

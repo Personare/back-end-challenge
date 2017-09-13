@@ -2,7 +2,7 @@
 
 namespace App\Currencies;
 
-class Brl
+class Brl implements CurrencyInterface
 {
 
     /**
