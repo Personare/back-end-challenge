@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Exceptions\Exception;
 use Zend\Diactoros\Response\JsonResponse;
 
 class Controller
