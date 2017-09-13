@@ -47,7 +47,7 @@ http://localhost:1234/exchange/{amount}/{from}/{to}
 http://localhost:1234/exchange/{amount}/{from}/{to}/{rate}
 ```
 
-Exemplo com taxa para conversão
+Exemplos
 ```
 http://localhost:1234/BRL/USD/60000
 http://localhost:1234/USD/BRL/60000
