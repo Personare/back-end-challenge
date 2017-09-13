@@ -27,43 +27,33 @@ Qualquer outro comando composer deve ser executado da seguinte forma:
 ```
 docker-compose exec php composer ...
 ```
-
-## Base de dados
-
-Para esta aplicação foi utilizada a técnica de migrations, e para executa-las utilize os comandos abaixo
-
-```
-docker-compose exec php php vendor/bin/phinx migrate
-```
-
-Para popular os dados do utilize o seguinte comando:
-
-```
-docker-compose exec php php vendor/bin/phinx seed:run
-```
-
 ## Testes Unitários
 
 Para executar os testes unitários utilize o comando abaixo
 
 ```
-docker-compose exec php phpunit
+phpunit
+```
+ou
+```
+composer test
 ```
 
 ## Acessando a conversão de moedas
 
-Rota
+Rotas
 ```
+http://localhost:1234/exchange/{amount}/{from}/{to}
 http://localhost:1234/exchange/{amount}/{from}/{to}/{rate}
 ```
 
 Exemplo com taxa para conversão
 ```
-http://localhost:1234/exchange/23.00/BRL/USD/0.31
-http://localhost:1234/exchange/187.65/USD/BRL/3.13
+http://localhost:1234/BRL/USD/60000
+http://localhost:1234/USD/BRL/60000
 
-http://localhost:1234/exchange/12.00/BRL/EUR/0.26
-http://localhost:1234/exchange/65.12/EUR/BRL/4.08
+http://localhost:1234/BRL/USD/60000/0.37
+http://localhost:1234/USD/BRL/60000/3.08
 ```
 
 Exemplo sem taxa para conversão
