@@ -55,12 +55,3 @@ http://localhost:1234/USD/BRL/60000
 http://localhost:1234/BRL/USD/60000/0.37
 http://localhost:1234/USD/BRL/60000/3.08
 ```
-
-Exemplo sem taxa para conversão
-```
-http://localhost:1234/exchange/23.00/BRL/USD
-http://localhost:1234/exchange/187.65/USD/BRL
-
-http://localhost:1234/exchange/12.00/BRL/EUR
-http://localhost:1234/exchange/65.12/EUR/BRL
-```
