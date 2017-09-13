@@ -47,4 +47,17 @@ class Router
     {
         return $this->collection;
     }
+
+    /**
+     * @throws \Psr\Container\ContainerExceptionInterface
+     */
+    public function dispatch()
+    {
+        $response = $this->collection->dispatch(
+            $this->container->get('request'),
+            $this->container->get('response')
+        );
+
+        $this->container->get('emitter')->emit($response);
+    }
 }
