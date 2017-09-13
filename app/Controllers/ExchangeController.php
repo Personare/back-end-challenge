@@ -6,6 +6,7 @@ use App\Currencies\Currency;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Rdehnhardt\ExchangeRate\Exchange;
+use Rdehnhardt\ExchangeRate\Fixer;
 
 class ExchangeController extends Controller
 {
@@ -39,9 +40,9 @@ class ExchangeController extends Controller
     private function getExchange(array $args)
     {
         if (!array_key_exists('rate', $args)) {
-            return (new Exchange())->rate($args['amount'], $args['from'], $args['to']);
+            return (new Exchange(new Fixer))->rate($args['amount'], $args['from'], $args['to']);
         }
 
-        return (new Exchange())->rate($args['amount'], $args['from'], $args['to'], $args['rate']);
+        return (new Exchange(new Fixer))->rate($args['amount'], $args['from'], $args['to'], $args['rate']);
     }
 }
