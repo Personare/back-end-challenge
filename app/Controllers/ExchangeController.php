@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Currencies\Currency;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -16,6 +17,12 @@ class ExchangeController extends Controller
      */
     public function process(ServerRequestInterface $request, ResponseInterface $response, array $args = [])
     {
-        return $this->response(['message' => 'ok']);
+        try {
+            $from = Currency::factory($args['from']);
+
+            return $this->response(['from' => $from->symbol(1)]);
+        } catch (\Exception $exception) {
+            return $this->responseException($exception);
+        }
     }
 }

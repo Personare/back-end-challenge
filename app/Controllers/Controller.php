@@ -18,4 +18,20 @@ class Controller
     {
         return new JsonResponse($data, $status, $headers, $encodingOptions);
     }
+
+    /**
+     * @param \Exception $exception
+     * @return JsonResponse
+     * @throws \InvalidArgumentException
+     */
+    protected function responseException(\Exception $exception)
+    {
+        $data = ['error' => 'Unexpected Error'];
+
+        if ($exception instanceof Exception) {
+            $data = ['error' => $exception->getMessage()];
+        }
+
+        return $this->response($data, 500);
+    }
 }
