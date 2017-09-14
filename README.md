@@ -1,48 +1,57 @@
-# back-end-challenge
+Esta aplicação tem como base a conversão de moedas.
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+##  Instalar Projeto
 
-## Introdução
+Esta aplicação tem como base o docker utilizando o docker compose.
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+```
+Copiar o arquivo .env.example para .env
+```
 
-**Então, essa é a sua missão!**
+```
+docker-compose up -d
+```
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+## Instalar dependencias do PHP
 
-E as especificações são:
+Esta aplicação utiliza o composer como gerenciador de dependências
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+Para instalar as dependencias executar o comando:
 
-## Instruções
+```
+docker-compose exec php composer install
+```
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+Qualquer outro comando composer deve ser executado da seguinte forma:
 
-## Pré-requisitos
+```
+docker-compose exec php composer ...
+```
+## Testes Unitários
 
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+Para executar os testes unitários utilize o comando abaixo
 
-## Diferenciais
+```
+phpunit
+```
+ou
+```
+composer test
+```
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+## Acessando a conversão de moedas
 
-## Dúvidas
+Rotas
+```
+http://localhost:1234/exchange/{amount}/{from}/{to}
+http://localhost:1234/exchange/{amount}/{from}/{to}/{rate}
+```
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+Exemplos
+```
+http://localhost:1234/BRL/USD/60000
+http://localhost:1234/USD/BRL/60000
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+http://localhost:1234/BRL/USD/60000/0.37
+http://localhost:1234/USD/BRL/60000/3.08
+```
