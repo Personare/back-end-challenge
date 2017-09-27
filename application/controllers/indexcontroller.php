@@ -85,10 +85,11 @@ class IndexController extends VanillaController
                         "sucesso" => "Moeda {nome_da_moeda} removida com sucesso!"
                     )
                 ),
-                "/converter/{moeda_origem_id}/{moeda_destino_id}" => array(
+                "/converter/{moeda_origem_id}" => array(
                     "Métodos" => array("POST"),
-                    "Resultado" => "Converte o valor enviado por parametro baseado na cotação enviada por parametro entre as moedas informadas pelos ids",
+                    "Resultado" => "Converte um valor de uma moeda para outra baseado nos parâmetros informados",
                     "Exemplo de Requisição" => array(
+                        'moeda_destino' => 2,
                         'valor' => '10.00',
                         'cotacao' => '4.00'
                     ),
