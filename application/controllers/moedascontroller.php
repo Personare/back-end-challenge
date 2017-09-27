@@ -69,8 +69,32 @@ class MoedasController extends VanillaController
         $this->validate_method(array('POST'));
         $results = array();
         $data = $_POST;
-        if () {
-
+        if (!Helper::array_keys_exists($data, array('nome', 'simbolo', 'sigla'))) {
+            if (empty($data['nome'])) {
+                $results['Erro']['Nome'] = 'Campo Obrigatório';
+            }
+            if (empty($data['simbolo'])) {
+                $results['Erro']['Símbolo'] = 'Campo Obrigatório';
+            }
+            if (empty($data['sigla'])) {
+                $results['Erro']['Sigla'] = 'Campo Obrigatório';
+            }
+        } else {
+            $this->Moeda->where('nome', $data['nome']);
+            $moeda = $this->Moeda->search();
+            if (!empty($moeda)) {
+                $results['Erro']['nome'] = 'Já existe uma moeda com este nome';
+            } else {
+                $this->Moeda->nome = $data['nome'];
+                $this->Moeda->simbolo = $data['simbolo'];
+                $this->Moeda->sigla = $data['sigla'];
+                if ($this->Moeda->save() == -1) {
+                    $results["Erro"][] = "Ocoreu um erro ao cadastrar a moeda tente novamente";
+                } else {
+                    $this->Moeda->where('nome', $data['nome']);
+                    $results = $this->Moeda->search();
+                }
+            }
         }
         echo json_encode($results);
     }
