@@ -14,4 +14,8 @@ class Helper {
 
         return count( $keys ) === $count;
     }
+
+    public static function currency_converter($value, $rate){
+        return bcdiv($value, $rate, 2);
+    }
 }
