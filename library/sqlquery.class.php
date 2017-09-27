@@ -23,6 +23,7 @@ class SQLQuery {
         $this->_dbHandle = @mysql_connect($address, $account, $pwd);
         if ($this->_dbHandle != 0) {
             if (mysql_select_db($name, $this->_dbHandle)) {
+                mysql_query("SET NAMES 'utf8'");
                 return 1;
             }
             else {
@@ -132,7 +133,7 @@ class SQLQuery {
 		if (mysql_num_rows($this->_result) > 0 ) {
 			while ($row = mysql_fetch_row($this->_result)) {
 				for ($i = 0;$i < $numOfFields; ++$i) {
-					$tempResults[$field[$i]] = iconv('Windows-1252', 'UTF-8', $row[$i]);
+					$tempResults[$field[$i]] = $row[$i];
 				}
 
 				if ($this->_hM == 1 && isset($this->hasMany)) {
@@ -167,7 +168,7 @@ class SQLQuery {
 
 							while ($rowChild = mysql_fetch_row($resultChild)) {
 								for ($j = 0;$j < $numOfFieldsChild; ++$j) {
-									$tempResultsChild[$tableChild[$j]][$fieldChild[$j]] = iconv('Windows-1252', 'UTF-8',$rowChild[$j]);
+									$tempResultsChild[$tableChild[$j]][$fieldChild[$j]] = $rowChild[$j];
 								}
 								array_push($resultsChild,$tempResultsChild);
 							}
@@ -219,7 +220,7 @@ class SQLQuery {
 
 							while ($rowChild = mysql_fetch_row($resultChild)) {
 								for ($j = 0;$j < $numOfFieldsChild; ++$j) {
-									$tempResultsChild[$tableChild[$j]][$fieldChild[$j]] = iconv('Windows-1252', 'UTF-8', $rowChild[$j]);
+									$tempResultsChild[$tableChild[$j]][$fieldChild[$j]] = $rowChild[$j];
 								}
 								array_push($resultsChild,$tempResultsChild);
 							}
