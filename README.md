@@ -46,3 +46,14 @@ E as especificações são:
 Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
 
 Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+
+
+##Abaixo seguem as configurações para rodar a aplicação
+
+
+## Configuração
+
+- Criar um banco de dados a sua escolha, Ex: 'backend_challenge';
+- Importar o dump da tabela de moedas que se encontra no diretório db;
+- Alterar as configurações de conexão com o banco em config/config.php;
+- Toda a documentação de utilização da API encontra-se na página inicial da mesma;
