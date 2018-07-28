@@ -49,7 +49,8 @@ class ExchangeTest extends TestCase
 
         $expected = $exchange->convertValue(1);
 
-        $this->assertEquals(4, $expected);
+        $this->assertInstanceOf("Personare\Exchange\Business\CurrencyDTO", $expected);
+        $this->assertEquals(4, $expected->getValue());
     }
 
     public function testConvertValueShouldReturn5IfTheConvertionFrom20BrlToUsd()
@@ -60,7 +61,8 @@ class ExchangeTest extends TestCase
 
         $expected = $exchange->convertValue(20);
 
-        $this->assertEquals(5, $expected);
+        $this->assertInstanceOf("Personare\Exchange\Business\CurrencyDTO", $expected);
+        $this->assertEquals(5, $expected->getValue());
     }
 
     public function testConvertValueShouldReturn3Decimals()
@@ -71,7 +73,8 @@ class ExchangeTest extends TestCase
 
         $expected = $exchange->convertValue(3.17);
 
-        $this->assertEquals(0.793, $expected);
+        $this->assertInstanceOf("Personare\Exchange\Business\CurrencyDTO", $expected);
+        $this->assertEquals(0.793, $expected->getValue());
     }
 
     public function testSetFromCurrencyShouldReturnCurrentInstance()

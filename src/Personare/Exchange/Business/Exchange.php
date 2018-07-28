@@ -38,6 +38,10 @@ class Exchange
             $converted = $value / $toValue;
         }
 
-        return number_format($converted, 3);
+        $value = number_format($converted, 3);
+
+        $currencyDto = new CurrencyDTO($this->currencyTo->getSymbol(), $value);
+
+        return $currencyDto;
     }
 }
