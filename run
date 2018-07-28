@@ -1,0 +1,18 @@
+#!/bin/bash
+
+case "$1" in
+    setup)
+        docker-compose build
+        docker-compose up -d
+        docker exec -it exchange_service /usr/local/bin/composer install
+        ;;
+    test)
+        docker exec -it exchange_service vendor/phpunit/phpunit/phpunit --testdox tests
+        ;;
+    *)
+        echo
+        echo "Usage: ./run {setup|test}"
+        echo
+        exit 1
+    ;;
+esac
