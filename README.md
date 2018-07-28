@@ -1,48 +1,60 @@
-# back-end-challenge
+# Como executar
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
 
-## Introdução
+#### Dependências
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
 
-**Então, essa é a sua missão!**
+[Docker](https://docs.docker.com/install/) 17.12.1-ce ou superior
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+[Docker Compose](https://docs.docker.com/compose/install/) 1.19.0 ou superior
 
-E as especificações são:
+#### Procedimentos iniciais
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+Faça o clone do repositório e entre na pasta do projeto:
 
-## Instruções
+```
+git clone git@github.com:Chavao/back-end-challenge.git
+cd back-end-challenge
+```
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+Garanta que o script auxiliar está com permissão de execução, executando o comando:
 
-## Pré-requisitos
+```
+chmod +x run
+```
 
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+Garanta que a porta 5001 não esteja sendo utilizada neste computador.
 
-## Diferenciais
+#### Construindo o ambiente
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+Para construir o ambiente, basta executar:
 
-## Dúvidas
+```
+./run setup
+```
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+Esse comando executará build das do container, instalará o composer e subirá o serviço web na porta 5001.
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+
+#### Executando os testes automatizados
+
+```
+./run test
+```
+
+#### Conversão de câmbio
+
+[GET]
+
+Para obter os valores de uma moeda, basta executar os comandos abaixos:
+
+```
+curl -i -X GET "http://0.0.0.0:5001/?from=USD&to=BRL&value=10"
+curl -i -X GET "http://0.0.0.0:5001/?from=BRL&to=USD&value=15"
+curl -i -X GET "http://0.0.0.0:5001/?from=EUR&to=BRL&value=20"
+curl -i -X GET "http://0.0.0.0:5001/?from=BRL&to=EUR&value=30"
+```
+
+#### Extra
+
+O setup do banco de dados fica no arquivo `public/bootstrap.php`, para adicionar mais moedas, basta acrescentar os dados na função `createFakeDatabase()`.
