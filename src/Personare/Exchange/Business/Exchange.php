@@ -33,9 +33,11 @@ class Exchange
         $toValue = $this->currencyTo->getValue();
 
         if ($this->currencyTo->getBase() == true) {
-            return $value * $fromValue;
+            $converted = $value * $fromValue;
         } else {
-            return $value / $toValue;
+            $converted = $value / $toValue;
         }
+
+        return number_format($converted, 3);
     }
 }

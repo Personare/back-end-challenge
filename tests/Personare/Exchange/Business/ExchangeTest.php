@@ -63,6 +63,17 @@ class ExchangeTest extends TestCase
         $this->assertEquals(5, $expected);
     }
 
+    public function testConvertValueShouldReturn3Decimals()
+    {
+        $exchange = new Exchange(($this->currencyDao));
+        $expected = $exchange->from('BRL');
+        $expected = $exchange->to('USD');
+
+        $expected = $exchange->convertValue(3.17);
+
+        $this->assertEquals(0.793, $expected);
+    }
+
     public function testSetFromCurrencyShouldReturnCurrentInstance()
     {
         $exchange = new Exchange($this->currencyDao);
