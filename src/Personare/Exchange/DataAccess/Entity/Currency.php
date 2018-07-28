@@ -41,7 +41,7 @@ class Currency
 
     public function getBase()
     {
-        return $this->base;
+        return boolval($this->base);
     }
 
     public function setBase($base)
