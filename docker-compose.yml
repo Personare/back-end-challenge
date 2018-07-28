@@ -1,0 +1,12 @@
+version: '3'
+services:
+  exchange_service:
+    container_name: exchange_service
+    restart: always
+    build: ./apache
+    volumes:
+      - ./:/var/www
+      - ./public:/var/www/html
+    working_dir: /var/www
+    ports:
+      - "5001:80"
