@@ -17,6 +17,12 @@ git clone git@github.com:Chavao/back-end-challenge.git
 cd back-end-challenge
 ```
 
+Entre no branch onde o projeto foi desenvolvido:
+
+```
+git checkout diego-chavao
+```
+
 Garanta que o script auxiliar está com permissão de execução, executando o comando:
 
 ```
@@ -33,7 +39,7 @@ Para construir o ambiente, basta executar:
 ./run setup
 ```
 
-Esse comando executará build das do container, instalará o composer e subirá o serviço web na porta 5001.
+Esse comando executará build do container, instalará o composer e subirá o serviço web na porta 5001.
 
 
 #### Executando os testes automatizados
@@ -46,7 +52,7 @@ Esse comando executará build das do container, instalará o composer e subirá 
 
 [GET]
 
-Para obter os valores de uma moeda, basta executar os comandos abaixos:
+Para obter os valores de uma moeda, basta executar os comandos abaixo:
 
 ```
 curl -i -X GET "http://0.0.0.0:5001/?from=USD&to=BRL&value=10"
@@ -57,4 +63,4 @@ curl -i -X GET "http://0.0.0.0:5001/?from=BRL&to=EUR&value=30"
 
 #### Extra
 
-O setup do banco de dados fica no arquivo `public/bootstrap.php`, para adicionar mais moedas, basta acrescentar os dados na função `createFakeDatabase()`.
+O setup do banco de dados fica no arquivo `public/bootstrap.php`. Para adicionar mais moedas, basta acrescentar os dados na função `createFakeDatabase()`.
