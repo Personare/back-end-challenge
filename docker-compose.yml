@@ -1,8 +1,9 @@
-version: "2"
+version: '3'
 services:
-    api:
-        build: "./api/"
-        ports:
-            - "80:80"
-        volumes:
-            - ./api:/var/www
+  api:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: api-docker
+    ports:
+      - 8080:80
