@@ -101,3 +101,5 @@ fabric.properties
 .history
 
 # End of https://www.gitignore.io/api/composer,phpstorm,visualstudiocode
+
+.idea/
