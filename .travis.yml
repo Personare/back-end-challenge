@@ -4,5 +4,6 @@ php:
 
 before_script:
   - composer selfupdate
+  - composer install
 
 script: phpunit
