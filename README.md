@@ -2,8 +2,9 @@
 
 > Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
 
-## Como executar
+[![Build Status](https://travis-ci.org/Tagliatti/back-end-challenge.svg?branch=filipe-tagliatti)](https://travis-ci.org/Tagliatti/back-end-challenge)
 
+## Como executar
 
 #### Dependências
 
