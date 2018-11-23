@@ -2,47 +2,51 @@
 
 > Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
 
-## Introdução
+## Como executar
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
 
-**Então, essa é a sua missão!**
+#### Dependências
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+[Docker](https://docs.docker.com/install/) 18.06.1-ce ou superior
 
-E as especificações são:
+[Docker Compose](https://docs.docker.com/compose/install/) 1.22.0 ou superior
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+#### Clonando o repositorio
 
-## Instruções
+Clone o repositório e entre na pasta do projeto:
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+```
+git clone https://github.com/Tagliatti/back-end-challenge.git
+cd back-end-challenge
+```
 
-## Pré-requisitos
+Mide para o branch filipe-tagliatti:
 
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+```
+git checkout filipe-tagliatti
+```
 
-## Diferenciais
+Para executar o projeto a porta 3000 deve estar disponível.
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+#### Executando o projeto
 
-## Dúvidas
+O comando abaixo executará o build do container e iniciará o serviço web na porta 3000.
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+```
+docker-compose up -d --build
+```
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+#### Executando os testes
+
+```
+docker-compose exec exchange vendor/phpunit/phpunit/phpunit --testdox
+```
+
+#### Acessando a api
+
+```
+curl -i -X GET "http://localhost:3000/?from=USD&to=BRL&value=12"
+curl -i -X GET "http://localhost:3000/?from=BRL&to=USD&value=37"
+curl -i -X GET "http://localhost:3000/?from=EUR&to=BRL&value=54"
+curl -i -X GET "http://localhost:3000/?from=BRL&to=EUR&value=432"
+```
