@@ -11,7 +11,7 @@
 
 [Docker Compose](https://docs.docker.com/compose/install/) 1.22.0 ou superior
 
-#### Clonando o repositorio
+#### 1 - Clonando o repositorio
 
 Clone o repositório e entre na pasta do projeto:
 
@@ -28,7 +28,7 @@ git checkout filipe-tagliatti
 
 Para executar o projeto a porta 3000 deve estar disponível.
 
-#### Executando o projeto
+#### 2 - Executando o projeto
 
 O comando abaixo executará o build do container e iniciará o serviço web na porta 3000.
 
@@ -36,13 +36,13 @@ O comando abaixo executará o build do container e iniciará o serviço web na p
 docker-compose up -d --build
 ```
 
-#### Executando os testes
+#### 3 - Executando os testes
 
 ```
 docker-compose exec exchange vendor/phpunit/phpunit/phpunit --testdox
 ```
 
-#### Acessando a api
+#### 4 - Acessando a api
 
 ```
 curl -i -X GET "http://localhost:3000/?from=USD&to=BRL&value=12"
