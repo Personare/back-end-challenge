@@ -6,12 +6,11 @@ class Router {
     private $path;
     private $callback;
 
-    public function __construct(string $method, string $path, $callback)
+    public function __construct(string $method, string $path)
     {
-        if($this->isValidHTTPMethod($method)){
+        if($this->isValidHTTPMethod($method) && $this->isValidPath($path)){
             $this->method = $method;
             $this->path = $path;
-            $this->callback = $callback;
         }else{
             throw new \InvalidArgumentException('Invalid method');
         }
@@ -22,7 +21,7 @@ class Router {
         return $this->method;
     }
 
-    public function execute() : void
+    public function execute($callback) : void
     {
 
     }
@@ -30,6 +29,11 @@ class Router {
     private function isValidHttpMethod(string $method) : bool
     {
         return in_array($method, ['GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS']);
+    }
+
+    private function isValidPath($path) : bool
+    {
+        return preg_match_all('/(^\^\/.+\$$)/', $path, $matches, PREG_UNMATCHED_AS_NULL) > 0;
     }
 
 

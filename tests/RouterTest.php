@@ -9,11 +9,7 @@ class RouterTest extends TestCase{
 
     public function setUp()
     {
-        $this->router = new Router('POST', '/test', function(){
-            echo json_encode([
-                'msg' => 'New route',
-            ]);
-        });
+        $this->router = new Router('POST', '^/test$');
     }
 
     public function testRouterCanBeCreated()
@@ -36,8 +32,13 @@ class RouterTest extends TestCase{
     public function testShouldThrowAExceptionIfMethodIsInvalid()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $router = new Router('X', '/test', function(){
-            json_encode(['err' => 'invalid method']);
-        });
+        $router = new Router('X', '^/test$');
     }
+
+    public function testShouldThrowAExceptionIfPathIsNotARegex()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $router = new Router('GET', '/test');
+    }
+
 }
