@@ -30,6 +30,19 @@ class ConverterTest extends TestCase
         $this->seeStatusCode(400);
     }
 
+    public function testConverterShouldConvertBRLToUSD()
+    {
+        $this->get('/converter/BRL/USD?value=1');
+        $this->seeStatusCode(200);
+        $this->seeJsonEquals([
+            'origina"l' => "R$ 1.00",
+            'converted' => "$ 0.26",
+
+         ]);
+
+
+    }
+
 
 
 
