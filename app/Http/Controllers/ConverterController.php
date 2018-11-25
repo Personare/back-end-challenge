@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Converter;
 
 class ConverterController extends Controller
 {
 
     private $SUPPORTED_CURRENCIES;
+    private $RATES;
     /**
      * Create a new controller instance.
      *
@@ -15,29 +17,32 @@ class ConverterController extends Controller
      */
     public function __construct()
     {
-       $this->SUPPORTED_CURRENCIES = ['BRL', 'USD', 'EUR'];
+
     }
 
     public function converter(Request $request, $from, $to)
     {
 
-        if(!$request->has('value')){
+        try {
+            $value = $request->has('value') ? $request->value : null;
+            $converter = new Converter($from, $to, $value);
+
+            $original = $converter->getFormatted('from');
+            $converted = $converter->getFormatted('to');
+            $rate = $converter->getRate();
+
             return response()->json([
-                'error' => "Missing 'value' parameter"
+                "converted" => $converted,
+                "original" => $original,
+                "rate" => $rate
+            ]);
+
+        }catch(\InvalidArgumentException $e){
+            return response()->json([
+                'error' => $e->getMessage()
             ], 400);
         }
 
-        if(!in_array($from, $this->SUPPORTED_CURRENCIES)){
-            return response()->json([
-                'error' => "Not supported currency on 'from' parameter"
-            ], 400);
-        }
-
-        if(!in_array($to, $this->SUPPORTED_CURRENCIES)){
-            return response()->json([
-                'error' => "Not supported currency on 'to' parameter"
-            ], 400);
-        }
 
         return response()->json([
             'params' => [
