@@ -8,18 +8,6 @@ use App\Converter;
 class ConverterController extends Controller
 {
 
-    private $SUPPORTED_CURRENCIES;
-    private $RATES;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-
-    }
-
     public function converter(Request $request, $from, $to)
     {
 
