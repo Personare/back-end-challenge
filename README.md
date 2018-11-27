@@ -1,48 +1,51 @@
-# back-end-challenge
+# back-end-challenge reply
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+> Resposta ao desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
 
 ## Introdução
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+API para conversão de moedas feito com PHP.
 
-**Então, essa é a sua missão!**
-
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
-
-E as especificações são:
-
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+## Requirements
+[Docker](https://docs.docker.com/install/)
+[Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Instruções
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+1. Clonar o repositório `git clone https://github.com/cberton/back-end-challenge.git`;
+2. Entrar na pasta `cd back-end-challenge`;
+3. Acesse a branch *carlos-berton* `git checkout carlos-berton`;
+4. Dê permissão de execução para o script run.sh `chmod +x run.sh`;
 
-## Pré-requisitos
+## Ambiente
+Para rodar o ambiente:
 
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+```
+# criando o ambiente
+./run.sh build
 
-## Diferenciais
+# testando
+./run.sh test
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+# iniciando
+./run.sh start
+```
 
-## Dúvidas
+## Utilizando a API
+Para realizar a conversão de uma moeda basta fazer uma requisição com os argumentos:
+- `from` (obrigatório);
+- `to` (obrigatório);
+- `amount` (obrigatório);
+- `repository` (opcional).
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+Exemplo:
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+```
+# utilizando repositorio fixo
+# os valores de ratio estão hard code no index.php
+curl -i -X GET "http://0.0.0.0:8001/?from=USD&to=BRL&amount=10"
+
+# utilizando repositorio cryptocompare
+# os valores de ratio são da API do CryptoCompare
+curl -i -X GET "http://0.0.0.0:8001/?from=EUR&to=USD&amount=34.56&repository=cryptocompare"
+```
