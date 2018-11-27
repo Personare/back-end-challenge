@@ -6,14 +6,12 @@ namespace MoneyConverter\Domain\ValueObject;
 
 class Currency {
 	private $code;
-	private $symbol;
 
     /**
      * Constructor: __construct
     **/
-	public function __construct($code, $symbol) {
+	public function __construct($code) {
 		$this->setCode($code);
-		$this->setSymbol($symbol);
 	}
 
 	private function setCode($code) {
@@ -24,16 +22,20 @@ class Currency {
 		$this->code = $code;
 	}
 
-	private function setSymbol($symbol) {
-		$this->symbol = $symbol;
-	}
-
 	public function equals(Currency $currency) {
 		return $currency->code() === $this->code();
 	}
 
 	public function symbol() {
-		return $this->symbol;
+		if ($this->code() == 'USD'){
+			$symbol = '$';
+		} else if ($this->code() == 'EUR'){
+			$symbol = '€';
+		} else {
+			$symbol = 'R$';
+		}
+
+		return $symbol;
 	}
 
 	public function code() {
