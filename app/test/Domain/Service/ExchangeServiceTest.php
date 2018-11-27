@@ -49,8 +49,8 @@ class ExchangeServiceTest extends TestCase {
 	 * @test
 	 */
 	public function testConvert1UsdToBrlEquals390() {
-		$fromCurrency = new Currency('USD', '$');
-		$toCurrency = new Currency('BRL', 'R$');
+		$fromCurrency = new Currency('USD');
+		$toCurrency = new Currency('BRL');
 
 		$exchange = new ExchangeService($this->exchangeRepository);
 		$convertedMoney = $exchange->convert($fromCurrency, $toCurrency, 1);
@@ -62,8 +62,8 @@ class ExchangeServiceTest extends TestCase {
 	 * @test
 	 */
 	public function testConvert1EurToBrlEquals446() {
-		$fromCurrency = new Currency('EUR', '€');
-		$toCurrency = new Currency('BRL', 'R$');
+		$fromCurrency = new Currency('EUR');
+		$toCurrency = new Currency('BRL');
 
 		$exchange = new ExchangeService($this->exchangeRepository);
 		$convertedMoney = $exchange->convert($fromCurrency, $toCurrency, 1);
@@ -75,8 +75,8 @@ class ExchangeServiceTest extends TestCase {
 	 * @test
 	 */
 	public function testConvert10BrlToUsdEquals2560() {
-		$fromCurrency = new Currency('BRL', 'R$');
-		$toCurrency = new Currency('USD', '$');
+		$fromCurrency = new Currency('BRL');
+		$toCurrency = new Currency('USD');
 
 		$exchange = new ExchangeService($this->exchangeRepository);
 		$convertedMoney = $exchange->convert($fromCurrency, $toCurrency, 10);
@@ -88,8 +88,8 @@ class ExchangeServiceTest extends TestCase {
 	 * @test
 	 */
 	public function testConvert8BrlToEurEquals1424() {
-		$fromCurrency = new Currency('BRL', 'R$');
-		$toCurrency = new Currency('EUR', '€');
+		$fromCurrency = new Currency('BRL');
+		$toCurrency = new Currency('EUR');
 
 		$exchange = new ExchangeService($this->exchangeRepository);
 		$convertedMoney = $exchange->convert($fromCurrency, $toCurrency, 8);
