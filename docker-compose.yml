@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  web:
+    container_name: web-currency-app
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ./app:/opt/app
+      - ./app/public:/opt/app/public
+      - ./docker/conf/nginx/app.conf:/etc/nginx/conf.d/app.conf
+    ports:
+      - "8001:80"
+    networks:
+      - app-network
+
+  php:
+    container_name: php-currency-app
+    image: php:7.2-fpm
+    volumes:
+      - ./app:/opt/app
+      - ./app/public:/opt/app/public
+      - ./docker/conf/php/php.ini:/etc/php/conf.d/php.ini
+    ports:
+      - "9000"
+    networks:
+      - app-network
+
+  composer:
+    container_name: php-composer-currency-app
+    image: composer
+    volumes:
+      - .:/app
+    command:
+      - install
+
+networks:
+  app-network:
+    driver: bridge # its default, but explict is better than implicit
