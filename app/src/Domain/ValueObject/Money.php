@@ -17,13 +17,21 @@ class Money {
 
 	}
 
-	private function setAmount($amount) {
+	private function assertNotEmpty($amount){
 		if (empty($amount)) {
 			throw new \InvalidArgumentException('Amount cant be null');
 		}
+	}
+
+	private function assertNotNegative($amount) {
 		if ($amount < 0) {
 			throw new \InvalidArgumentException('Amount must be greater than zero');
 		}
+	}
+
+	private function setAmount($amount) {
+		$this->assertNotEmpty($amount);
+		$this->assertNotNegative($amount);
 
 		$this->amount = $amount;
 	}
