@@ -17,14 +17,6 @@ $app->get('/', function () use ($app) {
 
 $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers', 'middleware' => 'auth'], function ($app) {
 
-    $app->get('company', 'CompanyController@index');
-  
-    $app->get('company/{id}', 'CompanyController@getCompany');
-
-    //$app->post('company','CompanyController@createCompany');
-      
-    $app->put('company/{id}', 'CompanyController@updateCompany');
-      
-    //$app->delete('company/{id}','CompanyController@deleteCompany');
+    $app->get('from/{currency_from}/to/{currency_to}/value/{value}', 'CurrencyController@getCurrencyConvertedValue');
 
 });
