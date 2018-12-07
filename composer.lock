@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a255a1489196d0a4e1881fdccbc5327",
+    "content-hash": "9b4c62cc06119bc6a314306f1cb84e59",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1222,16 +1222,16 @@
         },
         {
             "name": "mlntn/lumen-artisan-serve",
-            "version": "1.3",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mlntn/lumen-artisan-serve.git",
-                "reference": "554c5ce862f92a92895cf05bf25ba04f21ca8714"
+                "reference": "4028813cd59bd579cdbdb266525e9b948614956b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mlntn/lumen-artisan-serve/zipball/554c5ce862f92a92895cf05bf25ba04f21ca8714",
-                "reference": "554c5ce862f92a92895cf05bf25ba04f21ca8714",
+                "url": "https://api.github.com/repos/mlntn/lumen-artisan-serve/zipball/4028813cd59bd579cdbdb266525e9b948614956b",
+                "reference": "4028813cd59bd579cdbdb266525e9b948614956b",
                 "shasum": ""
             },
             "type": "library",
@@ -1256,7 +1256,7 @@
                 "artisan",
                 "lumen"
             ],
-            "time": "2018-05-28T02:23:21+00:00"
+            "time": "2016-02-11T09:23:37+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4194,7 +4194,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "mlntn/lumen-artisan-serve": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
