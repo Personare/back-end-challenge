@@ -1,0 +1,34 @@
+language: php
+
+sudo: false
+
+php:
+  - 7.0
+
+services:
+  - mysql
+
+before_install:
+  - composer self-update
+
+install:
+  - composer install --prefer-source --no-interaction
+
+before_script:
+  - mysql -e 'create database challenge;'
+  - mv .env.example .env
+  - php artisan migrate:refresh --seed --force
+
+script:
+  - phpunit --stderr --configuration phpunit.xml --debug
+  - vendor/bin/phpcs --standard=psr2 app/
+  - vendor/bin/phpcpd --verbose app/
+  - vendor/bin/phpmd app/ text codesize,unusedcode,naming,design
+  - vendor/bin/phploc app/
+
+notifications:
+  email:
+    recipients:
+      - rafaelpviegas@gmail.com
+    on_success: change
+    on_failure: always
