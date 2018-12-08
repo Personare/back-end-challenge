@@ -10,16 +10,16 @@ class CurrencyController extends Controller
 {
     public function getCurrencyConvertedValue($currency_from, $currency_to, $value)
     {
-        $from = Currency::where('name', $currency_from)->first();
-        $to = Currency::where('name', $currency_to)->first();
+        $objFrom = Currency::where('name', $currency_from)->first();
+        $objTo = Currency::where('name', $currency_to)->first();
 
-        $objCurrencyBusiness = new CurrencyBusiness();
-        $validateData = $objCurrencyBusiness->validateData($from, $to, $currency_from, $currency_to, $value);
+        $objCurrencyBusiness = new CurrencyBusiness($currency_from, $currency_to, $value);
+        $validateData = $objCurrencyBusiness->validateData($objFrom, $objTo);
         
         if ($validateData !== true) {
             return $validateData;
         }
         
-        return response()->json($objCurrencyBusiness->convertCurrency($from, $to, $value));
+        return response()->json($objCurrencyBusiness->convertCurrency($objFrom, $objTo));
     }
 }

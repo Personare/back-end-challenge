@@ -4,30 +4,41 @@ namespace App\Business;
 
 class CurrencyBusiness
 {
-    public function convertCurrency($objFrom, $objTo, $value)
+    private $currency_from;
+    private $currency_to;
+    private $value;
+    
+    public function __construct($currency_from, $currency_to, $value)
     {
-
+        $this->currency_from = $currency_from;
+        $this->currency_to = $currency_to;
+        $this->value = $value;
+    }
+    
+    public function convertCurrency($objFrom, $objTo)
+    {
+        
         if ($objFrom->name == "Real") {
-            $value = number_format($value / $objTo->exchange_rate, 2, ".", ",");
+            $value = number_format($this->value / $objTo->exchange_rate, 2, ".", ",");
         } else {
-            $value = number_format($value * $objFrom->exchange_rate, 2, ",", ".");
+            $value = number_format($this->value * $objFrom->exchange_rate, 2, ",", ".");
         }
         
         return ["value" => $value,
-                "symbol" => $objTo->symbol,
-                "formatted" => $objTo->symbol . " " . $value,
-            ];
+            "symbol" => $objTo->symbol,
+            "formatted" => $objTo->symbol . " " . $value,
+        ];
     }
     
-    public function validateData($objFrom, $objTo, $currency_from, $currency_to, $value)
+    public function validateData($objFrom, $objTo)
     {
         
         if (empty($objFrom)) {
-            return response()->json(["error" => "Currency ".$currency_from." not found!"]);
+            return response()->json(["error" => "Currency ".$this->currency_from." not found!"]);
         }
         
         if (empty($objTo)) {
-            return response()->json(["error" => "Currency ".$currency_to." not found!"]);
+            return response()->json(["error" => "Currency ".$this->currency_to." not found!"]);
         }
         
         if ($objFrom->name !== "Real" && $objTo->name !== "Real") {
@@ -38,15 +49,20 @@ class CurrencyBusiness
             return response()->json(["error" => "The origin and destination currencies can not be the same!"]);
         }
         
-        if (empty($value)) {
+        return $this->validateValue();
+    }
+    
+    public function validateValue()
+    {
+        if (empty($this->value)) {
             return response()->json(["error" => "The value should not be empty!"]);
         }
         
-        if (!is_numeric($value)) {
+        if (!is_numeric($this->value)) {
             return response()->json(["error" => "The value should be numeric!"]);
         }
         
-        if ($value < 0) {
+        if ($this->value < 0) {
             return response()->json(["error" => "The value should be positive!"]);
         }
         
