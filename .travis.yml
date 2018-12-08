@@ -3,12 +3,15 @@ language: php
 sudo: false
 
 php:
-  - 5.6
   - 7.0
 
 services:
   - mysql
 
+addons:
+  code_climate:
+    repo_token: 9f00ec405bbf79ca91adce2e5b8070ca5c14728983ac7752c4b2a97a93b2070a
+    
 before_install:
   - composer self-update
 
@@ -21,6 +24,7 @@ before_script:
   - php artisan migrate:refresh --seed --force
 
 script:
+  - vendor/bin/phpunit tests/
   - phpunit --coverage-clover build/logs/clover.xml --stderr --configuration phpunit.xml --debug
   - ./vendor/bin/test-reporter
   - vendor/bin/phpcs --standard=psr2 app/
