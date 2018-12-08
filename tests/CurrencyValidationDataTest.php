@@ -3,6 +3,15 @@
 class CurrencyValidationDataTest extends TestCase
 {
     
+    public function testPingApi()
+    {
+        $this->get('/');
+        
+        $this->assertEquals(
+            $this->response->getContent(), $this->app->version()
+            );
+    }
+    
     public function testValidateCurrencyFromExists()
     {
         $this->get('/api/v1/from/Real/to/Dolar/value/20000')
