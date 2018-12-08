@@ -22,5 +22,4 @@ class Currency extends Model implements
     protected $fillable = [
         'name', 'symbol', 'exchange_rate'
     ];
-
 }

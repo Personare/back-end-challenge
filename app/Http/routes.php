@@ -16,7 +16,6 @@ $app->get('/', function () use ($app) {
 });
 
 
-$app->group(['namespace' => 'App\Http\Controllers', 'prefix' => 'api/v1'], function($app)
-{
+$app->group(['namespace' => 'App\Http\Controllers', 'prefix' => 'api/v1'], function ($app) {
     $app->get('from/{currency_from}/to/{currency_to}/value/{value}', 'CurrencyController@getCurrencyConvertedValue');
 });

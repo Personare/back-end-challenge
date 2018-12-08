@@ -15,5 +15,4 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \Mlntn\Console\Commands\Serve::class,
     ];
-
 }

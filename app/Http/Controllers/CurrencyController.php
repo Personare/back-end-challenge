@@ -16,7 +16,7 @@ class CurrencyController extends Controller
         $objCurrencyBusiness = new CurrencyBusiness();
         $validateData = $objCurrencyBusiness->validateData($from, $to, $currency_from, $currency_to, $value);
         
-        if($validateData !== true) {
+        if ($validateData !== true) {
             return $validateData;
         }
         
