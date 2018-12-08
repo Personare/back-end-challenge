@@ -3,3 +3,5 @@ exclude_patterns:
   - "app/Console/"
   - "app/Exceptions/"
   - "app/Http/Middleware/"
+  - "app/Currency.php"
+  - "app/Http/Controllers/Controller.php"
