@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="Test Suite for Personare API">
+        <testsuite name="Test Suite for PersonareExchange API">
             <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
