@@ -1,0 +1,26 @@
+{
+    "name": "iago.cavalcante/personare-backend",
+    "description": "Test for job in personare company",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Iago Cavalcante",
+            "email": "iagoangelimc@gmail.com"
+        }
+    ],
+    "scripts": {
+        "test": ".\\vendor\\bin\\phpunit.bat"
+    },    
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7"
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
