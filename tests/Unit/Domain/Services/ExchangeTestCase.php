@@ -3,7 +3,7 @@ namespace PersonareExchange\Test\Unit\Domain\Services;
 
 use PersonareExchange\Domain\Entities\Currency;
 use PersonareExchange\Domain\Repositories\ICurrencyRepository;
-use PersonareExchange\Domain\Service\Exchange;
+use PersonareExchange\Domain\Services\ExchangeService;
 use PHPUnit\Framework\TestCase;
 
 
@@ -14,7 +14,7 @@ class ExchangeTestCase extends TestCase
   protected function setUp()
   {
     $this->currencyRepository = $this->createMock(ICurrencyRepository::class);
-    $this->exchange = new Exchange($this->currencyRepository);
+    $this->exchange = new ExchangeService($this->currencyRepository);
   }
 
   /**
