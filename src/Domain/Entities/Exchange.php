@@ -8,10 +8,9 @@ class Exchange
   private $to;
   private $amount;
 
-  public function __construct(Currency $from, Currency $to, float $amount)
+  public function __construct(Currency $from, float $amount)
   {
     $this->from = $from;
-    $this->to = $to;
     $this->amount = $amount;
   }
 

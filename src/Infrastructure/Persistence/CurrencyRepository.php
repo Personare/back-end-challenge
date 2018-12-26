@@ -17,12 +17,16 @@ class CurrencyRepository implements ICurrencyRepository
 
   public function findRateFromSymbol($symbol) : ? Currency
   {
-    $response = $this->http->request('GET', '/latest', ['query' => ['access_key' => '322e8613f99d41e1d11c75c315092723', 'symbols' => $symbol, 'format' => 1]]);
-    $jsonResponse = $response->getBody()->read(1024);
-    $data = json_decode($jsonResponse, true);
-    $currency = new Currency();
-    $currency->setSymbol($symbol);
-    $currency->setValue($data['rates'][$symbol]);
-    return $currency ? : null;
+    try {
+      $response = $this->http->request('GET', '/latest', ['query' => ['access_key' => '322e8613f99d41e1d11c75c315092723', 'symbols' => $symbol, 'format' => 1]]);
+      $jsonResponse = $response->getBody()->read(1024);
+      $data = json_decode($jsonResponse, true);
+      $currency = new Currency();
+      $currency->setSymbol($symbol);
+      $currency->setValue($data['rates'][$symbol]);
+      return $currency;
+    } catch (\Throwable $th) {
+      throw new \Exception("Can't convert values");
+    }
   }
 }

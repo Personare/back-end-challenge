@@ -2,7 +2,6 @@
 namespace PersonareExchange\Domain\Services;
 
 use PersonareExchange\Domain\Repositories\ICurrencyRepository;
-use PersonareExchange\Application\DTO\CurrencyDTO;
 use PersonareExchange\Domain\Entities\Exchange;
 
 class ExchangeService
@@ -14,16 +13,13 @@ class ExchangeService
     $this->currencyRepository = $currencyRepository;
   }
 
-  public function convert($from, $to, $value) : ? CurrencyDTO
+  public function convert($from, $to, $value) : ? Currency
   {
     $currencyFrom = $this->currencyRepository->findRateFromSymbol($from);
     $currencyTo = $this->currencyRepository->findRateFromSymbol($to);
-    if (!$currencyFrom || !$currencyTo) {
-      return null;
-    }
-    $exchange = new Exchange($currencyFrom, $currencyTo, $value);
+    $exchange = new Exchange($currencyFrom, $value);
     $convertedValue = $exchange->convert();
     $value = number_format($convertedValue, 3);
-    return new CurrencyDTO($currencyTo->getSymbol(), $value);
+    return new Currency($currencyTo->getSymbol(), $value);
   }
 }
