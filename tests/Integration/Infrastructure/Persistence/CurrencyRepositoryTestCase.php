@@ -3,6 +3,7 @@ namespace PersonareExchange\Test\Integration\Infrastructure\Persistence;
 
 use PersonareExchange\Infrastructure\Persistence\CurrencyRepository;
 use PHPUnit\Framework\TestCase;
+use PersonareExchange\Domain\Entities\Currency;
 
 class CurrencyRepositoryTest extends TestCase
 {
@@ -11,12 +12,21 @@ class CurrencyRepositoryTest extends TestCase
   {
     parent::setUp();
     $this->repository = new CurrencyRepository();
+
   }
 
   public function testFindRateFromSymbol()
   {
     $rate = $this->repository->findRateFromSymbol('USD');
-    $this->assertEquals(3, $rate);
+    $this->assertInstanceOf(Currency::class, $rate);
+  }
+  
+  /**
+   * @expectedException ArgumentCountError
+   */
+  public function testFindRateFromSymbolErrorWithoutArgument()
+  {
+    $this->repository->findRateFromSymbol();
   }
 
 }

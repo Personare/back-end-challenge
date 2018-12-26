@@ -32,6 +32,11 @@ class ExchangeTestCase extends TestCase
   {
     $this->assertInstanceOf(Currency::class, new Currency);
   }
+
+  public function testConvertion()
+  {
+    $this->assertInstanceOf(Currency::class, $this->exchange->convert('USD', 'BRL', 40.5));
+  }
 }
 
 
