@@ -4,17 +4,17 @@ namespace PersonareExchange\Domain\Entities;
 
 class Currency
 {
-  private $symbol;
+  private $code;
   private $value;
 
-  public function getSymbol()
+  public function getCode()
   {
-    return $this->symbol;
+    return $this->code;
   }
 
-  public function setSymbol($symbol)
+  public function setCode($code)
   {
-    $this->symbol = $symbol;
+    $this->code = $code;
   }
 
   public function getValue()

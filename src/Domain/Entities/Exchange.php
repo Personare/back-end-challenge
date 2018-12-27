@@ -4,18 +4,17 @@ namespace PersonareExchange\Domain\Entities;
 
 class Exchange
 {
-  private $from;
   private $to;
   private $amount;
 
-  public function __construct(Currency $from, float $amount)
+  public function __construct(Currency $to, float $amount)
   {
-    $this->from = $from;
+    $this->to = $to;
     $this->amount = $amount;
   }
 
   public function convert() : float
   {
-    return $this->amount * $this->from->getValue();
+    return $this->amount * $this->to->getValue();
   }
 }
