@@ -7,24 +7,27 @@ use PersonareExchange\Infrastructure\Persistence\CurrencyRepository;
 
 class ExchangeService
 {
-    private $currencyRepository;
-    private $response;
+  private $currencyRepository;
+  private $response;
 
-    public function __construct(CurrencyRepository $currencyRepository)
-    {
-        $this->currencyRepository = $currencyRepository;
-    }
+  public function __construct(CurrencyRepository $currencyRepository)
+  {
+    $this->currencyRepository = $currencyRepository;
+  }
 
-    public function convert($from, $to, $value) : Currency
-    {
-        $currencyFrom = $this->currencyRepository->findRateFromSymbol($from);
-        $currencyTo = $this->currencyRepository->findRateFromSymbol($to);
-        $exchange = new Exchange($currencyFrom, $value);
-        $convertedValue = $exchange->convert();
-        $value = number_format($convertedValue, 3);
-        $converted = new Currency();
-        $converted->setSymbol($currencyTo->getSymbol());
-        $converted->setValue($value);
-        return $converted;
+  public function convert($from, $to, $amount) : Currency
+  {
+    try {
+      $currencyDTO = $this->currencyRepository->findQuoteFromCode($from, $to);
+      $exchange = new Exchange($currencyDTO, $amount);
+      $convertedValue = $exchange->convert();
+      $value = number_format($convertedValue, 3);
+      $converted = new Currency();
+      $converted->setCode($to);
+      $converted->setValue($value);
+      return $converted;
+    } catch (\Throwable $ex) {
+      throw new \Exception('Error');
     }
+  }
 }

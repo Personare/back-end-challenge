@@ -4,8 +4,8 @@ namespace PersonareExchange\Domain\Entities;
 
 class Currency
 {
-  private $code;
-  private $value;
+  public $code;
+  public $value;
 
   public function getCode()
   {
