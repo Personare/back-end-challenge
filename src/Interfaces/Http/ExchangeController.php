@@ -20,8 +20,8 @@ class ExchangeController
         try {
             $convertedValue = $this->exchangeService->convert($_GET['from'], $_GET['to'], $_GET['amount']);
             return $this->response->responseJSON($convertedValue);
-        } catch (\Throwable $ex) {
-            return $this->response->responseJSON($ex, 500);
+        } catch (\Exception $ex) {
+            return $this->response->responseJSON(array("message" => $ex->getMessage(), "code" => $ex->getCode()), 500);
         }
     }
 }
