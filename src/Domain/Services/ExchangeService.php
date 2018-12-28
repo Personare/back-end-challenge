@@ -27,7 +27,7 @@ class ExchangeService
       $converted->setValue($value);
       return $converted;
     } catch (\Throwable $ex) {
-      throw new \Exception('Error');
+      throw new \Exception($ex->getMessage(), $ex->getCode());
     }
   }
 }
