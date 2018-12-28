@@ -31,7 +31,7 @@ class ExchangeTestCase extends TestCase
   }
 
   /**
-   * @expectedException TypeError
+   * @expectedException Exception
    */
   public function testFindQuoteFromCodeErrorWithoutArgument()
   {
