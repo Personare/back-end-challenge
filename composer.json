@@ -10,7 +10,7 @@
         }
     ],
     "scripts": {
-        "test": ".\\vendor\\bin\\phpunit.bat"
+        "test": "./vendor/bin/phpunit"
     },    
     "autoload": {
         "psr-4": {
