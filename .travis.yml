@@ -7,7 +7,7 @@ script: phpunit
 deploy:
   provider: heroku
   api_key: 06aabb86-c8db-4a8c-9c45-7f7e6ef1c67f
-  app: personare-backend-iago
+  app: personare-backend
   on:
     all_branches: true
   run:
