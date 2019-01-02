@@ -4,9 +4,7 @@ namespace PersonareExchange\Test\Unit\Domain\Services;
 use PersonareExchange\Domain\Entities\Currency;
 use PersonareExchange\Infrastructure\Persistence\CurrencyRepository;
 use PersonareExchange\Domain\Services\ExchangeService;
-use PersonareExchange\Domain\Services\Responses;
 use PHPUnit\Framework\TestCase;
-use PersonareExchange\Application\DTO\CurrencyDTO;
 
 
 class ExchangeTestCase extends TestCase
@@ -15,23 +13,25 @@ class ExchangeTestCase extends TestCase
 
   protected function setUp()
   {
-    $this->currencyRepository = $this->createMock(CurrencyRepository::class);
+    $this->currencyRepository = $this->getMockBuilder(CurrencyRepository::class)
+                                      ->getMock();
     $this->exchange = new ExchangeService($this->currencyRepository);
   }
 
-  public function testReturnTypeOfConvertion()
+  public function testReturnCorrectTypeOfConvertion()
   {
     $this->assertInstanceOf(Currency::class, $this->exchange->convert('USD', 'BRL', 40.5));
   }
 
-  public function testReturnedValue()
+  public function testCorrectReturnedValueOfConvertion20EurToBrl()
   {
-    $converted = $this->exchange->convert('EUR', 'BRL', 20);
-    $this->assertEquals(89.000, $converted->getValue());
+    $currencyRepository = $this->createMock(CurrencyRepository::class);
+    $exchange = new ExchangeService($currencyRepository);
+    $this->assertEquals(89.000, $exchange->convert('EUR', 'BRL', 20)->getValue());
   }
 
   /**
-   * @expectedException TypeError
+   * @expectedException Exception
    */
   public function testFindQuoteFromCodeErrorWithoutArgument()
   {
