@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
     branches: [ master, elvis-pereira ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   back-end:
