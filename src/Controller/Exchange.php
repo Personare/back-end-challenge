@@ -50,35 +50,35 @@ class Exchange
     private function parseRequest(): array
     {
         // phpcs:ignore SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable
-        $request_uri = explode('/', $_SERVER['REQUEST_URI']);
+        $requestUri = explode('/', $_SERVER['REQUEST_URI']);
 
-        if (!isset($request_uri[1]) || 'exchange' !== $request_uri[1]) {
+        if (!isset($requestUri[1]) || 'exchange' !== $requestUri[1]) {
             throw new \InvalidArgumentException('Método não implementado!');
         }
 
-        if (!isset($request_uri[2])) {
+        if (!isset($requestUri[2])) {
             throw new \InvalidArgumentException('Valor não informado!');
         }
 
-        if (!isset($request_uri[3])) {
+        if (!isset($requestUri[3])) {
             throw new \InvalidArgumentException('Não informada a moeda de origem!');
         }
 
-        if (!isset($request_uri[4])) {
+        if (!isset($requestUri[4])) {
             throw new \InvalidArgumentException('Não informada a moeda de destino!');
         }
 
-        if (!isset($request_uri[5])) {
+        if (!isset($requestUri[5])) {
             throw new \InvalidArgumentException(
                 'Taxa de conversão não foi informada!',
             );
         }
 
         return [
-            'value' => (float) $request_uri[2],
-            'from' => $request_uri[3],
-            'to' => $request_uri[4],
-            'rate' => (float) $request_uri[5],
+            'value' => (float) $requestUri[2],
+            'from' => $requestUri[3],
+            'to' => $requestUri[4],
+            'rate' => (float) $requestUri[5],
         ];
     }
 }
