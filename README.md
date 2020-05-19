@@ -1,3 +1,5 @@
+![CI](https://github.com/elvishp2006/back-end-challenge/workflows/CI/badge.svg?branch=elvis-pereira)
+
 # back-end-challenge
 
 > Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
@@ -8,7 +10,7 @@ A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, po
 
 **Então, essa é a sua missão!**
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+É isso mesmo, você deverá criar uma API que realize conversão de moedas.
 
 E as especificações são:
 
