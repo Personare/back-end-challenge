@@ -1,0 +1,16 @@
+.dockerignore
+.editorconfig
+.git/
+.github/
+.gitignore
+.phan/
+.phpunit.result.cache
+.vscode/
+Dockerfile
+README.md
+composer/
+docker-compose.*
+phan.phar
+phpcs.xml
+phpunit.phar
+tests/

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  api:
+    image: exchange-api:0.1.0
+    restart: always
+    ports:
+      - 8000:8000
