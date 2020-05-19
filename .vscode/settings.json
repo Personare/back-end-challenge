@@ -1,0 +1,4 @@
+{
+    "phpSniffer.autoDetect": true,
+    "phpSniffer.standard": "./phpcs.xml"
+}

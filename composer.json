@@ -1,0 +1,42 @@
+{
+    "name": "elvishp2006/back-end-challenge",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Elvis Henrique Pereira",
+            "email": "elvishp2006@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "slevomat/coding-standard": "6.3.5",
+        "dealerdirect/phpcodesniffer-composer-installer": "0.6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "scripts": {
+        "ci": [
+            "@lint",
+            "@static-analysis",
+            "@test"
+        ],
+        "download-phpunit": "php -r \"copy('https://phar.phpunit.de/phpunit.phar', 'phpunit.phar');\"",
+        "download-phan": "php -r \"copy('https://github.com/phan/phan/releases/latest/download/phan.phar', 'phan.phar');\"",
+        "download-tools": [
+            "@download-phpunit",
+            "@download-phan"
+        ],
+        "lint": "./vendor/bin/phpcs",
+        "lint-fix": "./vendor/bin/phpcbf",
+        "post-install-cmd": [
+            "@download-tools"
+        ],
+        "static-analysis": "php phan.phar",
+        "test": "php phpunit.phar tests/"
+    }
+}
