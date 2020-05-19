@@ -25,7 +25,7 @@ class Exchange
 
             $convertedData = $this->service
                 ->setFrom(Factory::create($request['from']))
-                // ->setTo(Factory::create($request['to']))
+                ->setTo(Factory::create($request['to']))
                 ->getConvertedData($request['value'], $request['rate']);
 
             $this->responses->responseJSON($convertedData, 200);
