@@ -23,4 +23,4 @@
 1. Executando lint com phpcs: `docker-compose run --rm composer lint`
 1. Executando lint-fix com phpcbf: `docker-compose run --rm composer lint-fix`
 1. Executando análise estática de código com Phan: `docker-compose run --rm composer static-analysis`
-1. Executando todos os comando acima de uma só vez: `docker-compose run --rm composer ci`
+1. Executando todos os comandos acima de uma só vez: `docker-compose run --rm composer ci`
