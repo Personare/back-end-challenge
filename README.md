@@ -1,4 +1,4 @@
-![CI](https://github.com/elvishp2006/back-end-challenge/workflows/CI/badge.svg?branch=elvis-pereira)
+![CI](https://github.com/elvishp2006/back-end-challenge/workflows/CI/badge.svg?branch=elvis-pereira) [![codecov](https://codecov.io/gh/elvishp2006/back-end-challenge/branch/elvis-pereira/graph/badge.svg)](https://codecov.io/gh/elvishp2006/back-end-challenge/branch/elvis-pereira)
 
 # Exchange API
 
