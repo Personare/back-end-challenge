@@ -41,6 +41,6 @@
             "@download-tools"
         ],
         "static-analysis": "php phan.phar",
-        "test": "phpdbg -qrr ./vendor/bin/phpunit"
+        "test": "./vendor/bin/phpunit"
     }
 }
