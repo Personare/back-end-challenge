@@ -8,6 +8,7 @@ services:
 
   composer:
     image: exchange-composer:0.1.0
+    user: 1000:1000 # Substitua aqui com user id (id -u) e group id (id -g)
     build:
       context: ./composer
     command: composer install

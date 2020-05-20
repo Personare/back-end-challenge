@@ -1,50 +1,26 @@
 ![CI](https://github.com/elvishp2006/back-end-challenge/workflows/CI/badge.svg?branch=elvis-pereira)
 
-# back-end-challenge
+# Exchange API
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+## Dependencias
 
-## Introdução
+1. docker
+1. docker-composer
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+## Executando o projeto
 
-**Então, essa é a sua missão!**
+1. Execute `git clone https://github.com/elvishp2006/back-end-challenge.git -b elvis-pereira` no seu terminal
+1. Entre na pasta clonada
+1. Execute `docker-compose up`
+1. Acesse http://localhost:8000/exchange/10/BRL/USD/5.5 (Formato: exchange/{valor}/{from}/{to}/{rate})
+1. Para rodar no modo produção: `docker-compose build && docker-compose -f docker-compose.yml up -d`
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas.
+### Usando o serviço PHP composer
 
-E as especificações são:
+> Este serviço se encontra no `docker-compose.override.yml`, certifique-se de substituir o `user: 1000:1000` pelo seu user id e group id, com isso não terá problemas de permissões na pasta `vendor`
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
-
-## Instruções
-
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
-
-## Pré-requisitos
-
-- PHP >= 5.6
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
-
-## Diferenciais
-
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
-
-## Dúvidas
-
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
-
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+1. Executando testes unitários: `docker-compose run --rm composer test`
+1. Executando lint com phpcs: `docker-compose run --rm composer lint`
+1. Executando lint-fix com phpcbf: `docker-compose run --rm composer lint-fix`
+1. Executando análise estática de código com Phan: `docker-compose run --rm composer static-analysis`
+1. Executando todos os comando acima de uma só vez: `docker-compose run --rm composer ci`
