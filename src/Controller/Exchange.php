@@ -46,11 +46,17 @@ class Exchange
         }
     }
 
+    /** @return array<int, string> */
+    protected function getRequestUri(): array
+    {
+        // phpcs:ignore SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable
+        return explode('/', $_SERVER['REQUEST_URI']);
+    }
+
     /** @return array{value: float, from: string, to: string, rate: float} */
     private function parseRequest(): array
     {
-        // phpcs:ignore SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable
-        $requestUri = explode('/', $_SERVER['REQUEST_URI']);
+        $requestUri = $this->getRequestUri();
 
         if (!isset($requestUri[1]) || 'exchange' !== $requestUri[1]) {
             throw new \InvalidArgumentException('Método não implementado!');

@@ -12,11 +12,17 @@
     },
     "require-dev": {
         "slevomat/coding-standard": "6.3.5",
-        "dealerdirect/phpcodesniffer-composer-installer": "0.6.2"
+        "dealerdirect/phpcodesniffer-composer-installer": "0.6.2",
+        "phpunit/phpunit": "9.1.4"
     },
     "autoload": {
         "psr-4": {
             "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Test\\": "tests/"
         }
     },
     "scripts": {
@@ -25,10 +31,8 @@
             "@static-analysis",
             "@test"
         ],
-        "download-phpunit": "php -r \"copy('https://phar.phpunit.de/phpunit.phar', 'phpunit.phar');\"",
         "download-phan": "php -r \"copy('https://github.com/phan/phan/releases/latest/download/phan.phar', 'phan.phar');\"",
         "download-tools": [
-            "@download-phpunit",
             "@download-phan"
         ],
         "lint": "./vendor/bin/phpcs",
@@ -37,6 +41,6 @@
             "@download-tools"
         ],
         "static-analysis": "php phan.phar",
-        "test": "php phpunit.phar tests/"
+        "test": "phpdbg -qrr ./vendor/bin/phpunit"
     }
 }

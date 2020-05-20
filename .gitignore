@@ -21,6 +21,7 @@ composer.phar
 
 # Generated files
 .phpunit.result.cache
+/tests/_reports
 
 # PHPUnit
 /app/phpunit.xml
