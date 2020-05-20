@@ -39,7 +39,7 @@ class Exchange
         } catch (\Throwable $e) {
             $this->responses->responseJSON(
                 [
-                    'message' => 'A API está instavel no momento, tente mais tarde!',
+                    'message' => 'A API está instável no momento, tente mais tarde!',
                 ],
                 500,
             );
@@ -59,24 +59,24 @@ class Exchange
         $requestUri = $this->getRequestUri();
 
         if (!isset($requestUri[1]) || 'exchange' !== $requestUri[1]) {
-            throw new \InvalidArgumentException('Método não implementado!');
+            throw new \InvalidArgumentException('Método disponível: /exchange');
         }
 
         if (!isset($requestUri[2])) {
-            throw new \InvalidArgumentException('Valor não informado!');
+            throw new \InvalidArgumentException('Informe um valor ex.: /exchange/10');
         }
 
         if (!isset($requestUri[3])) {
-            throw new \InvalidArgumentException('Não informada a moeda de origem!');
+            throw new \InvalidArgumentException('Informe a moeda de origem ex.: /exchange/10/BRL');
         }
 
         if (!isset($requestUri[4])) {
-            throw new \InvalidArgumentException('Não informada a moeda de destino!');
+            throw new \InvalidArgumentException('Informe a moeda de destino ex.: /exchange/10/BRL/USD');
         }
 
         if (!isset($requestUri[5])) {
             throw new \InvalidArgumentException(
-                'Taxa de conversão não foi informada!',
+                'Informe a taxa de conversão ex.: /exchange/10/BRL/USD/6.78',
             );
         }
 

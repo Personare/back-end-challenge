@@ -27,7 +27,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
         // @phan-suppress-next-line PhanUndeclaredMethod
         $exchange->restApi();
 
-        $this->expectOutputString('{"message":"M\u00e9todo n\u00e3o implementado!"}');
+        $this->expectOutputString('{"message":"M\u00e9todo dispon\u00edvel: \/exchange"}');
     }
 
     /** @runInSeparateProcess */
@@ -49,7 +49,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
         // @phan-suppress-next-line PhanUndeclaredMethod
         $exchange->restApi();
 
-        $this->expectOutputString('{"message":"Valor n\u00e3o informado!"}');
+        $this->expectOutputString('{"message":"Informe um valor ex.: \/exchange\/10"}');
     }
 
     /** @runInSeparateProcess */
@@ -71,7 +71,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
         // @phan-suppress-next-line PhanUndeclaredMethod
         $exchange->restApi();
 
-        $this->expectOutputString('{"message":"N\u00e3o informada a moeda de origem!"}');
+        $this->expectOutputString('{"message":"Informe a moeda de origem ex.: \/exchange\/10\/BRL"}');
     }
 
     /** @runInSeparateProcess */
@@ -93,7 +93,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
         // @phan-suppress-next-line PhanUndeclaredMethod
         $exchange->restApi();
 
-        $this->expectOutputString('{"message":"N\u00e3o informada a moeda de destino!"}');
+        $this->expectOutputString('{"message":"Informe a moeda de destino ex.: \/exchange\/10\/BRL\/USD"}');
     }
 
     /** @runInSeparateProcess */
@@ -115,7 +115,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
         // @phan-suppress-next-line PhanUndeclaredMethod
         $exchange->restApi();
 
-        $this->expectOutputString('{"message":"Taxa de convers\u00e3o n\u00e3o foi informada!"}');
+        $this->expectOutputString('{"message":"Informe a taxa de convers\u00e3o ex.: \/exchange\/10\/BRL\/USD\/6.78"}');
     }
 
     /** @runInSeparateProcess */

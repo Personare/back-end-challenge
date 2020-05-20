@@ -15,7 +15,7 @@ class Factory
     {
         if (!isset(self::$types[$type])) {
             throw new \InvalidArgumentException(
-                "A moeda \"{$type}\" não existe!",
+                "A moeda \"{$type}\" não existe em nossa API de conversão!",
             );
         }
 
