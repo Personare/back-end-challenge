@@ -31,3 +31,9 @@ jobs:
 
     - name: Unit test
       run: composer test
+
+    - uses: codecov/codecov-action@v1
+      with:
+        file: ./tests/_reports/logs/clover.xml
+        flags: unittests
+        fail_ci_if_error: true
