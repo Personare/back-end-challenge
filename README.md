@@ -2,7 +2,7 @@
 
 # Exchange API
 
-## Dependencias
+## Dependências
 
 1. docker
 1. docker-composer
@@ -17,7 +17,7 @@
 
 ### Usando o serviço PHP composer
 
-> Este serviço se encontra no `docker-compose.override.yml`, certifique-se de substituir o `user: 1000:1000` pelo seu user id e group id, com isso não terá problemas de permissões na pasta `vendor`
+> Este serviço encontra-se no `docker-compose.override.yml`, certifique-se de substituir o `user: 1000:1000` pelo seu user id e group id, com isso não terá problemas de permissões na pasta `vendor`
 
 1. Executando testes unitários: `docker-compose run --rm composer test`
 1. Executando lint com phpcs: `docker-compose run --rm composer lint`
