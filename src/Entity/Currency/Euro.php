@@ -6,5 +6,5 @@ class Euro extends Currency
 {
     protected const SYMBOL = '€';
 
-    protected const ISO_ABREVIATION = 'EUR';
+    protected const ISO_ABBREVIATION = 'EUR';
 }

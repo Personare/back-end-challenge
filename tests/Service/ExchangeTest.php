@@ -25,7 +25,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
             ->getConvertedData(1, 1);
     }
 
-    public function testNegativeAmmount(): void
+    public function testNegativeAmount(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $this->service

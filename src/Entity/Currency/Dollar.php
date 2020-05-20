@@ -6,5 +6,5 @@ class Dollar extends Currency
 {
     protected const SYMBOL = '$';
 
-    protected const ISO_ABREVIATION = 'USD';
+    protected const ISO_ABBREVIATION = 'USD';
 }

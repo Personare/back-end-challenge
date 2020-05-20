@@ -4,18 +4,18 @@ namespace App\Controller;
 
 use App\Entity\Currency\Factory;
 use App\Service\Exchange as Service;
-use App\Util\Responses;
+use App\Service\HttpResponse\IResponse;
 
 class Exchange
 {
     protected Service $service;
 
-    protected Responses $responses;
+    protected IResponse $response;
 
-    public function __construct(Service $service, Responses $response)
+    public function __construct(Service $service, IResponse $response)
     {
         $this->service = $service;
-        $this->responses = $response;
+        $this->response = $response;
     }
 
     public function restApi(): void
@@ -28,16 +28,16 @@ class Exchange
                 ->setTo(Factory::create($request['to']))
                 ->getConvertedData($request['value'], $request['rate']);
 
-            $this->responses->responseJSON($convertedData, 200);
+            echo $this->response->getResponse($convertedData, 200);
         } catch (\InvalidArgumentException $e) {
-            $this->responses->responseJSON(
+            echo $this->response->getResponse(
                 [
                     'message' => $e->getMessage(),
                 ],
                 400,
             );
         } catch (\Throwable $e) {
-            $this->responses->responseJSON(
+            echo $this->response->getResponse(
                 [
                     'message' => 'A API está instável no momento, tente mais tarde!',
                 ],

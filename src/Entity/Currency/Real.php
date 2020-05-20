@@ -6,5 +6,5 @@ class Real extends Currency
 {
     protected const SYMBOL = 'R$';
 
-    protected const ISO_ABREVIATION = 'BRL';
+    protected const ISO_ABBREVIATION = 'BRL';
 }

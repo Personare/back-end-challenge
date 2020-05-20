@@ -4,7 +4,7 @@ namespace App\Entity\Currency;
 
 interface ICurrency
 {
-    public function getSimbol(): string;
+    public function getSymbol(): string;
 
     public function getIsoAbbreviation(): string;
 }

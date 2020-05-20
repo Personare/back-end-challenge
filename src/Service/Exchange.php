@@ -49,7 +49,7 @@ class Exchange
 
         return [
             'valorConvertido' => $this->convert($value, $rate),
-            'simboloMoeda' => $this->to->getSimbol(),
+            'simboloMoeda' => $this->to->getSymbol(),
         ];
     }
 
@@ -68,9 +68,9 @@ class Exchange
         return false;
     }
 
-    private function convert(float $ammount, float $rate): float
+    private function convert(float $amount, float $rate): float
     {
-        if ($ammount <= 0) {
+        if ($amount <= 0) {
             throw new \InvalidArgumentException(
                 'A quantidade a ser convertida precisa ser maior que 0',
             );
@@ -82,6 +82,6 @@ class Exchange
             );
         }
 
-        return $ammount * $rate;
+        return $amount * $rate;
     }
 }
