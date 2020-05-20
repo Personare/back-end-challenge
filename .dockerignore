@@ -12,5 +12,4 @@ composer/
 docker-compose.*
 phan.phar
 phpcs.xml
-phpunit.phar
 tests/
