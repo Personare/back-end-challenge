@@ -12,6 +12,6 @@ class Json implements IResponse
         header('Content-Type: application/json; charset=utf-8;');
         http_response_code($statusCode);
 
-        return json_encode($data);
+        return json_encode($data, \JSON_UNESCAPED_UNICODE);
     }
 }
