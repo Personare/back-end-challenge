@@ -27,7 +27,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
         // @phan-suppress-next-line PhanUndeclaredMethod
         $exchange->restApi();
 
-        $this->expectOutputString('{"message":"M\u00e9todo dispon\u00edvel: \/exchange"}');
+        $this->expectOutputString('{"message":"Método disponível: \/exchange"}');
     }
 
     /** @runInSeparateProcess */
@@ -115,7 +115,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
         // @phan-suppress-next-line PhanUndeclaredMethod
         $exchange->restApi();
 
-        $this->expectOutputString('{"message":"Informe a taxa de convers\u00e3o ex.: \/exchange\/10\/BRL\/USD\/6.78"}');
+        $this->expectOutputString('{"message":"Informe a taxa de conversão ex.: \/exchange\/10\/BRL\/USD\/6.78"}');
     }
 
     /** @runInSeparateProcess */
@@ -137,7 +137,7 @@ final class ExchangeTest extends \PHPUnit\Framework\TestCase
         // @phan-suppress-next-line PhanUndeclaredMethod
         $exchange->restApi();
 
-        $this->expectOutputString('{"message":"A API est\u00e1 inst\u00e1vel no momento, tente mais tarde!"}');
+        $this->expectOutputString('{"message":"A API está instável no momento, tente mais tarde!"}');
     }
 
     /** @runInSeparateProcess */
