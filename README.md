@@ -28,7 +28,7 @@ E as especificações são:
 
 ## Pré-requisitos
 
-- PHP >= 5.6
+- Você pode usar a linguagem que preferir. (Preferência para PHP >= 5.6, Javascript ou Python)
 - Orientado a objetos
 - Test Driven Development
 - A API deve retornar em formato de `json`
