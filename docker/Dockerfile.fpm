@@ -1,0 +1,21 @@
+FROM php:7.4-fpm
+
+# Get latest Composer
+RUN curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/bin/composer
+
+# Copy existing application directory permissions
+COPY --chown=www-data:www-data ./src/ /var/www
+
+# Change current user to www
+USER www-data
+
+# Set working directory
+WORKDIR /var/www/
+
+# Install packages
+RUN composer install
+
+# Expose port 9000 and start php-fpm server
+EXPOSE 9000
+CMD ["php-fpm"]
