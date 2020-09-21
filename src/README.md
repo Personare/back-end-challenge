@@ -5,7 +5,7 @@
 
 ### Copiar o arquivo env:  cd src/ && cp .env.example .env
 
-### Rodar docker-compose build && ### Rodar docker-compose up -d
+### Rodar docker-compose build && docker-compose up -d
 
 ### Rodar docker-compose exec personare-api composer install
 
