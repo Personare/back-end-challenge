@@ -14,3 +14,9 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['prefix' => 'currency', 'middleware' => '\App\Http\Middleware\CurrencyMiddleware'], function () use ($router) {
+
+    $router->get('/{amount}/{currencyFrom}/{currencyTo}[/{rate}]', 'CurrencyController@convert');
+
+});
