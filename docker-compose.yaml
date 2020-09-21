@@ -3,6 +3,7 @@ services:
   personare-api:
     build:
       args:
+        user: sammy
         uid: 1000
       context: ./
       dockerfile: ./docker/Dockerfile.fpm

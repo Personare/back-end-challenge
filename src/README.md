@@ -3,6 +3,12 @@
 
 ### Clonar a branch samir-ortiz
 
+### Copiar o arquivo env:  cd src/ && cp .env.example .env
+
+### Rodar docker-compose build
+
+### Rodar docker-compose exec personare-app composer install
+
 ### Rodar docker-compose up -d
 
 ### Acessar http://localhost:8000/currency/100/brl/usd para converter 100 reais para dólares americanos com a cotação do dia disponível em https://exchangeratesapi.io/ (operação inversa também disponível)
