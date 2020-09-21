@@ -1,24 +1,20 @@
-# Lumen PHP Framework
+# Desafio Backend Personare 
+## Samir Ortiz
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+### Clonar a branch samir-ortiz
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### Rodar docker-compose up -d
 
-## Official Documentation
+### Acessar http://localhost:8000/currency/100/brl/usd para converter 100 reais para dólares americanos com a cotação do dia disponível em https://exchangeratesapi.io/ (operação inversa também disponível)
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+### Acessar http://localhost:8000/currency/100/brl/eur para converter 100 reais para euros com a cotação do dia disponível em https://exchangeratesapi.io/ (operação inversa também disponível)
 
-## Contributing
+### Acessar http://localhost:8000/currency/100/brl/usd/5.7 para converter 100 reais para dólares americamos com a cotação no valor de 5.7 (operação inversa também disponível)
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Acessar http://localhost:8000/currency/100/brl/eur/6.2 para converter 100 reais para euros com a cotação no valor de 6.2 (operação inversa também disponível)
 
-## Security Vulnerabilities
+### CI disponível no GitHub ao dar push/merge na branch master
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### Qualquer dúvida, samirortiz@gmail.com ou 51 99725-4229
 
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Abraços
