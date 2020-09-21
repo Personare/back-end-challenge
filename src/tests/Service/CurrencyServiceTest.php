@@ -10,7 +10,7 @@ class CurrencyServiceTest extends TestCase
 
     public function testCurrencyFail()
     {
-        $response = $this->get('/100/brl/euro');
+        $this->get('/100/brl/euro');
         $this->assertEquals(403, $this->response->status());
     }
 
@@ -22,8 +22,7 @@ class CurrencyServiceTest extends TestCase
 
     public function testCurrencyExternalRate()
     {
-        $response = $this->get('/100/brl/eur/');
+        $this->get('/100/brl/eur/');
         $this->assertEquals(200, $this->response->status());
     }
-
 }
