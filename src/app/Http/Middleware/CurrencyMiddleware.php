@@ -5,6 +5,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use InvalidArgumentException;
+use App\Http\Resources\ResponseErrorResource;
 
 
 class CurrencyMiddleware
@@ -29,10 +30,9 @@ class CurrencyMiddleware
     private function validateUri($uri) 
     {
         $countParams = count($uri);
-
         if ($countParams != 4 && $countParams != 5) {
             throw new InvalidArgumentException(
-                'Erro na requisição. Todos os dados devem ser informados. /currency/100/brl/eur/6.2',
+                'Erro na requisição. Verifique se os parâmetros estão sendo informados: http://localhost:8000/currency/100/brl/eur',
             );
         }
     }
