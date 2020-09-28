@@ -57,7 +57,7 @@ As cotações podem consultar uma API para buscar a cotação online e apartir d
 Abaixo, alguns exemplos de chamadas da API:
 
 - Dólar para Real
-	- http://localhost:53191/ConversaoMoedas/120.5/5.63/BRL
+	- http://localhost:porta/ConversaoMoedas/120.5/5.63/BRL
 	- Retorno:
 	{
 		"simbolo": "R$",
@@ -65,7 +65,7 @@ Abaixo, alguns exemplos de chamadas da API:
 	}
 
 - Euro para Real
-	- http://localhost:53191/ConversaoMoedas/25/6.47/BRL
+	- http://localhost:porta/ConversaoMoedas/25/6.47/BRL
 	- Retorno:
 	{
 	  "simbolo": "R$",
@@ -73,7 +73,7 @@ Abaixo, alguns exemplos de chamadas da API:
 	}
 
 - Real para Dólar
-	- http://localhost:53191/ConversaoMoedas/135.90/0.18/USD
+	- http://localhost:porta/ConversaoMoedas/135.90/0.18/USD
 	- Retorno:
 	{
 	  "simbolo": "$",
@@ -81,7 +81,7 @@ Abaixo, alguns exemplos de chamadas da API:
 	}
 
 - Euro para Dólar
-	- http://localhost:53191/ConversaoMoedas/25/1.16/USD
+	- http://localhost:porta/ConversaoMoedas/25/1.16/USD
 	- Retorno:
 	{
 	  "simbolo": "$",
@@ -89,7 +89,7 @@ Abaixo, alguns exemplos de chamadas da API:
 	}
 
 - Dólar para Euro
-	- http://localhost:53191/ConversaoMoedas/50.5/0.86/EUR
+	- http://localhost:porta/ConversaoMoedas/50.5/0.86/EUR
 	- Retorno:
 	{
 	  "simbolo": "€",
@@ -97,9 +97,13 @@ Abaixo, alguns exemplos de chamadas da API:
 	}
 
 - Real para Euro
-	- http://localhost:53191/ConversaoMoedas/85.5/0.15/EUR
+	- http://localhost:porta/ConversaoMoedas/85.5/0.15/EUR
 	- Retorno:
 	{
 	  "simbolo": "€",
 	  "valorConvertido": 12.825
 	}
+
+### Documentação
+
+Ao executar a aplicação pelo Visual Studio a tela inicial abrirá a documentação através do endereço 'http://localhost:porta/index.html', no qual, poderá conhecer os parâmetros de entrada e o retorno.

@@ -202,3 +202,8 @@ C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\obj\Deb
 C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\obj\Debug\netcoreapp3.1\TesteUnitarioConversaoMoedasPersonare.dll
 C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\obj\Debug\netcoreapp3.1\TesteUnitarioConversaoMoedasPersonare.pdb
 C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\obj\Debug\netcoreapp3.1\TesteUnitarioConversaoMoedasPersonare.genruntimeconfig.cache
+C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Repositorio\Personare\Personare\TesteUnitarioConversaoMoedasPersonare\bin\Debug\netcoreapp3.1\ApiConversaoMoedasPersonare.xml

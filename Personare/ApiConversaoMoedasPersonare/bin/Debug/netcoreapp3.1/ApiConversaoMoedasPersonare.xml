@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiConversaoMoedasPersonare</name>
+    </assembly>
+    <members>
+        <member name="M:ApiConversaoMoedasPersonare.Controllers.ConversaoMoedasController.Get(System.Double,System.Double,System.String)">
+            <summary>
+            Realiza a conversão de moedas, com valor inicial de valor a ser convertido, taxa de conversão e o tipo de conversão
+            GET /ConversaoMoedas
+            </summary>
+            <param name="p_valor">Valor inicial para converter</param>
+            <param name="p_taxa">Taxa de conversão</param>
+            <param name="p_converterPara">Tipo de conversão</param>
+            <returns></returns>        
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Exceptions.TaxaConversaoMenorIgualAZeroException">
+            <summary>
+            Classe de exceção que indica se a taxa é menor ou igual que zero
+            </summary>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Exceptions.TipoConversaoNaosuportadoException">
+            <summary>
+            Classe de exceção quando o tipo de conversão informado não é suportado pela API
+            </summary>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Exceptions.ValorParaConverterMenorIgualAZeroException">
+            <summary>
+            Classe de exceção que indica se o Valor para converter é menor ou igual que zero
+            </summary>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Factories.FactoryConversao">
+            <summary>
+            Factory que realiza a conversão de moedas de acordo com o formato informado
+            </summary>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Factories.FactoryFormatoRetorno">
+            <summary>
+            Factory que constroi o Formato de retorno da API conforme o tipo de conversão
+            </summary>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Model.Converter">
+            <summary>
+            Classe que acolhe as informações de conversão
+            </summary>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Model.Converter.Validate">
+            <summary>
+            Valida os dados da classe Converter
+            </summary>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Model.Converter.IsValid">
+            <summary>
+            Valida se os dados são válidos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.ConversaoMoedaService">
+            <summary>
+            Classe responsável por realizar as conversões das mais diversas moedas
+            </summary>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Services.ConversaoMoedaService.Converter(ApiConversaoMoedasPersonare.Model.Converter)">
+            <summary>
+            Realiza a conversão conforme o tipo de conversão
+            </summary>
+            <param name="p_calculo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.ConverterParaDolarService">
+            <summary>
+            Classe que realiza a conversão para Dólar(USD)
+            </summary>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Services.ConverterParaDolarService.ApiConversaoMoedasPersonare#Interface#IConverter#Converter(ApiConversaoMoedasPersonare.Model.Converter)">
+            <summary>
+            Realiza a conversão
+            </summary>
+            <param name="p_converter">Classe que contém as informações de conversão</param>
+            <returns></returns>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.ConverterParaEuroService">
+            <summary>
+            Classe que realiza a conversão para Euro(EUR)
+            </summary>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Services.ConverterParaEuroService.ApiConversaoMoedasPersonare#Interface#IConverter#Converter(ApiConversaoMoedasPersonare.Model.Converter)">
+            <summary>
+            Realiza a conversão
+            </summary>
+            <param name="p_converter">Classe que contém as informações de conversão</param>
+            <returns></returns>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.ConverterParaRealService">
+            <summary>
+            Classe que realiza a conversão para Real(BRL)
+            </summary>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Services.ConverterParaRealService.ApiConversaoMoedasPersonare#Interface#IConverter#Converter(ApiConversaoMoedasPersonare.Model.Converter)">
+            <summary>
+            Realiza a conversão
+            </summary>
+            <param name="p_converter">Classe que contém as informações de conversão</param>
+            <returns></returns>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.FormatoRetornoDolarService">
+            <summary>
+            Formato de retorno para as conversões para moeda Dólar (USD)
+            </summary>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.FormatoRetornoEuroService">
+            <summary>
+            Formato de retorno para as conversões para moeda Euro (EUR)
+            </summary>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.FormatoRetornoRealService">
+            <summary>
+            Formato de retorno para as conversões para moeda Real (BRL)
+            </summary>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.TaxaConversaoService">
+            <summary>
+            Classe que valida se o campo taxa está dentro dos padrões esperados
+            </summary>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Services.TaxaConversaoService.IsValid(System.Double)">
+            <summary>
+            Valida se dado á válido
+            </summary>
+            <param name="p_taxaConversao">Taxa</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Services.TaxaConversaoService.Validate(System.Double)">
+            <summary>
+            Valida se as informações são válidas
+            </summary>
+            <param name="p_taxaConversao">Taxa de Conversão</param>
+        </member>
+        <member name="T:ApiConversaoMoedasPersonare.Services.ValorParaConverterService">
+            <summary>
+            Classe que valida se o campo Valor está dentro dos padrões esperados
+            </summary>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Services.ValorParaConverterService.IsValid(System.Double)">
+            <summary>
+            Valida se dado á válido
+            </summary>
+            <param name="p_valorParaConverter">Valor para Converter</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiConversaoMoedasPersonare.Services.ValorParaConverterService.Validate(System.Double)">
+            <summary>
+            Valida se as informações são válidas
+            </summary>
+            <param name="p_valorParaConverter">Valor para Converter</param>
+        </member>
+    </members>
+</doc>

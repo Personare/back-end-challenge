@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ApiConversaoMoedasPersonare"
+    "\\Personare",
+    "\\Personare\\ApiConversaoMoedasPersonare",
+    "\\Personare\\TesteIntegradoConversaoMoedasPersonare",
+    "\\Personare\\TesteUnitarioConversaoMoedasPersonare"
   ],
+  "SelectedNode": "\\Personare\\TesteUnitarioConversaoMoedasPersonare\\TesteUnitarioConversaoMoedasPersonare.csproj",
   "PreviewInSolutionExplorer": false
 }
