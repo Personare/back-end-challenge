@@ -2,11 +2,9 @@ from personare.shared.domain_model import DomainModel
 
 class Moeda(object):
 
-    def __init__(self, valor, tipo_de, tipo_para, cotacao):
+    def __init__(self, valor, tipo):
         self.valor = valor
-        self.tipo_de = tipo_de
-        self.tipo_para = tipo_para
-        self.cotacao = cotacao
+        self.tipo = "Real"
     
     @classmethod
     def from_dict(cls, adict):
@@ -15,9 +13,7 @@ class Moeda(object):
         """
         moeda = Moeda(
             valor = adict['valor'],
-            tipo_de = adict['tipo_de'],
-            tipo_para = adict['tipo_para'],
-            cotacao = adict['cotacao'],
+            tipo = adict['tipo']
         )
 
         return moeda
@@ -29,9 +25,7 @@ class Moeda(object):
         """
         return {
             'valor': self.valor,
-            'tipo_de': self.tipo_de,
-            'tipo_para': self.tipo_para,
-            'cotacao': self.cotacao,
+            'tipo': self.tipo,
         }
 
     def __eq__(self, other):
