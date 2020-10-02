@@ -1,4 +1,4 @@
-from personare.shared.domain_model import domain_model
+from personare.shared.domain_model import DomainModel
 
 class Moeda(object):
 
@@ -8,7 +8,7 @@ class Moeda(object):
         self.tipo_para = tipo_para
         self.cotacao = cotacao
     
-    @class_method
+    @classmethod
     def from_dict(cls, adict):
         moeda = Moeda(
             valor = adict['valor'],
@@ -16,4 +16,3 @@ class Moeda(object):
             tipo_para = adict['tipo_para'],
             cotacao = adict['cotacao'],
         )
-        
