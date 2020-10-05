@@ -4,7 +4,7 @@ class Moeda(object):
 
     def __init__(self, valor, tipo):
         self.valor = valor
-        self.tipo = "Real"
+        self.tipo = tipo
     
     @classmethod
     def from_dict(cls, adict):
