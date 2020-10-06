@@ -1,4 +1,5 @@
-pip
-wheel
-flake8
-Sphinx
+pytest
+tox
+coverage
+pytest-cov
+pytest-flask

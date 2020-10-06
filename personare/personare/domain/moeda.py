@@ -30,5 +30,3 @@ class Moeda(object):
 
     def __eq__(self, other):
         return self.to_dict() == other.to_dict()
-
-    

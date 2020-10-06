@@ -2,7 +2,7 @@ class CovertMoedaUseCase(object):
 
     def __init__(self, repo, tipo_moeda, valor, tipo_destino, cotacao):
         self.repo = repo
-         self.tipo_moeda = tipo_moeda
+        self.tipo_moeda = tipo_moeda
         self.valor = valor
         self.tipo_destino = tipo_destino
         self.cotacao = cotacao
