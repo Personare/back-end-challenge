@@ -11,8 +11,8 @@ class ConverteRequestObject(req.ValidRequestObject):
     @classmethod
     def converte(self):
         invalid_req = req.InvalidRequestObject()
-        
+
         if invalid_req.has_errors():
             return invalid_req
 
-        return ConverteRequestObject()
+        return ConverteRequestObject(req.ValidRequestObject)
