@@ -3,7 +3,7 @@
 
 ## Startando a aplicação
 
-No terminal, digite `git clone https://github.com/samirortiz/back-end-challenge.git -b samir-ortiz`
+No terminal, digite `git clone https://github.com/samirortiz/back-end-challenge.git -b samir-ortiz-ceccim`
 Ainda no terminal, na raíz do projeto clonado, digite `docker-compose up`
 Acesse a URL <http://localhost:8000/currency/100/BRL/USD/5.7> que foi definida da seguinte forma, conforme exemplo:
 
