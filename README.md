@@ -1,48 +1,35 @@
-# back-end-challenge
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+# Currency API - DESAFIO PERSONARE - Samir Ortiz
 
-## Introdução
+## Startando a aplicação
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+No terminal, digite `git clone https://github.com/samirortiz/personare-api-v2.git -b samir-ortiz`
+Ainda no terminal, na raíz do projeto clonado, digite `docker-compose up`
+Acesse a URL <http://localhost:8000/currency/100/BRL/USD/5.7> que foi definida da seguinte forma, conforme exemplo:
 
-**Então, essa é a sua missão!**
+1. `/currency/` é o único método disponível, responsável pela conversão de moedas
+2. `100` é a quantidade ou valor da moeda que você quer converter
+3. `BRL` é a moeda origem, que você tem e quer converter
+4. `USD` é a moeda destino, para qual você está convertendo o seu dinheiro atual
+5. `5.7` é a cotação da moeda destino, em referÊncia à moeda origem
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+## Conversões disponíveis
 
-E as especificações são:
+1. BRL -> USD
+2. BRL -> EUR
+3. USD -> BRL
+4. EUR -> BRL
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+## Testes unitários
 
-## Instruções
+Na raíz do projeto, digite no terminal `/vendor/bin/phpunit tests/`
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+## CI
 
-## Pré-requisitos
+Disponível no GitHub ao dar push/merge na branch main
 
-- Você pode usar a linguagem que preferir. (Preferência para PHP >= 5.6, Javascript ou Python)
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+## CONTATO
 
-## Diferenciais
+samirortiz@gmail.com / 51 99725-4229
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
-
-## Dúvidas
-
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
-
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+### Abraços

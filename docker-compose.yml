@@ -1,0 +1,18 @@
+version: '3'
+services:
+  api:
+    build:
+      context: .
+    volumes:
+      - ./:/app
+    ports: 
+      - 8000:8000
+  composer:
+    image: currency-composer:0.1.0
+    user: 1000:1000 
+    build:
+      context: ./composer
+    command: composer install
+    volumes:
+      - ./:/app
+
