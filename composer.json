@@ -1,0 +1,8 @@
+{
+    "name": "alfredoackermann/composer-php",
+    "description": "composer",
+    "require": {
+        "php": ">=5.6.0",
+        "phpunit/phpunit": "6.4"
+    }
+}
