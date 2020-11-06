@@ -21,6 +21,7 @@ if (!validarParametros($requestParams)) {
     $valor =  $requestParams[VALOR];
     $appService = new MoedaAppService($tipoMoeda);
     $resp = $appService->getResponse($valor, $cotacao);
+    
     http_response_code(200);
     echo json_encode($resp, JSON_UNESCAPED_UNICODE);
 }
