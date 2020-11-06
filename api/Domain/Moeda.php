@@ -9,7 +9,7 @@ abstract class Moeda {
 
     public function converter(float $valor) : float {
         $result = $valor * $this->cotacao;
-        return $result;
+        return round($result, 2);
     }
 
     abstract public function simbolo() : string;
