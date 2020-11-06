@@ -6,6 +6,6 @@
         "phpunit/phpunit": "6.4"
     },
     "scripts": {
-        "test": "phpunit /api/tests/MoedaServiceTest.php"
+        "test": "phpunit api/tests"
     }
 }
