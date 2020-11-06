@@ -1,48 +1,42 @@
 # back-end-challenge
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+Documentação para o projeto back-end-challenge. 
 
 ## Introdução
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
-
-**Então, essa é a sua missão!**
-
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
-
-E as especificações são:
-
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+Esse projeto se trata de uma API para conversão de moedas, em resposta ao desafio proposto para novos desenvolvedores.
+Foi desenvolvido basicamente em puro PHP, utilizando a biblioteca [PHPUnit](https://phpunit.de/) para a execução de testes unitários.
+Foram utilizados os conceitos de OO, SOLID, TDD, DDD e integração contínua. 
 
 ## Instruções
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+Para executar o serviço, basta executar o seguinte comando no diretório raiz para criar e rodar um container Docker:
 
-## Pré-requisitos
+`docker-compose up -d`
 
-- Você pode usar a linguagem que preferir. (Preferência para PHP >= 5.6, Javascript ou Python)
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+Obs: [Docker](https://www.docker.com/get-started) e [docker-compose](https://docs.docker.com/compose/install/) são pré-requisitos.
 
-## Diferenciais
+## API
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+Url do serviço:
 
-## Dúvidas
+`http://localhost:803/convertemoeda.php` 
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+Parâmetros:
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+`moeda`   => Moeda destino para a conversão. Valores válidos: "real", "dolar", "euro";
+`valor`   => Valor a ser convertido. Deve ser numérico.
+`cotacao` => Cotação da conversão. Deve ser numérico.
+
+Exemplo de solicitação:
+
+`http://localhost:803/convertemoeda.php?moeda=euro&valor=200&cotacao=5.52`
+
+Resposta json:
+
+`{"símbolo":"€","resultado":1104}`
+
+## Integração Contínua
+
+Foi criado um workflow no GitHub Actions para executar os testes unitários automaticamente.
+Para visualizar o resultado do workflow, ir em Actions e selecionar o workflow "PHP Composer".   
