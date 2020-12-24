@@ -23,16 +23,16 @@ class Currency():
         return float(val)
 
     def toEUR(self, brl):
-        return self.currency_map['EUR'] * self.floatfy(brl)
+        return 'EUR$' + str(self.currency_map['EUR'] * self.floatfy(brl))
 
     def toUSD(self, brl):
-        return self.currency_map['USD'] * self.floatfy(brl)
+        return 'USD$' + str(self.currency_map['USD'] * self.floatfy(brl))
 
     def fromEUR(self, eur):
-        return self.floatfy(eur) / self.currency_map['EUR']
+        return 'BRL$' + str(self.floatfy(eur) / self.currency_map['EUR'])
 
     def fromUSD(self, usd):
-        return self.floatfy(usd) / self.currency_map['USD']
+        return 'BRL$' + str(self.floatfy(usd) / self.currency_map['USD'])
 
 if __name__ == '__main__':
     print('Initiating...')
