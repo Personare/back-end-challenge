@@ -1,0 +1,28 @@
+{
+	"USD":{
+		"code":"USD",
+		"codein":"BRL",
+		"name":"Dólar Comercial",
+		"high":"5.2168",
+		"low":"5.2168",
+		"varBid":"0.0004",
+		"pctChange":"0.01",
+		"bid":"5.2164",
+		"ask":"5.2172",
+		"timestamp":"1608758991",
+		"create_date":"2020-12-23 19:00:04"
+	},
+	"EUR":{
+		"code":"EUR",
+		"codein":"BRL",
+		"name":"Euro",
+		"high":"6.3598",
+		"low":"6.3572",
+		"varBid":"0.003",
+		"pctChange":"0.05",
+		"bid":"6.3577",
+		"ask":"6.3608",
+		"timestamp":"1608762963",
+		"create_date":"2020-12-23 19:36:05"
+	}
+}
