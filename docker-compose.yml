@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build: .
+    image: api-exchange
+    container_name: 'api-exchange'
+    environment:
+      PORT: 3000
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+    ports:
+      - '3000:3000'

@@ -1,48 +1,49 @@
-# back-end-challenge
-
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+# Api-Exchange
 
 ## Introdução
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+API que realiza a conversão de moedas, recebendo como a moeda origem, moeda destino, valor e taxa como parametros e retornando o valor formatado com o valor convertido e o simbolo da moeda destibo.
 
-**Então, essa é a sua missão!**
+- Conversões possíveis:
+    - Real
+    - Dólar
+    - Euro
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+## Instruções para uso
 
-E as especificações são:
+O projeto possui pode ser executado diretamente, ou executado via docker através do comando
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+> docker-compose up
 
-## Instruções
+Após o inicio, estara disponivel os seguintes endpoints, através da ulr: http://localhost:3000/ :
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+- /health
+    Endpoint para verificar a saúde da aplicação
 
-## Pré-requisitos
+- /exchange
+    Endpoint responsável por realizar a conversão de valores, e deve-se passar os seguintes parâmetros:
+    - from: De qual moeda será a moeda que será realizada a conversão. Opções disponíveis: "BRL" , "EUR" e "USD"
+    - to: Para qual moeda será a moeda que será realizada a conversão. Opções disponíveis: "BRL" , "EUR" e "USD"
+    - value: Valor da moeda de origem que será convertido para a moeda distino. Valor pode conter casas decimais
+    - tax: Taxa do câmbio entre as moedas. Valor pode conter casas decimais
 
-- Você pode usar a linguagem que preferir. (Preferência para PHP >= 5.6, Javascript ou Python)
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+    Exemplo de chamada com parâmetros:
+        -http://localhost:3000/exchange?from=BRL&to=USD&value=1656.23&tax=0.192518
 
-## Diferenciais
+## Características
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+- Desenvolvida em node.js
+- A API retorna apenas em formato de `json`
+- Tratamento de parâmetros, este está presente e no formato esperado
+- Não foi utilizado o banco de dados para salvar informações sobre a moeda, mas é possivel facilmente adiciona-lo através da camada de serviço
+- Junto ao projeto possui a pasta "database", que contém o "json-server", um banco de dados salvo em formato JSON no arquivo "db.json". Para passar a usar este banco de dados ao invés de dados em código, alterar a classe "currencyService.js" para código que está comentado
 
-## Dúvidas
+## Teste unitários
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+Para executar os testes unitários, deve-se executar o comando:
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+> npm run test
+
+Para analisar a cobertura de código, deve-se executar o comando:
+
+> npm run test:cov

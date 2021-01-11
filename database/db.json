@@ -1,0 +1,25 @@
+{
+    "Currency": [
+        {
+            "id": 1,
+            "code": "BRL",
+            "number": 986,
+            "digits": 2,
+            "symbol": "R$"
+        },
+        {
+            "id": 2,
+            "code": "EUR",
+            "number": 978,
+            "digits": 2,
+            "symbol": "€"
+        },
+        {
+            "id": 3,
+            "code": "USD",
+            "number": 840,
+            "digits": 2,
+            "symbol": "$"
+        }
+    ]
+}
