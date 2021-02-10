@@ -1,0 +1,32 @@
+{
+  "name": "back-end-challenge",
+  "version": "1.0.0",
+  "description": "API responsavel pela conversao das moedas Real, Dolar e Euro",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./back-end-challenge.API/server.js",
+    "test": "clear; ./node_modules/mocha/bin/mocha './{,!(node_modules)/**}/*.test.js' --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tconstantino/back-end-challenge.git"
+  },
+  "author": "Thiago Constantino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tconstantino/back-end-challenge/issues"
+  },
+  "homepage": "https://github.com/tconstantino/back-end-challenge#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "swagger-ui-express": "^4.1.6",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "mocha": "^8.2.1",
+    "sinon": "^9.2.4"
+  }
+}

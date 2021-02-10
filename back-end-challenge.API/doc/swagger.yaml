@@ -1,0 +1,137 @@
+swagger: "2.0"
+info:
+  description: "API back-end-challenge,  responsável em realizar conversões de moedas"
+  version: "1.0.0"
+  title: "back-end-challenge"
+  contact:
+    email: "thiago.constantino@mail.com"
+  license:
+    name: "ISC"
+    url: "https://opensource.org/licenses/ISC"
+host: "localhost:8090"
+basePath: "/api"
+tags:
+- name: "conversor"
+  description: "Responsável pela conversão de moedas"
+schemes:
+- "http"
+paths:
+  /conversor/real:
+    post:
+      tags:
+      - "conversor"
+      summary: "Realiza a conversão das moedas dólar e euro para real"
+      operationId: "converterMoedaParaReal"
+      consumes:
+      - "application/json"
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Valor da moeda de origem e a cotação"
+        required: true
+        schema:
+          $ref: "#/definitions/Conversao"
+      responses:
+        "200": 
+          description: "Moeda convertida com sucesso"
+          schema:
+            $ref: "#/definitions/Dinheiro"
+        "400":
+          description: "Parâmetros inválidos"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "500":
+          description: "Erro interno no servidor"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /conversor/dolar:
+    post:
+      tags:
+      - "conversor"
+      summary: "Realiza a conversão da moeda real para dólar"
+      operationId: "converterDolarParaReal"
+      consumes:
+      - "application/json"
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Valor da moeda de origem e a cotação"
+        required: true
+        schema:
+          $ref: "#/definitions/Conversao"
+      responses:
+        "200": 
+          description: "Moeda convertida com sucesso"
+          schema:
+            $ref: "#/definitions/Dinheiro"
+        "400":
+          description: "Parâmetros inválidos"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "500":
+          description: "Erro interno no servidor"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+  /conversor/euro:
+    post:
+      tags:
+      - "conversor"
+      summary: "Realiza a conversão das moeda euro para real"
+      operationId: "converterEuroParaReal"
+      consumes:
+      - "application/json"
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Valor da moeda de origem e a cotação"
+        required: true
+        schema:
+          $ref: "#/definitions/Conversao"
+      responses:
+        "200": 
+          description: "Moeda convertida com sucesso"
+          schema:
+            $ref: "#/definitions/Dinheiro"
+        "400":
+          description: "Parâmetros inválidos"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        "500":
+          description: "Erro interno no servidor"
+          schema:
+            $ref: "#/definitions/ApiResponse"
+definitions:
+  Conversao:
+    type: "object"
+    properties:
+      valor:
+        type: "number"
+        format: "double"
+      cotacao:
+        type: "number"
+        format: "double"
+  Dinheiro:
+    type: "object"
+    properties:
+      valor:
+        type: "number"
+        format: "double"
+      moeda:
+        type: "string"
+  ApiResponse:
+    type: "object"
+    properties:
+      mensagem:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
