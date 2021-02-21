@@ -1,0 +1,22 @@
+{
+	"BRL-USD": {
+		"symbol": "$", 
+		"name": "Dólar Americano", 
+		"value": "0,18" 
+	},
+	"USD-BRL": {
+		"symbol": "R$", 
+		"name": "Real", 
+		"value": "5,42" 
+	},
+	"BRL-EUR": {
+		"symbol": "&euro;", 
+		"name": "Euro", 
+		"value": "0,15" 
+	},
+	"EUR-BRL": {
+		"symbol": "R$", 
+		"name": "Real", 
+		"value": "6,54" 
+	}
+}
