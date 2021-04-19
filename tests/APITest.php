@@ -16,8 +16,8 @@ class APITest extends TestCase {
         $this->apiCurl = new API("curl");
         
         $this->assertJsonStringEqualsJsonString(
-                json_encode($this->apiGetFile->getJson("https://economia.awesomeapi.com.br/BRL-USD/1")),
-                json_encode($this->apiCurl->getJson("https://economia.awesomeapi.com.br/BRL-USD/1"))
+                json_encode($this->apiGetFile->getJson("https://economia.awesomeapi.com.br/USD-BRL/1")),
+                json_encode($this->apiCurl->getJson("https://economia.awesomeapi.com.br/USD-BRL/1"))
         );
     }
 

@@ -17,15 +17,20 @@
 
 class Conversao{
     
-    protected   $valor;
-    private     $cotacao;
-    private     $moeda;
+    private $valor;
+    private $cotacao;
+    private $moeda;
+    private $tipo;
 
-    function __construct($entrada,$saida,$valor){
+    function __construct($entrada,$saida,$valor,$valorCotacao,$tipo="parametro"){
         
         $this->cotacao  = new Cotacao();
+        $this->cotacao->setValorCotacao($valorCotacao);
+        
         $this->moeda    = new Moeda($entrada,$saida);
+        
         $this->setValor($valor);
+        $this->setTipo($tipo);
         
     }
 
@@ -36,6 +41,14 @@ class Conversao{
     function setValor($valor) {
         $this->valor = $valor;
     }
+
+    function getTipo() {
+        return $this->tipo;
+    }
+
+    function setTipo($tipo) {
+        $this->tipo = $tipo;
+    }    
     
     /**
      * Metodo resultado
@@ -58,9 +71,35 @@ class Conversao{
      */
 
     function resultado(){
-        $cotacao = $this->cotacao->cotacaoDiaria($this->moeda->getMoedaEntrada(),$this->moeda->getMoedaSaida());
-        $resultado = $this->getValor() * $cotacao;
-        return $this->moeda->formatarNumero($resultado);
+        
+        try {
+            // Calculo da conversão via passagem de parametro da cotação
+            if ($this->moeda->getMoedaSaida() == "BRL") {
+                $resultado = $this->getValor() * $this->cotacao->getValorCotacao();
+            } else {
+                $resultado = $this->getValor() / $this->cotacao->getValorCotacao();
+            }
+            return $this->moeda->formatarNumero($resultado);
+            
+        } catch (Exception $e) {
+            echo 'Exceção capturada: ' . $e->getMessage() . "<br /><br />";
+        }
+    }
+
+    function resultadoAPI(){
+        
+        try {
+            // Leitura da cotação diária via API sem a passagem de parametro de cotação
+            if($this->getTipo() == "api"){
+                $cotacao = $this->cotacao->cotacaoDiaria($this->moeda->getMoedaEntrada(),$this->moeda->getMoedaSaida());
+                $resultado = $this->getValor() * $cotacao;
+                return $this->moeda->formatarNumero($resultado);
+            }else {
+                throw new Exception('Parametros de entrada não definidos corretamente! Verifique o parametro tipo');
+            }
+        } catch (Exception $e) {
+            echo 'Exceção capturada: ' . $e->getMessage() . "<br /><br />";
+        }
     }
 
     /**
@@ -83,11 +122,13 @@ class Conversao{
      * @copyright Copyright (c) 2021 Personare
      */
     function converter(){
+        // verifica o tipo de requisição (parametro ou api)
+        $resultado = $this->getTipo() == "parametro" ? $this->resultado() : $this->resultadoAPI();
         $array = [
-            "resultado" => $this->resultado(),
+            "resultado" => $resultado,
             "simbolo" => $this->moeda->retornarSimbolo()
         ];
-        return $array;
+        return json_encode($array);
     }
     
     /**

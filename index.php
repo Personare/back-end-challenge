@@ -7,17 +7,18 @@ try {
     
     $moedaEntrada   = $_GET['de'];
     $moedaSaida     = $_GET['para'];
-    $valor          = $_GET['valor'];
+    $valorConversao = $_GET['valor'];
+    $valorCotacao   = $_GET['cotacao'];
 
     $moeda = new Moeda($moedaEntrada,$moedaSaida);
-
-    if ($moeda->validarMoeda($_GET["de"]) && $moeda->validarMoeda($_GET["para"])) {
-        
-        $conversao = new Conversao($moedaEntrada, $moedaSaida, $valor);
-        print_r($conversao->json());
+    
+    // validações de entrada de dados
+    if ($moeda->validarMoeda($moedaEntrada) && $moeda->validarMoeda($moedaSaida) && isset($valorCotacao) ){
+            $conversao = new Conversao($moedaEntrada, $moedaSaida, $valorConversao, $valorCotacao);
+            print_r($conversao->converter());
         
     } else {
-        throw new Exception('Parametros de entrada não definidos corretamente! Utilize: BRL, USD ou EUR');
+        throw new Exception('Parametros de entrada não definidos corretamente! Utilize: BRL, USD ou EUR. Verifique os parametros: de, para, valor e cotacao');
     }
 } catch (Exception $e) {
 

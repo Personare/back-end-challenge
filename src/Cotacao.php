@@ -16,9 +16,18 @@
 class Cotacao{
     
     private $api;
+    private $valorCotacao;
     
     function __construct(){
         $this->api = new API("file-get");
+    }
+    
+    function getValorCotacao() {
+        return $this->valorCotacao;
+    }
+
+    function setValorCotacao($valorCotacao) {
+        $this->valorCotacao = $valorCotacao;
     }
     
     /**
@@ -43,7 +52,10 @@ class Cotacao{
      * @copyright Copyright (c) 2021 Personare
      */
     function cotacaoDiaria($siglaEntrada, $siglaSaida){
-        $json = $this->api->getJson("https://economia.awesomeapi.com.br/". $siglaEntrada . "-" . $siglaSaida . "/1");
+        // cotacao do dia em uma data especifica para realização de testes
+        $json = $this->api->getJson("https://economia.awesomeapi.com.br/json/daily/". $siglaEntrada . "-" . $siglaSaida . "/?start_date=20210415");
+        // cotacao do dia em tempo real
+        //$json = $this->api->getJson("https://economia.awesomeapi.com.br/". $siglaEntrada . "-" . $siglaSaida . "/1");
         return $json[0]->ask;
     }
     
