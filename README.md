@@ -53,15 +53,12 @@ Testes Unitários
 
 Classes: API, Conversão, Cotação e Moedas
 
-Para o teste ConversaoTest.php, consulte a API abaixo para verificar o valor da cotação do dia dos testes realizados para cada moeda e comparar com os valores gerados pelo sistema.
-
-https://economia.awesomeapi.com.br/EUR-BRL/1
-
-Teste configurado para a cotação consultada no dia 19 de abril de 2020 através da API acima.
+Para o teste ConversaoAPITest.php, esta sendo utilizado a cotação do dia 15/04/2021 de acordo com as consultas dos links descritos nos comentários da classeTest
 
 PHP
 - ./vendor/bin/phpunit tests/APITest.php
 - ./vendor/bin/phpunit tests/ConversaoTest.php
+- ./vendor/bin/phpunit tests/ConversaoAPITest.php
 - ./vendor/bin/phpunit tests/CotacaoTest.php
 - ./vendor/bin/phpunit tests/MoedaTest.php
 
