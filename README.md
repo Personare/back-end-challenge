@@ -1,21 +1,26 @@
 
 ## Utilização da API:
 
-- 1o parametro: de    = Sigla da moeda do valor informado
-- 2o parametro: para  = Sigla da moeda para conversão
-- 3o parametro: valor = Valor a ser convertivo
+- 1o parametro: de      = Sigla da moeda do valor informado
+- 2o parametro: para    = Sigla da moeda para conversão
+- 3o parametro: valor   = Valor a ser convertivo
+- 4o parametro: cotacao = Valor da cotacao
+- 5o parametro: tipo    = *OPCIONAL - Caso setado "api" busca o valor da cotação via API
+
+* As cotações de cada uma das moedas são consultadas via API no serviço https://economia.awesomeapi.com.br/
 
 Siglas aceitas pela API: BRL, USD ou EUR
-
-As cotações de cada uma das moedas são consultadas via API no serviço https://economia.awesomeapi.com.br/
 
 ## Exemplos de utilização:
 
 Ambiente de Desenvolvimento
-http://localhost/back-end-challenge/?de=BRL&para=EUR&valor=2071.90
+http://localhost/back-end-challenge/?de=BRL&para=EUR&valor=2071.90&cotacao=5.75
+
+http://localhost/back-end-challenge/api.php?de=BRL&para=EUR&valor=2071.90&tipo=api
 
 Ambiente de Produção
-http://personare.com.br/api/?de=BRL&para=EUR&valor=2071.90
+http://personare.com.br/api/?de=BRL&para=EUR&valor=2071.90&cotacao=5.75
+http://personare.com.br/api/api.php?de=BRL&para=EUR&valor=2071.90&tipo=api
 
 Retorno:
 
@@ -26,12 +31,11 @@ Retorno:
 
 ## Configuração:
 
-1) Alterar o path do caminho real nos arquivos de testes (/tests/) na linha 4 de cada arquivo do PHPUnit
+1) Alterar o path do caminho real nos arquivos de testes (/tests/) na linha 4 de cada arquivo do PHPUnit e linha 2 dos arquivos index.php e api.php
 
 include("/Users/orbitive/www/back-end-challenge/autoload.php");
 
 2) Realizar a instalação do PHPUnit, PHPDocs, Node.js com o módulo "request"
-
 
 
 # Requisitos

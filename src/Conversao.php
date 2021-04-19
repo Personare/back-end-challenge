@@ -130,28 +130,5 @@ class Conversao{
         ];
         return json_encode($array);
     }
-    
-    /**
-     * Metodo json
-     *
-     * Converte o $array para o formato json
-     * 
-     * @param null
-     *
-     * @return json dados no formato json
-     *
-     * <code>
-     * <?php
-     * print_r($this->json());
-     * ?>
-     * </code>
-     *
-     * @version 1.0
-     * @author Eduardo Dotto Martucci <eduardo.martucci@gmail.com>
-     * @copyright Copyright (c) 2021 Personare
-     */
-    function json(){
-        return json_encode($this->converter());
-    }
 
 }
