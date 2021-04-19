@@ -1,9 +1,9 @@
 
 ## Utilização da API:
 
-1o parametro: de    = Sigla da moeda do valor informado
-2o parametro: para  = Sigla da moeda para conversão
-3o parametro: valor = Valor a ser convertivo
+- 1o parametro: de    = Sigla da moeda do valor informado
+- 2o parametro: para  = Sigla da moeda para conversão
+- 3o parametro: valor = Valor a ser convertivo
 
 Siglas aceitas pela API: BRL, USD ou EUR
 
@@ -24,7 +24,7 @@ Retorno:
 
 ## Configuração:
 
-1) Alterar o path do caminho real nos arquivos de testes na linha 4 de cada arquivo do PHPUnit
+1) Alterar o path do caminho real nos arquivos de testes (/tests/) na linha 4 de cada arquivo do PHPUnit
 
 include("/Users/orbitive/www/back-end-challenge/autoload.php");
 
