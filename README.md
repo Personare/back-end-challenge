@@ -14,14 +14,16 @@ Siglas aceitas pela API: BRL, USD ou EUR
 ## Exemplos de utilização:
 
 Ambiente de Desenvolvimento
+
 Cotação via parametro
-http://localhost/back-end-challenge/?de=BRL&para=EUR&valor=2071.90&cotacao=5.75
+- http://localhost/back-end-challenge/?de=BRL&para=EUR&valor=2071.90&cotacao=5.75
 Cotação via API
-http://localhost/back-end-challenge/api.php?de=BRL&para=EUR&valor=2071.90&tipo=api
+- http://localhost/back-end-challenge/api.php?de=BRL&para=EUR&valor=2071.90&tipo=api
+
 
 Ambiente de Produção
-http://personare.com.br/api/?de=BRL&para=EUR&valor=2071.90&cotacao=5.75
-http://personare.com.br/api/api.php?de=BRL&para=EUR&valor=2071.90&tipo=api
+- http://personare.com.br/api/?de=BRL&para=EUR&valor=2071.90&cotacao=5.75
+- http://personare.com.br/api/api.php?de=BRL&para=EUR&valor=2071.90&tipo=api
 
 Retorno:
 
