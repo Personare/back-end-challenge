@@ -16,8 +16,11 @@ Siglas aceitas pela API: BRL, USD ou EUR
 Ambiente de Desenvolvimento
 
 Cotação via parametro
+
 - http://localhost/back-end-challenge/?de=BRL&para=EUR&valor=2071.90&cotacao=5.75
+
 Cotação via API
+
 - http://localhost/back-end-challenge/api.php?de=BRL&para=EUR&valor=2071.90&tipo=api
 
 
