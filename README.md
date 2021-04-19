@@ -7,6 +7,8 @@
 
 Siglas aceitas pela API: BRL, USD ou EUR
 
+As cotações de cada uma das moedas são consultadas via API no serviço https://economia.awesomeapi.com.br/
+
 ## Exemplos de utilização:
 
 Ambiente de Desenvolvimento
