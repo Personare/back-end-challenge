@@ -96,13 +96,6 @@ Teste Unitário para leitura da API via Node.js
 
 
 
-
-
-
-
-
-
-
 # back-end-challenge
 
 > Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
