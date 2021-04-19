@@ -32,11 +32,9 @@ include("/Users/orbitive/www/back-end-challenge/autoload.php");
 
 
 
-Requisitos
+# Requisitos
 
-PHPUnit
-PHPDocs
-Node.js com módulo request
+PHPUnit, PHPDocs e Node.js com módulo request
 
 -------------------------------------------
 
