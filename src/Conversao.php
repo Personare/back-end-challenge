@@ -7,7 +7,7 @@
 /**
  * Classe Conversão
  * 
- * Classe para a conversão de valores nas moedas Real, Dollar e Euro
+ * Classe para a conversão de valores nas moedas Real, Dolar e Euro
  *
  * @todo 
  *
@@ -85,7 +85,25 @@ class Conversao{
             echo 'Exceção capturada: ' . $e->getMessage() . "<br /><br />";
         }
     }
-
+    /**
+     * Metodo resultadoAPI
+     *
+     * Consultorar o valor da cotação via API e gerar o resultado da conversão
+     * 
+     * @param null
+     *
+     * @return float valor formatado de acordo com a moeda de saída
+     *
+     * <code>
+     * <?php
+     * $this->resultadoAPI();
+     * ?>
+     * </code>
+     *
+     * @version 1.0
+     * @author Eduardo Dotto Martucci <eduardo.martucci@gmail.com>
+     * @copyright Copyright (c) 2021 Personare
+     */
     function resultadoAPI(){
         
         try {

@@ -76,20 +76,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Conversao.html#method_setValor"
         },                {
+            "fqsen": "\\Conversao\u003A\u003AgetTipo\u0028\u0029",
+            "name": "getTipo",
+            "summary": "",
+            "url": "classes/Conversao.html#method_getTipo"
+        },                {
+            "fqsen": "\\Conversao\u003A\u003AsetTipo\u0028\u0029",
+            "name": "setTipo",
+            "summary": "",
+            "url": "classes/Conversao.html#method_setTipo"
+        },                {
             "fqsen": "\\Conversao\u003A\u003Aresultado\u0028\u0029",
             "name": "resultado",
             "summary": "Metodo\u0020resultado",
             "url": "classes/Conversao.html#method_resultado"
         },                {
+            "fqsen": "\\Conversao\u003A\u003AresultadoAPI\u0028\u0029",
+            "name": "resultadoAPI",
+            "summary": "Metodo\u0020resultadoAPI",
+            "url": "classes/Conversao.html#method_resultadoAPI"
+        },                {
             "fqsen": "\\Conversao\u003A\u003Aconverter\u0028\u0029",
             "name": "converter",
             "summary": "Metodo\u0020converter",
             "url": "classes/Conversao.html#method_converter"
-        },                {
-            "fqsen": "\\Conversao\u003A\u003Ajson\u0028\u0029",
-            "name": "json",
-            "summary": "Metodo\u0020json",
-            "url": "classes/Conversao.html#method_json"
         },                {
             "fqsen": "\\Conversao\u003A\u003A\u0024valor",
             "name": "valor",
@@ -106,6 +116,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Conversao.html#property_moeda"
         },                {
+            "fqsen": "\\Conversao\u003A\u003A\u0024tipo",
+            "name": "tipo",
+            "summary": "",
+            "url": "classes/Conversao.html#property_tipo"
+        },                {
             "fqsen": "\\Cotacao",
             "name": "Cotacao",
             "summary": "Classe\u0020Conversao",
@@ -116,6 +131,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Cotacao.html#method___construct"
         },                {
+            "fqsen": "\\Cotacao\u003A\u003AgetValorCotacao\u0028\u0029",
+            "name": "getValorCotacao",
+            "summary": "",
+            "url": "classes/Cotacao.html#method_getValorCotacao"
+        },                {
+            "fqsen": "\\Cotacao\u003A\u003AsetValorCotacao\u0028\u0029",
+            "name": "setValorCotacao",
+            "summary": "",
+            "url": "classes/Cotacao.html#method_setValorCotacao"
+        },                {
             "fqsen": "\\Cotacao\u003A\u003AcotacaoDiaria\u0028\u0029",
             "name": "cotacaoDiaria",
             "summary": "Metodo\u0020cotacaoDiaria",
@@ -125,6 +150,11 @@ Search.appendIndex(
             "name": "api",
             "summary": "",
             "url": "classes/Cotacao.html#property_api"
+        },                {
+            "fqsen": "\\Cotacao\u003A\u003A\u0024valorCotacao",
+            "name": "valorCotacao",
+            "summary": "",
+            "url": "classes/Cotacao.html#property_valorCotacao"
         },                {
             "fqsen": "\\Moeda",
             "name": "Moeda",
