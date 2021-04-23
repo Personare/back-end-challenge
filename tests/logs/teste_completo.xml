@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<tests>
+ <testCaseClass name="ApiTest">
+  <testCaseMethod name="testGet" groups="default" dataSet="&quot;Teste de Cotacao USD-BRL&quot;"/>
+  <testCaseMethod name="testGet" groups="default" dataSet="&quot;Teste de Cotacao BRL-USD&quot;"/>
+  <testCaseMethod name="testGet" groups="default" dataSet="&quot;Teste de Cotacao EUR-BRL&quot;"/>
+  <testCaseMethod name="testGet" groups="default" dataSet="&quot;Teste de Cotacao BRL-EUR&quot;"/>
+ </testCaseClass>
+ <testCaseClass name="CalculaCotacaoTest">
+  <testCaseMethod name="testCalculaValorRetornado" groups="default" dataSet="&quot;Teste conta com 1 casa decimal&quot;"/>
+  <testCaseMethod name="testCalculaValorRetornado" groups="default" dataSet="&quot;Teste conta com 2 casas decimais&quot;"/>
+ </testCaseClass>
+ <testCaseClass name="TratamentoRequestTest">
+  <testCaseMethod name="testValidacaoDeMoedasCorretas" groups="default" dataSet="&quot;Verificacao entrada de Moedas BRL-USD&quot;"/>
+  <testCaseMethod name="testValidacaoDeMoedasCorretas" groups="default" dataSet="&quot;Verificacao entrada de Moedas BRL-EUR&quot;"/>
+  <testCaseMethod name="testValidacaoDeMoedasCorretas" groups="default" dataSet="&quot;Verificacao entrada de Moedas USD-BRL&quot;"/>
+  <testCaseMethod name="testValidacaoDeMoedasCorretas" groups="default" dataSet="&quot;Verificacao entrada de Moedas EUR-BRL&quot;"/>
+  <testCaseMethod name="testValidaParametroCotacao" groups="default" dataSet="&quot;Verificacao entrada de Moedas BRL-USD&quot;"/>
+  <testCaseMethod name="testValidaParametroCotacao" groups="default" dataSet="&quot;Verificacao entrada de Moedas BRL-EUR&quot;"/>
+  <testCaseMethod name="testValidaParametroCotacao" groups="default" dataSet="&quot;Verificacao entrada de Moedas USD-BRL&quot;"/>
+  <testCaseMethod name="testValidaParametroCotacao" groups="default" dataSet="&quot;Verificacao entrada de Moedas EUR-BRL&quot;"/>
+ </testCaseClass>
+</tests>

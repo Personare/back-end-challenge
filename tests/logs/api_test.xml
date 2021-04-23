@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tests>
+ <testCaseClass name="ApiTest">
+  <testCaseMethod name="testGet" groups="default" dataSet="&quot;Teste de Cotacao USD-BRL&quot;"/>
+  <testCaseMethod name="testGet" groups="default" dataSet="&quot;Teste de Cotacao BRL-USD&quot;"/>
+  <testCaseMethod name="testGet" groups="default" dataSet="&quot;Teste de Cotacao EUR-BRL&quot;"/>
+  <testCaseMethod name="testGet" groups="default" dataSet="&quot;Teste de Cotacao BRL-EUR&quot;"/>
+ </testCaseClass>
+</tests>

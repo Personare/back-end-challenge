@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<tests>
+ <testCaseClass name="TratamentoRequestTest">
+  <testCaseMethod name="testValidacaoDeMoedasCorretas" groups="default" dataSet="&quot;Verificacao entrada de Moedas BRL-USD&quot;"/>
+  <testCaseMethod name="testValidacaoDeMoedasCorretas" groups="default" dataSet="&quot;Verificacao entrada de Moedas BRL-EUR&quot;"/>
+  <testCaseMethod name="testValidacaoDeMoedasCorretas" groups="default" dataSet="&quot;Verificacao entrada de Moedas USD-BRL&quot;"/>
+  <testCaseMethod name="testValidacaoDeMoedasCorretas" groups="default" dataSet="&quot;Verificacao entrada de Moedas EUR-BRL&quot;"/>
+  <testCaseMethod name="testValidaParametroCotacao" groups="default" dataSet="&quot;Verificacao entrada de Moedas BRL-USD&quot;"/>
+  <testCaseMethod name="testValidaParametroCotacao" groups="default" dataSet="&quot;Verificacao entrada de Moedas BRL-EUR&quot;"/>
+  <testCaseMethod name="testValidaParametroCotacao" groups="default" dataSet="&quot;Verificacao entrada de Moedas USD-BRL&quot;"/>
+  <testCaseMethod name="testValidaParametroCotacao" groups="default" dataSet="&quot;Verificacao entrada de Moedas EUR-BRL&quot;"/>
+ </testCaseClass>
+</tests>

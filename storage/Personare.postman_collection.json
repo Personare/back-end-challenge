@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "d2fc6c7f-daa7-4cd0-b9c6-794cb9218821",
+		"name": "Personare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BRL-EUR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/?moeda_origem=BRL&moeda_destino=EUR&valor=55.30&cotacao=0.15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "moeda_origem",
+							"value": "BRL"
+						},
+						{
+							"key": "moeda_destino",
+							"value": "EUR"
+						},
+						{
+							"key": "valor",
+							"value": "55.30"
+						},
+						{
+							"key": "cotacao",
+							"value": "0.15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USD-BRL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/?moeda_origem=USD&moeda_destino=BRL&valor=27.88&cotacao=5.44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "moeda_origem",
+							"value": "USD"
+						},
+						{
+							"key": "moeda_destino",
+							"value": "BRL"
+						},
+						{
+							"key": "valor",
+							"value": "27.88"
+						},
+						{
+							"key": "cotacao",
+							"value": "5.44"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BRL-USD",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/?moeda_origem=BRL&moeda_destino=USD&valor=36.40&cotacao=0.18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "moeda_origem",
+							"value": "BRL"
+						},
+						{
+							"key": "moeda_destino",
+							"value": "USD"
+						},
+						{
+							"key": "valor",
+							"value": "36.40"
+						},
+						{
+							"key": "cotacao",
+							"value": "0.18"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EUR-BRL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/?moeda_origem=EUR&moeda_destino=BRL&valor=36.40&cotacao=6.54",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "moeda_origem",
+							"value": "EUR"
+						},
+						{
+							"key": "moeda_destino",
+							"value": "BRL"
+						},
+						{
+							"key": "valor",
+							"value": "36.40"
+						},
+						{
+							"key": "cotacao",
+							"value": "6.54"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
