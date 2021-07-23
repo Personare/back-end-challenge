@@ -1,0 +1,23 @@
+{
+    "name": "luismendes/challenge",
+    "description": "Challenge to job in Personare Company",
+    "autoload": {
+        "psr-4": {
+            "Luismendes\\Challenge\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luis Mendes",
+            "email": "luiscarlosilvamendes2@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4.21"
+    },
+
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*",
+        "phpunit/phpunit": "^6.2.2"
+    }
+}
