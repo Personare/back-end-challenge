@@ -17,5 +17,5 @@
 
 - Estudo do projeto
 
-[v0.0.2]: https://github.com/DouglasO-R/challenge-test/compare/v0.0.1...v0.0.2
+[v0.0.2]: https://github.com/DouglasO-R/back-end-challenge/compare/v0.0.1...v0.0.2
 [v0.0.1]: https://github.com/DouglasO-R/back-end-challenge/releases/v0.0.1
