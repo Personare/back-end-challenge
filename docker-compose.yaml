@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  web:
+    image: nginx:1.21.1-alpine
+    container_name: nginx
+    restart: always
+    ports:
+      - "3001:80"
+    volumes:
+      - ./app:/app
+      - ./docker/nginx/site.conf:/etc/nginx/conf.d/site.conf
+    links:
+      - fpm
+  fpm:
+    build: ./docker/fpm
+    container_name: fpm
+    volumes:
+      - ./app:/app
+  cli:
+    build: ./docker/cli
+    container_name: cli
+    restart: "no"
+    volumes:
+      - ./app:/app
+    working_dir: /app
+  composer:
+    image: composer:2.2.6
+    container_name: composer
+    command: composer install --prefer-dist --no-progress
+    environment:
+      - ./app/var/cache/composer=/app/var/cache/composer
+    volumes:
+      - ./app:/app
+    restart: "no"
+    
