@@ -1,0 +1,14 @@
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/5.6/phpunit.xsd"
+    colors="true"
+    backupGlobals="false"
+    bootstrap="./vendor/autoload.php"
+>
+    <testsuites>
+      <testsuite name="Meus Testes">
+        <directory>./tests</directory>
+      </testsuite>
+    </testsuites>
+
+</phpunit>

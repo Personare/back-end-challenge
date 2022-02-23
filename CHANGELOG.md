@@ -2,7 +2,14 @@
 
 ## [Unreleased]
 
-- TDD
+- CI
+  
+## [v0.0.3] - 2022-02-22
+
+### Added
+
+- ambiente de test com phpUnit dentro do docker
+- banco de dados postgres
 
 ## [v0.0.2] - 2022-02-22
 
@@ -16,6 +23,7 @@
 ### Added
 
 - Estudo do projeto
-
+- 
+[v0.0.3]: https://github.com/DouglasO-R/back-end-challenge/compare/v0.0.1...v0.0.3
 [v0.0.2]: https://github.com/DouglasO-R/back-end-challenge/compare/v0.0.1...v0.0.2
 [v0.0.1]: https://github.com/DouglasO-R/back-end-challenge/releases/v0.0.1

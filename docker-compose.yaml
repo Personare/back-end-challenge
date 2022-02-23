@@ -16,6 +16,12 @@ services:
     container_name: fpm
     volumes:
       - ./app:/app
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    depends_on:
+      - postgres
   cli:
     build: ./docker/cli
     container_name: cli
@@ -32,4 +38,15 @@ services:
     volumes:
       - ./app:/app
     restart: "no"
+  postgres:
+    container_name: postgres
+    image: postgres:11-alpine
+    restart: unless-stopped
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgresql/data/
+    environment:
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
     
