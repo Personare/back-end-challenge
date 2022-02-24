@@ -1,0 +1,26 @@
+name: PHP Composer
+
+on: [push,pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Validate composer.json and composer.lock
+      working-directory: ./app
+      run: composer validate --strict
+
+    - name: Install dependencies
+      working-directory: ./app
+      run: composer install --prefer-dist --no-progress
+
+    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
+    # Docs: https://getcomposer.org/doc/articles/scripts.md
+
+    - name: Run test suite
+      working-directory: ./app
+      run: composer run-script test

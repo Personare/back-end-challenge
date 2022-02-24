@@ -42,7 +42,13 @@ class ExchangeCurrencyTest extends TestCase
         $dto = new ExchangeUseCaseDTO($this->params);
         $exchange = new ExchangeCurrencyUseCase($this->repository);
 
+        $res = json_decode($exchange->execute($dto), true);
+
         $this->assertEquals('{"symbol":"R$","value":5.29}', $exchange->execute($dto));
+        $this->assertJsonStringEqualsJsonString('{"symbol":"R$","value":5.29}', $exchange->execute($dto));
+        $this->assertEquals($this->real->getSymbol(), $res['symbol']);
+        $this->assertEquals(5.29, $res['value']);
+        $this->assertIsNumeric($res['value']);
     }
 
     public function testExchangeTwoUSDToBrl()
@@ -51,37 +57,47 @@ class ExchangeCurrencyTest extends TestCase
 
         $dto = new ExchangeUseCaseDTO($this->params);
         $exchange = new ExchangeCurrencyUseCase($this->repository);
+        $res = json_decode($exchange->execute($dto), true);
 
         $this->assertEquals('{"symbol":"R$","value":10.58}', $exchange->execute($dto));
+        $this->assertJsonStringEqualsJsonString('{"symbol":"R$","value":10.58}', $exchange->execute($dto));
+        $this->assertEquals($this->real->getSymbol(), $res['symbol']);
+        $this->assertEquals(10.58, $res['value']);
+        $this->assertIsNumeric($res['value']);
     }
 
     public function testInvalidValueException()
     {
         $this->params['value'] = "joao";
 
-        $this->expectError();
         $this->expectException(InvalidArgumentException::class);
-
+        $this->expectExceptionMessage("inform numeric value with .");
         $dto = new ExchangeUseCaseDTO($this->params);
-        $exchange = new ExchangeCurrencyUseCase($this->repository);
-        $res = json_decode($exchange->execute($dto), true);
-
-        $this->expectExceptionMessageMatches("inform numeric value with .",$res['Error']);
-
     }
 
     public function testInvalidCotationException()
     {
         $this->params['cotation'] = "joao";
 
-        $this->expectError();
         $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage("inform numeric cotation with .");
 
         $dto = new ExchangeUseCaseDTO($this->params);
-        $exchange = new ExchangeCurrencyUseCase($this->repository);
-        $res = json_decode($exchange->execute($dto), true);
-        
-        $this->expectExceptionMessageMatches("inform numeric value with .",$res['Error']);
+    }
 
+    public function testEmptyFieldsException()
+    {
+        $params = [
+            "from",
+            "to",
+            "value",
+            "cotation"
+        ];
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage("inform from,inform to,inform numeric value with .,inform numeric cotation with .");
+
+        $dto = new ExchangeUseCaseDTO($params);
+      
     }
 }

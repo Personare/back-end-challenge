@@ -3,7 +3,6 @@ require_once "./vendor/autoload.php";
 
 use App\Application\Controllers\ExchangeController;
 use App\Core\UseCase\ExchangeCurrencyUseCase;
-use App\Infra\Repository\PostgresRepository;
 
 
 $request = parse_url($_SERVER['REQUEST_URI']);
@@ -14,8 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $request['path'] === '/api') {
     header("Content-Type: application/json; charset=UTF-8");
 
     try {
-        $repo = new PostgresRepository();
-        $useCase = new ExchangeCurrencyUseCase($repo);
+        $useCase = new ExchangeCurrencyUseCase();
         $controller = new ExchangeController($useCase);
 
         echo $controller->handle($_GET);

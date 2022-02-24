@@ -5,7 +5,7 @@ namespace App\Application\Controllers;
 use App\Core\UseCase\ExchangeUseCaseDTO;
 use App\Core\UseCase\IUseCase;
 
-class ExchangeController
+class ExchangeController implements IController
 {
     private IUseCase $useCase;
 

@@ -4,15 +4,21 @@ namespace App\Core\UseCase;
 
 use App\Core\Repository\IRepository;
 use App\Core\UseCase\IRequest;
+use App\Infra\Repository\PostgresRepository;
 
 class ExchangeCurrencyUseCase implements IUseCase
 {
     private IRepository $repo;
 
 
-    public function __construct(IRepository $repo)
+    public function __construct(IRepository $repo = null)
     {
-        $this->repo = $repo;
+        if(is_null($repo)){
+            $this->repo = new PostgresRepository();
+        } else {
+            $this->repo = $repo;
+        }
+        
     }
 
     public function execute(IRequest $dto)
