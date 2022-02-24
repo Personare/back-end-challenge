@@ -1,5 +1,5 @@
 <?php
-require_once "/vendor/autoload.php";
+// require_once "/vendor/autoload.php";
 
 use App\Application\Controllers\ExchangeController;
 use App\Core\UseCase\ExchangeCurrencyUseCase;
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $request['path'] === '/api') {
         // $controller = new ExchangeController($useCase);
 
         // echo $controller->handle($_GET);
-        echo "ola";
+        var_dump(scandir(getcwd()));
     } catch (\Exception $th) {
 
         http_response_code($th->getCode());
