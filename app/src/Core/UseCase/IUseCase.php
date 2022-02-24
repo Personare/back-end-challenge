@@ -1,8 +1,8 @@
 <?php
 namespace App\Core\UseCase;
 
-use App\Core\Entities\ICurrency;
+use App\Core\UseCase\IRequest;
 
 interface IUseCase{
-    public function execute(ICurrency $from, ICurrency $to, float $value,float $cotation);
+    public function execute(IRequest $dto);
 }
