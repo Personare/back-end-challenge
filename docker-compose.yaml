@@ -42,11 +42,14 @@ services:
     container_name: postgres
     image: postgres:11-alpine
     restart: unless-stopped
-    volumes:
-      - ./docker/postgres/data:/var/lib/postgresql/data/
     environment:
-      PGDATA: /var/lib/postgresql/data/pgdata
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASS}
-    
+    volumes:
+      - /docker/postgres/data:/var/lib/postgresql/data
+
+
+
+      
+
