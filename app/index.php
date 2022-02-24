@@ -1,5 +1,5 @@
 <?php
-// require_once "/vendor/autoload.php";
+require_once "./vendor/autoload.php";
 
 use App\Application\Controllers\ExchangeController;
 use App\Core\UseCase\ExchangeCurrencyUseCase;
@@ -13,11 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $request['path'] === '/api') {
     header("Content-Type: application/json; charset=UTF-8");
 
     try {
-        // $useCase = new ExchangeCurrencyUseCase();
-        // $controller = new ExchangeController($useCase);
+        $useCase = new ExchangeCurrencyUseCase();
+        $controller = new ExchangeController($useCase);
 
-        // echo $controller->handle($_GET);
-        var_dump(scandir(getcwd()));
+        echo $controller->handle($_GET);
     } catch (\Exception $th) {
 
         http_response_code($th->getCode());
@@ -28,3 +27,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $request['path'] === '/api') {
     http_response_code(404);
     echo json_encode('Request Method not Accepted');
 }
+
+// var_dump(scandir(getcwd()));
