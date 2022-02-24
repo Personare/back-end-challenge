@@ -1,5 +1,5 @@
 <?php
-require_once "./vendor/autoload.php";
+require_once "/vendor/autoload.php";
 
 use App\Application\Controllers\ExchangeController;
 use App\Core\UseCase\ExchangeCurrencyUseCase;
