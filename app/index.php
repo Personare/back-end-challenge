@@ -13,10 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $request['path'] === '/api') {
     header("Content-Type: application/json; charset=UTF-8");
 
     try {
-        $useCase = new ExchangeCurrencyUseCase();
-        $controller = new ExchangeController($useCase);
+        // $useCase = new ExchangeCurrencyUseCase();
+        // $controller = new ExchangeController($useCase);
 
-        echo $controller->handle($_GET);
+        // echo $controller->handle($_GET);
+        echo "ola";
     } catch (\Exception $th) {
 
         http_response_code($th->getCode());
