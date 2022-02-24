@@ -5,6 +5,7 @@ namespace App\Infra\Repository;
 use App\Core\Entities\Currency;
 use App\Core\Repository\IRepository;
 
+
 class PostgresRepository implements IRepository
 {
     
@@ -15,7 +16,9 @@ class PostgresRepository implements IRepository
         $db = getenv('POSTGRES_DB');
         $user = getenv('POSTGRES_USER');
         $password = getenv('POSTGRES_PASSWORD');
-        $dsn = "pgsql:host=postgres;port=5432;dbname=$db;";
+        $host = getenv('POSTGRES_HOST');
+
+        $dsn = "pgsql:host=$host;port=5432;dbname=$db;";
         $this->pdo = new \PDO($dsn, $user, $password, [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
     }
 
