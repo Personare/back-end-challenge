@@ -35,7 +35,8 @@
 ### Added
 
 - Estudo do projeto
-
+- 
+[v0.0.4]: https://github.com/DouglasO-R/back-end-challenge/compare/v0.0.4...v0.0.5
 [v0.0.4]: https://github.com/DouglasO-R/back-end-challenge/compare/v0.0.3...v0.0.4
 [v0.0.3]: https://github.com/DouglasO-R/back-end-challenge/compare/v0.0.2...v0.0.3
 [v0.0.2]: https://github.com/DouglasO-R/back-end-challenge/compare/v0.0.1...v0.0.2
