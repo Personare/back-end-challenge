@@ -106,7 +106,7 @@ class ExchangeCurrencyTest extends TestCase
 
         $exchange = new ExchangeCurrencyUseCase($this->repository);
         $controller = new ExchangeController($exchange);
-        $controller->handle($this->params);
+        $controller->handle($params);
       
     }
 }
