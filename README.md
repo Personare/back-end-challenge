@@ -15,3 +15,4 @@ Aplicação de conversão de moedas, formatação numérica em decimal com separ
 
 ## Deploy
 > - Aplicação esta rodando no heroku : https://exchange-currency-api.herokuapp.com/api
+> - utilizando cloud database https://www.elephantsql.com/ 
