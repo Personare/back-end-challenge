@@ -26,13 +26,18 @@ class PostgresRepository implements IRepository
 
     public function findById(string $id)
     {
-        $data = $this->pdo->query("SELECT * FROM currency WHERE currency_id ='$id' ")->fetch(\PDO::FETCH_OBJ);
+        try {
+            $data = $this->pdo->query("SELECT * FROM currency WHERE currency_id ='$id' ")->fetch(\PDO::FETCH_OBJ);
 
-        if (empty($data)) {
-            throw new \Exception("Id not found", 404);
+            if (empty($data)) {
+                throw new \Exception("Id not found", 404);
+            }
+    
+            return new Currency($data->name, $data->currency_id, $data->symbol);
+        } catch (\Throwable $th) {
+            throw $th->getMessage();
         }
-
-        return new Currency($data->name, $data->currency_id, $data->symbol);
+       
     }
 
 }

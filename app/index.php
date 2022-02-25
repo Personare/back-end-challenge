@@ -25,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $request['path'] === '/api') {
 } else {
 
     http_response_code(404);
-    echo json_encode('Request Method not Accepted');
+    echo json_encode(["Error" => "Request Method not Accepted"]);
 }
 
-// var_dump(scandir(getcwd()));

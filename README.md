@@ -7,5 +7,5 @@ Aplicação de conversão de moedas, formatação numérica em decimal com separ
 
 ## Run
 > - build a docker docker application with ` sh scripts/build.sh `
-> - access http://127.0.0.1:3001/
+> - access http://127.0.0.1:3001/api
 > - run test inside docker ` sh scripts/test.sh `

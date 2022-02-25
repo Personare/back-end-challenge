@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Application\Controllers\ExchangeController;
 use App\Core\Entities\Currency;
 use App\Core\UseCase\ExchangeCurrencyUseCase;
 use App\Core\UseCase\ExchangeUseCaseDTO;
@@ -55,12 +56,13 @@ class ExchangeCurrencyTest extends TestCase
     {
         $this->params['value'] = 2;
 
-        $dto = new ExchangeUseCaseDTO($this->params);
         $exchange = new ExchangeCurrencyUseCase($this->repository);
-        $res = json_decode($exchange->execute($dto), true);
+        $controller = new ExchangeController($exchange);
 
-        $this->assertEquals('{"symbol":"R$","value":10.58}', $exchange->execute($dto));
-        $this->assertJsonStringEqualsJsonString('{"symbol":"R$","value":10.58}', $exchange->execute($dto));
+        $res = json_decode($controller->handle($this->params), true);
+
+        $this->assertEquals('{"symbol":"R$","value":10.58}', $controller->handle($this->params));
+        $this->assertJsonStringEqualsJsonString('{"symbol":"R$","value":10.58}', $controller->handle($this->params));
         $this->assertEquals($this->real->getSymbol(), $res['symbol']);
         $this->assertEquals(10.58, $res['value']);
         $this->assertIsNumeric($res['value']);
@@ -72,7 +74,10 @@ class ExchangeCurrencyTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("inform numeric value with .");
-        $dto = new ExchangeUseCaseDTO($this->params);
+
+        $exchange = new ExchangeCurrencyUseCase($this->repository);
+        $controller = new ExchangeController($exchange);
+        $controller->handle($this->params);
     }
 
     public function testInvalidCotationException()
@@ -82,7 +87,9 @@ class ExchangeCurrencyTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("inform numeric cotation with .");
 
-        $dto = new ExchangeUseCaseDTO($this->params);
+        $exchange = new ExchangeCurrencyUseCase($this->repository);
+        $controller = new ExchangeController($exchange);
+        $controller->handle($this->params);
     }
 
     public function testEmptyFieldsException()
@@ -97,7 +104,9 @@ class ExchangeCurrencyTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("inform from,inform to,inform numeric value with .,inform numeric cotation with .");
 
-        $dto = new ExchangeUseCaseDTO($params);
+        $exchange = new ExchangeCurrencyUseCase($this->repository);
+        $controller = new ExchangeController($exchange);
+        $controller->handle($this->params);
       
     }
 }
