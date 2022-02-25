@@ -2,8 +2,14 @@
 
 ## [Unreleased]
 
-- CI
-  
+
+## [v0.0.5] - 2022-02-25
+
+### Added
+
+- Continuous Integration com GitHub Actions
+- Continuous Deploy na plataforma Heroku 
+
 ## [v0.0.4] - 2022-02-23
 
 ### Added
