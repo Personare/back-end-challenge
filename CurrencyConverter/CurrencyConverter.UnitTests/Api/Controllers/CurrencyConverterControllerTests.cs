@@ -27,7 +27,7 @@ public class CurrencyConverterControllerTests
     }
 
     [Theory, AutoNSubstituteData]
-    public void GetConvertedCurrency(
+    public void GetConvertedCurrency_Should_Return_Ok_When_Input_Is_Correct(
         Amount amount,
         CurrencyConverterRequestModel model,
         CurrencyConverterController sut)
