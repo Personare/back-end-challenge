@@ -10,10 +10,12 @@ public class CurrencyConverterModelValidator : AbstractValidator<CurrencyConvert
     {
         RuleFor(x => x.InputCurrency)
             .IsInEnum()
-            .WithMessage("Requested currency is not valid.");
+            .NotEqual(CurrencyTypes.Undefined)
+            .WithMessage("Input currency is not valid.");
 
         RuleFor(x => x.OutputCurrency)
             .IsInEnum()
+            .NotEqual(CurrencyTypes.Undefined)
             .WithMessage("Output currency is not valid.");
 
         RuleFor(x => x)
