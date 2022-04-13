@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyConverter.Api", "Cu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyConverter.Domain", "CurrencyConverter.Domain\CurrencyConverter.Domain.csproj", "{6A6F7026-E92A-4654-845A-77F956783BC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter.UnitTests", "CurrencyConverter.UnitTests\CurrencyConverter.UnitTests.csproj", "{46EF2A83-00EF-40FA-AEE3-0F044537DC6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrencyConverter.UnitTests", "CurrencyConverter.UnitTests\CurrencyConverter.UnitTests.csproj", "{46EF2A83-00EF-40FA-AEE3-0F044537DC6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

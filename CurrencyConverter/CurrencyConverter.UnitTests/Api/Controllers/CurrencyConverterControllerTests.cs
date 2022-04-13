@@ -15,16 +15,10 @@ namespace CurrencyConverter.UnitTests.Api.Controllers;
 public class CurrencyConverterControllerTests
 {
     [Theory, AutoNSubstituteData]
-    public void CurrencyConverterController_Should_Implements_Its_ParentClass(CurrencyConverterController sut)
-    {
-        sut.Should().BeAssignableTo<ControllerBase>();
-    }
+    public void CurrencyConverterController_Should_Implements_Its_ParentClass(CurrencyConverterController sut) => sut.Should().BeAssignableTo<ControllerBase>();
 
     [Theory, AutoNSubstituteData]
-    public void CurrencyConverterController_Should_Guard_Its_Clauses(GuardClauseAssertion assertion)
-    {
-        assertion.Verify(typeof(CurrencyConverterController).GetConstructors());
-    }
+    public void CurrencyConverterController_Should_Guard_Its_Clauses(GuardClauseAssertion assertion) => assertion.Verify(typeof(CurrencyConverterController).GetConstructors());
 
     [Theory, AutoNSubstituteData]
     public void GetConvertedCurrency_Should_Return_Ok_When_Input_Is_Correct(
@@ -45,7 +39,7 @@ public class CurrencyConverterControllerTests
 
         // Assert
 
-        result.Should().BeOfType<OkResult>();
-        resultResponse.Value.Should().BeEquivalentTo(expectedResponseAmount);
+        result.Should().BeOfType<OkObjectResult>();
+        resultResponse.Value.Should().Be(expectedResponseAmount);
     }
 }
