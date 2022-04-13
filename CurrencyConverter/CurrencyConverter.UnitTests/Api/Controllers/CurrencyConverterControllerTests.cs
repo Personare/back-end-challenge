@@ -42,4 +42,25 @@ public class CurrencyConverterControllerTests
         result.Should().BeOfType<OkObjectResult>();
         resultResponse.Value.Should().Be(expectedResponseAmount);
     }
+
+    [Theory, AutoNSubstituteData]
+    public void GetCurrency_Should_Return_BadRequest_When_Model_Validation_Has_Errors(
+        CurrencyConverterRequestModel model,
+        CurrencyConverterController sut)
+    {
+        // Arrange
+
+        var errorKey = "field";
+        var expectedError = "generic error.";
+
+        sut.ModelState.AddModelError(errorKey, expectedError);
+
+        // Act
+
+        var result = sut.GetConvertedCurrency(model);
+
+        // Assert
+
+        result.Should().BeOfType<BadRequestObjectResult>();
+    }
 }
