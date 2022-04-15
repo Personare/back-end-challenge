@@ -9,18 +9,20 @@ public class CurrencyConverterModelValidator : AbstractValidator<CurrencyConvert
     public CurrencyConverterModelValidator()
     {
         RuleFor(x => x.InputCurrency)
+            .NotNull()
+            .WithMessage("InputCurrency field cannot be empty.")
             .IsInEnum()
-            .NotEqual(CurrencyTypes.Undefined)
-            .WithMessage("Input currency is not valid.");
+            .WithMessage("InputCurrency is not valid.");
 
         RuleFor(x => x.OutputCurrency)
+            .NotNull()
+            .WithMessage("OutputCurrency field cannot be empty.")
             .IsInEnum()
-            .NotEqual(CurrencyTypes.Undefined)
-            .WithMessage("Output currency is not valid.");
+            .WithMessage("OutputCurrency is not valid.");
 
         RuleFor(x => x)
             .Must(x => AtLeastOneCurrencyIsReal(x))
-            .WithMessage("At least one of input currency values, must be Real (R$)");
+            .WithMessage("At least one of currency values, must be Real (R$)");
 
         RuleFor(x => x.Amount)
             .GreaterThan(decimal.Zero)

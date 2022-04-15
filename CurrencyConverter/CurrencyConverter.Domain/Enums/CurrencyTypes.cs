@@ -2,9 +2,8 @@ namespace CurrencyConverter.Domain.Enums;
 
 public enum CurrencyTypes : byte
 {
-    Undefined,
-    Real,
-    Usd,
-    Eur
+    Real = 1,
+    Usd = 2,
+    Eur = 3
 }
 
