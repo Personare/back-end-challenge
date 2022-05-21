@@ -1,0 +1,28 @@
+{
+    "name": "personare/back-end-challenge",
+    "description": "Desafio para os futuros back-end's da Personare",
+    "type": "project",
+    "license": "MIT",
+    "scripts": {
+        "test": "./vendor/bin/codecept run",
+        "lint": "./vendor/bin/phpcs src/",
+        "lint:fix": "./vendor/bin/phpcbf src/"
+    },
+    "autoload": {
+        "psr-4": {
+            "Personare\\BackEndChallenge\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emanuel Souza",
+            "email": "emanuel.inacios@gmail.com"
+        }
+    ],
+    "require": {
+        "codeception/codeception": "^4.1",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-rest": "^1.0.0",
+        "squizlabs/php_codesniffer": "^3.6"
+    }
+}
