@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '11a44a03af75267ef72300bdcf002463cc5ce313',
+        'reference' => '9e01d39bedb75ff35b2331495c943e70fc4b249a',
         'name' => 'personare/back-end-challenge',
         'dev' => true,
     ),
@@ -157,7 +157,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '11a44a03af75267ef72300bdcf002463cc5ce313',
+            'reference' => '9e01d39bedb75ff35b2331495c943e70fc4b249a',
             'dev_requirement' => false,
         ),
         'phar-io/manifest' => array(
