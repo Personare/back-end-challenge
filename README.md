@@ -48,11 +48,11 @@ Exchange endpoint: Perform a currency conversion **Acceptable Coins**
 │   ├── Entities/
 │   │   ├── Currency.php
 │   ├── Providers/
-│   |   ├── Currency/
-│   |   |   ├── Calculate.php
-│   |   |   ├── Controller.php
-│   |   |   ├── Response.php
-│   |   |   ├── Validated.php
+│   │   ├── Currency/
+│   │   │   ├── Calculate.php
+│   │   │   ├── Controller.php
+│   │   │   ├── Response.php
+│   │   │   ├── Validated.php
 │   ├── Services/
 │   │   ├── Exchange.php
 │   ├── Core.php
@@ -60,7 +60,7 @@ Exchange endpoint: Perform a currency conversion **Acceptable Coins**
 │   ├── _output/
 │   ├── _support/
 │   ├── api/
-│   |   ├── 001-ValidatedCest.php
-│   |   ├── 002-ExchangeCest.php
+│   │   ├── 001-ValidatedCest.php
+│   │   ├── 002-ExchangeCest.php
 │   ├── api.suite.yml
 └── index.php 
