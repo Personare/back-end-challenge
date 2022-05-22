@@ -45,16 +45,24 @@ Exchange endpoint: Perform a currency conversion **Acceptable Coins**
 ## Directory Structure
 ```shell
 ├── src/  
+│   ├── Controllers/
+│   │   ├── AbstractController.php       #Must Implements
 │   ├── Entities/
-│   │   ├── Currency.php
+│   │   ├── Currency.php                 #Must Implements
 │   ├── Providers/
-│   │   ├── Currency/
-│   │   │   ├── Calculate.php
-│   │   │   ├── Controller.php
-│   │   │   ├── Response.php
-│   │   │   ├── Validated.php
-│   ├── Services/
-│   │   ├── Exchange.php
+│   │   ├── Request.php                  #Must Implements
+│   │   ├── Response.php                 #Must Implements
+│   ├── Services/                        #Api business logic goes on
+│   │   ├── Exchange/
+│   │   │   ├── Controller/
+│   │   │   │   ├── Exchange.php
+│   │   │   ├── Currency/
+│   │   │   │   ├── BRL.php
+│   │   │   │   ├── CurrencyBuilder.php
+│   │   │   │   ├── EUR.php
+│   │   │   │   ├── USD.php
+│   │   │   ├── ExchangeRequest.php
+│   │   ├── ExchangeService.php
 │   ├── Core.php
 ├── tests/  
 │   ├── _output/

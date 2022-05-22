@@ -22,42 +22,66 @@ namespace Personare\BackEndChallenge\Entites;
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://localhost:8080/
  */
-class Currency
+abstract class Currency
 {
 
-    protected float $amount;
-    protected string $symbol;
+    protected float $amount = 0;
+    protected string $symbol = '';
     
     /**
      * __construct
      *
      * @param mixed $amount of currency
-     * @param mixed $symbol of currency
      * 
      * @return void
      */
-    function __construct( float $amount, string $symbol )
+    function __construct( float $amount )
     {
         $this->amount = $amount;
-        $this->symbol = $symbol;
     }
+
     
     /**
-     * GetSymbol
+     * SetSymbol
+     *
+     * @param string $symbol set property
+     * 
+     * @return void
+     */
+    protected function setSymbol( string $symbol ) : void
+    {
+        $this->symbol = $symbol;
+    }
+
+    
+    /**
+     * SetAmount
+     *
+     * @param string $amount set property
+     * 
+     * @return void
+     */
+    protected function setAmount( float $amount ) : void
+    {
+        $this->amount = $amount;
+    }    
+    
+    /**
+     * GetSymbol return property
      *
      * @return string
      */
-    function getSymbol() : string
+    public function getSymbol() : string
     {
         return $this->symbol;
     }
     
     /**
-     * GetAmount
+     * GetAmount return property
      *
      * @return float
      */
-    function getAmount() : float
+    public function getAmount() : float
     {
         return $this->amount;
     }

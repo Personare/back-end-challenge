@@ -108,4 +108,18 @@ class ValidatedCest
         $I->seeResponseIsJson();
     }
 
+    public function tryTwoNumbersNegativeRate( \ApiTester $I ) : void
+    {
+        $I->sendGET('/BRL/10/USD/10/-10');
+        $I->seeResponseCodeIs(400);
+        $I->seeResponseIsJson();
+    }
+
+    public function tryTwoNumbersNegativeConvertion( \ApiTester $I ) : void
+    {
+        $I->sendGET('/BRL/-10/USD/10/2');
+        $I->seeResponseCodeIs(400);
+        $I->seeResponseIsJson();
+    }
+
 }

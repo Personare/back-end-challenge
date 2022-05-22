@@ -12,7 +12,7 @@
  */
 
 namespace Personare\BackEndChallenge;
-use Personare\BackEndChallenge\Services\Exchange;
+use Personare\BackEndChallenge\Services\ExchangeService;
 
 /**
  * Core Load Services
@@ -43,7 +43,7 @@ class Core
      */
     public function loadServices() : void
     {
-        $serviceExchange = new Exchange();
+        $serviceExchange = new ExchangeService();
     }
 
 }

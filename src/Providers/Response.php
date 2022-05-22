@@ -1,22 +1,22 @@
 <?php
 /**
- * File Response.php /Providers/Currency
+ * File Response.php /Providers
  *
  * PHP Version 8.1
  *
- * @category Providers_Currency
+ * @category Providers
  * @package  Personare_BackEndChallenge
  * @author   Emanuel Souza <emanuel.inacios@gmail.com>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://localhost:8080/
  */
 
-namespace Personare\BackEndChallenge\Providers\Currency;
+namespace Personare\BackEndChallenge\Providers;
 
 /**
  * Response format response to api
  *
- * @category Providers_Currency
+ * @category Providers
  * @package  Personare_BackEndChallenge
  * @author   Emanuel Souza <emanuel.inacios@gmail.com>
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License

@@ -1,6 +1,6 @@
 <?php
 /**
- * File Services.php /Services
+ * File ExchangeService.php /Services
  *
  * PHP Version 8.0
  *
@@ -12,10 +12,11 @@
  */
 
 namespace Personare\BackEndChallenge\Services;
-use Personare\BackEndChallenge\Providers\Currency\Controller;
+use Personare\BackEndChallenge\Services\Exchange\Controller\Exchange;
+use Personare\BackEndChallenge\Services\Exchange\ExchangeRequest;
 
 /**
- * Service Exchange route
+ * ExchangeService route
  *
  * @category Services
  * @package  Personare_BackEndChallenge
@@ -23,10 +24,8 @@ use Personare\BackEndChallenge\Providers\Currency\Controller;
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://localhost:8080/
  */
-class Exchange
+class ExchangeService
 {
-
-    protected const ROUTE = 'exchange/';
     
     /**
      * __construct
@@ -47,13 +46,21 @@ class Exchange
      */
     function handleRequest( string $request ) : void
     {
-        $currencyController = new Controller();
+        $enchangeRequest = new ExchangeRequest();
+        $exchangeController = new Exchange($enchangeRequest);
 
-        if (strpos($request, self::ROUTE) !== false ) :
-            $currencyController->receiver($request);
+        if ($exchangeController->getValidRequest() == false ) :
+
+            $error = [
+                'errorItem' => 'Route',
+                'message' => 'Wrong Route',
+            ];
+    
+            $exchangeController->sendResponse(400, $error);
+
         endif;
 
-        $currencyController->sendResponse(400, 'Wrong Route');
+        $exchangeController->receiver($enchangeRequest);
     }
 
 }
