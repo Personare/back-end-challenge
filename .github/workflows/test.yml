@@ -2,9 +2,9 @@ name: Codeception Test
 
 on:
   push:
-    branches: [ main, emanuel-souza ]
+    branches: [ master, emanuel-souza ]
   pull_request:
-    branches: [ main, emanuel-souza ]
+    branches: [ master, emanuel-souza ]
 
 permissions:
   contents: read
