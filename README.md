@@ -12,7 +12,8 @@ Since the objective was simply to create an api for currency exchange, the opera
 {
     input_currency:"BRL",
     output_currency:"EUR",
-    amount:1
+    amount:1,
+	rate:0.19
 }
 ```
 
