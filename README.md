@@ -48,11 +48,11 @@ The input_currency and output_currency will only accept the following: "USD", "B
 
 ## Running the application
 - install the dependencios from the requirements.txt
-- update the settings.py with the exchange rate and the server address (if needed)
-- execute `python main.py` on the terminal or cmd
+- update the `app/settings.py` with the exchange rate and the server address (if needed)
+- execute `python app/main.py` on the terminal or cmd
 
 ## Testing the application
 I'm using the `pytest` module for the tests. The tests are focused on the exchange method, and can be run with the following command on the root directory:
 
-`python -m pytest tests`
+`python -m pytest app/tests`
 
