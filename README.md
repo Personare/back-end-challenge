@@ -1,48 +1,57 @@
-# back-end-challenge
+# Back-End-Challenge Personare | Lucas Dantas
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+I made the implementation trying to avoid frameworks, using mostly standard libs for the requests handlers and logs. 
 
-## Introdução
+The server uses the HTTPServer class from the http.server lib to keep the serving loop, this class allow to apply custom responses for each request method inheriting the BaseHTTPRequestHandler also from the http.server.
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+Since the objective was simply to create an api for currency exchange, the operation will be made using the base path. (Ex: meusite.com). Only the POST method will return the conversion, all other methods (except for head) will return an error
 
-**Então, essa é a sua missão!**
+### Input Examples:
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+```
+{
+    input_currency:"BRL",
+    output_currency:"EUR",
+    amount:1
+}
+```
 
-E as especificações são:
+### Output Examples:
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+```
+{
+    "amount": 0.19, 
+    "currency": "EUR"
+}
+```
 
-## Instruções
+### Requisition example using javascript's fetch api:
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+```
+fetch("http://localhost:8000/",{
+    method:"POST", 
+    body:JSON.stringify({
+        input_currency:"BRL",
+        output_currency:"EUR",
+        amount:1,
+        rate:0.22
+    }),
+    headers:{
+         "Content-Type":"application/json"   
+    }
+}).then(resp => resp.json()).then(json => console.log(json.amount))
+// 0.22
+```
 
-## Pré-requisitos
+The input_currency and output_currency will only accept the following: "USD", "BRL", "EUR". If the rate is not informed, the predefined rates will be used
 
-- Você pode usar a linguagem que preferir. (Preferência para PHP >= 5.6, Javascript ou Python)
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+## Running the application
+- install the dependencios from the requirements.txt
+- update the settings.py with the exchange rate and the server address (if needed)
+- execute `python main.py` on the terminal or cmd
 
-## Diferenciais
+## Testing the application
+I'm using the `pytest` module for the tests. The tests are focused on the exchange method, and can be run with the following command on the root directory:
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+`python -m pytest tests`
 
-## Dúvidas
-
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
-
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
