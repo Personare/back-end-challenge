@@ -1,0 +1,14 @@
+{
+  "name": "back-end-challenge",
+  "version": "1.0.0",
+  "description": "> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js"
+  },
+  "author": "Welligton Luiz Porto",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
