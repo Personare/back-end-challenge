@@ -1,9 +1,10 @@
 const express = require("express");
+
+const routes = require("./routes");
+
 const app = express();
 
-app.get("/hello", (req, res) => {
-    res.send("Hello world!");
-});
+app.use(routes);
 
 const PORT = 3000;
 app.listen(PORT, console.log(`Running on http://localhost:${PORT}`));
