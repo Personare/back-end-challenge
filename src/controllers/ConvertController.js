@@ -1,14 +1,32 @@
-const AppError = require("../utils/AppError")
+const AppError = require("../utils/AppError");
+const axios = require('axios');
+
+const API_KEY = "BsHTajCuI9se8UaGXiy2XbOyTHFcB1Zl";
+
+const CURRENCY_SYMBOLS = {
+    "BRL": "R$",
+    "USD": "$",
+    "EUR": "€"
+}
 
 class ConvertController {
-    show(req, res) {
-        const { from, to, amount } = req.query;
+    async show(req, res) {
+        let { from, to, amount } = req.query;
 
         if (!from || !to || !amount){
             throw new AppError("Os parâmetros 'from', 'to' e 'amount' são obrigatórios!");
         }
 
-        res.json({ from, to, amount })
+        from = from.toUpperCase();
+        to = to.toUpperCase();
+
+        const response = await axios.get(`https://api.apilayer.com/exchangerates_data/convert?from=${from}&to=${to}&amount=${amount}`, { 
+            headers: { 'apikey': API_KEY }
+        });
+
+        const { result } = response.data;
+
+        res.json({ value: result, symbol: CURRENCY_SYMBOLS[to] })
     }
 }
 
