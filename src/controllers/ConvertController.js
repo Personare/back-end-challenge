@@ -20,6 +20,10 @@ class ConvertController {
         from = from.toUpperCase();
         to = to.toUpperCase();
 
+        if (!CURRENCY_SYMBOLS.hasOwnProperty(from) || !CURRENCY_SYMBOLS.hasOwnProperty(to)){
+            throw new AppError("Moeda não permitida.");
+        }
+
         const response = await axios.get(`https://api.apilayer.com/exchangerates_data/convert?from=${from}&to=${to}&amount=${amount}`, { 
             headers: { 'apikey': API_KEY }
         });
