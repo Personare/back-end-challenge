@@ -15,9 +15,6 @@ class ConvertShowService {
             throw new AppError("Os parâmetros 'from', 'to' e 'amount' são obrigatórios!");
         }
 
-        from = from.toUpperCase();
-        to = to.toUpperCase();
-
         if (!CURRENCY_SYMBOLS.hasOwnProperty(from) || !CURRENCY_SYMBOLS.hasOwnProperty(to)){
             throw new AppError("Moeda não permitida.");
         }
