@@ -34,10 +34,6 @@ Example: [http://localhost:3000/convert?from=USD&to=BRL&amount=1](http://localho
 
 The currencies enabled on the API are:
 
-- **BRL**: Brazilian real
-- **USD**: United States dollar
-- **EUR**: Euro
-
 | Code | Description |
 | --- | ----------- |
 | BRL | Brazilian real |
