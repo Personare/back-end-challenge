@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "author": "Welligton Luiz Porto",
   "license": "ISC",
