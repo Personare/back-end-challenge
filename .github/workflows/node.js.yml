@@ -28,6 +28,8 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm install
+    - name: Run tests
+      run: npm run test
     - name: Stop pm2
       run: pm2 stop nodedeploy
       if: ${{failure()}}

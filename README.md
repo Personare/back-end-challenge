@@ -24,7 +24,7 @@ npm run test
 
 Currency conversion endpoint, which can be used to convert currencies.
 
-Example: [http://localhost:3000/convert?from=USD&to=BRL&amount=1](http://localhost:3000/convert?from=USD&to=BRL&amount=1)
+Example: [http://167.172.146.132:3000/convert?from=USD&to=BRL&amount=1](http://167.172.146.132:3000/convert?from=USD&to=BRL&amount=1)
 
 #### Parameters
 
@@ -39,3 +39,7 @@ The currencies enabled on the API are:
 | BRL | Brazilian real |
 | USD | United States dollar |
 | EUR | Euro |
+
+## CI/CD
+
+Continuos Integration and Continuos Delivery implemented using `GitHub Actions` and `Digital Ocean` as cloud.
