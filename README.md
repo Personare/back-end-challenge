@@ -42,4 +42,4 @@ The currencies enabled on the API are:
 
 ## CI/CD
 
-Continuos Integration and Continuos Delivery implemented using `GitHub Actions` and `Digital Ocean` as cloud.
+Continuos Integration and Continuos Delivery implemented using `GitHub Actions` and `Digital Ocean` as cloud (address: [http://167.172.146.132:3000/](http://167.172.146.132:3000/)).
