@@ -1,10 +1,10 @@
 # personare-converter
 
-An API that converts currencies
+An API that converts currencies.
 
 ## Getting started
 
-After cloning this repository, follow the instructions to get started
+After cloning this repository, follow the instructions to get started:
 
  ```
 cd back-end-challenge

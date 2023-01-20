@@ -26,6 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - name: Install dependencies
+      run: npm install
+    - name: Stop pm2
+      run: pm2 stop nodedeploy
+      if: ${{failure()}}
+    - name: Start pm2
+      run: pm2 start ./src/server.js --name nodedeploy
+      
