@@ -4,7 +4,7 @@ An API that converts currencies.
 
 ## Getting started
 
-After cloning this repository, follow the instructions to get started:
+After cloning this repository and changing to branch "welligton-porto", follow the instructions to get started:
 
  ```
 cd back-end-challenge
