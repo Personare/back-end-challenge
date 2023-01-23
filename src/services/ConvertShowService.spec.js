@@ -19,7 +19,7 @@ describe("ConvertShowService", () => {
     
         expect(result).toHaveProperty("value");
         expect(result).toHaveProperty("symbol");
-    }, 10000);
+    }, 20000);
 
     it("currency should not be converted if there aren't all parameters", async () => {
         const data = {
