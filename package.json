@@ -1,0 +1,22 @@
+{
+  "name": "back-end-challenge",
+  "version": "1.0.0",
+  "description": "> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js",
+    "test": "jest"
+  },
+  "author": "Welligton Luiz Porto",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.3",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "nodemon": "^2.0.20"
+  }
+}

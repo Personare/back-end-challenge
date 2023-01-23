@@ -1,48 +1,46 @@
-# back-end-challenge
+# personare-converter
 
-> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
+An API that converts currencies.
 
-## Introdução
+## Getting started
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+After cloning this repository follow the instructions to get started:
 
-**Então, essa é a sua missão!**
+ ```
+cd back-end-challenge
+git checkout welligton-porto
+npm install
+npm start
+```
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+## Running tests
 
-E as especificações são:
+ ```
+npm run test
+```
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
+## Endpoints
 
-## Instruções
+### GET /convert
 
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
+Currency conversion endpoint, which can be used to convert currencies.
 
-## Pré-requisitos
+Example: [http://167.172.146.132:3000/convert?from=USD&to=BRL&amount=1](http://167.172.146.132:3000/convert?from=USD&to=BRL&amount=1)
 
-- Você pode usar a linguagem que preferir. (Preferência para PHP >= 5.6, Javascript ou Python)
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
+#### Parameters
 
-## Diferenciais
+* `from` (required): The three-letter currency code of the currency you would like to convert from.
+* `to` (required): The three-letter currency code of the currency you would like to convert to.
+* `amount` (required): The amount to be converted.
 
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
+The currencies enabled on the API are:
 
-## Dúvidas
+| Code | Description |
+| --- | ----------- |
+| BRL | Brazilian real |
+| USD | United States dollar |
+| EUR | Euro |
 
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
+## CI/CD
 
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+Continuos Integration and Continuos Delivery implemented using `GitHub Actions` and `Digital Ocean` as cloud (address: [http://167.172.146.132:3000/](http://167.172.146.132:3000/)).
