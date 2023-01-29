@@ -102,6 +102,13 @@ class Teste
                     "Verifique se os parametros estao corretos para realizar a requisicao"
                 );
             }
+        } else {
+            $this->mensagem(
+                "CM004",
+                400,
+                "Solicitacao incorreta",
+                "Verifique se os parametros estao corretos para realizar a requisicao"
+            );
         }
     }
 
