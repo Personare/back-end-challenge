@@ -22,7 +22,8 @@ Desenvolva uma API que calcule o número do ano pessoal e retorne a interpretaç
 ```json
 {
     "personalNumber": 9,
-    "interpretationText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend tellus volutpat mauris molestie, non tincidunt arcu ornare. Etiam fermentum nisl eu lobortis ornare. Nunc ligula ipsum, hendrerit sed felis vitae, euismod blandit risus. Nullam consequat viverra mauris, quis bibendum urna suscipit nec. Nam imperdiet mattis sapien mollis iaculis. Nunc tempor pulvinar vestibulum. Quisque vulputate, sem in hendrerit consequat, mi tortor commodo lorem, nec tincidunt magna ex id libero. Phasellus ut ante arcu. Nam a consectetur lacus, ut consectetur dolor."
+    "color": "golden",
+    "colorInterpretationText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend tellus volutpat mauris molestie, non tincidunt arcu ornare. Etiam fermentum nisl eu lobortis ornare. Nunc ligula ipsum, hendrerit sed felis vitae, euismod blandit risus. Nullam consequat viverra mauris, quis bibendum urna suscipit nec. Nam imperdiet mattis sapien mollis iaculis. Nunc tempor pulvinar vestibulum. Quisque vulputate, sem in hendrerit consequat, mi tortor commodo lorem, nec tincidunt magna ex id libero. Phasellus ut ante arcu. Nam a consectetur lacus, ut consectetur dolor."
 }
 ```
 
