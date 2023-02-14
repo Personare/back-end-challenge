@@ -1,48 +1,42 @@
-# back-end-challenge
-
+# Desafio Back-end Personare
 > Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
 
-## Introdução
+## Antes de começar
+* Escolha uma linguagem de programação que domina;
+* Escolha um banco de dados que melhor se encaixa no desafio;
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+## Calculo do número do ano pessoal
+Desenvolva uma API que calcule o número do ano pessoal e retorne a interpretação deste resultado, você deverá armazenar as interpretações em um banco de dados de sua escolha.
+* Artigo ensinando [como calcular o número do ano pessoal](https://www.personare.com.br/conteudo/como-calcular-ano-pessoal-m6523)
+* Artigo com as [interpretações de cada resultado](https://www.personare.com.br/conteudo/cores-para-ano-novo-m7576)
 
-**Então, essa é a sua missão!**
+* Payload do request:
+```json
+{
+    "currentYear": 2023,
+    "birthDate": "2022-07-09"
+}
+```
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
+* Payload de resposta:
+```json
+{
+    "personalNumber": 9,
+    "interpretationText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend tellus volutpat mauris molestie, non tincidunt arcu ornare. Etiam fermentum nisl eu lobortis ornare. Nunc ligula ipsum, hendrerit sed felis vitae, euismod blandit risus. Nullam consequat viverra mauris, quis bibendum urna suscipit nec. Nam imperdiet mattis sapien mollis iaculis. Nunc tempor pulvinar vestibulum. Quisque vulputate, sem in hendrerit consequat, mi tortor commodo lorem, nec tincidunt magna ex id libero. Phasellus ut ante arcu. Nam a consectetur lacus, ut consectetur dolor."
+}
+```
 
-E as especificações são:
+## O que valorizamos
+* Uma boa documentação
+* Conhecimento de padrões de projeto
+* Código limpo
+* Uma boa arquitetura
+* Tratativa de erros
+* Cuidado com itens de segurança
+* Testes automatizados
 
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
-
-## Instruções
-
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
-
-## Pré-requisitos
-
-- Você pode usar a linguagem que preferir. (Preferência para PHP >= 5.6, Javascript ou Python)
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
-
-## Diferenciais
-
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
-
-## Dúvidas
-
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
-
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+## Como entregar o desafio
+* **Não** abra um PR para este repositório.
+* **Não** fork este repositório.
+* Envie seu código para um **Repositório privado do GitHub** e adicione `@personare-code-challenge` como colaborador deste repositório. A conta `@personare-code-challenge` será usada para baixar seu código e revisa-lo.
+* Envie um email para `code-challenge@personare.com.br` com o link do seu repositório.
