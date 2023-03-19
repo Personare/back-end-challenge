@@ -1,0 +1,49 @@
+grumphp:
+    tasks:
+        git_commit_message:
+            allow_empty_message: false
+            enforce_capitalized_subject: false
+            enforce_no_subject_punctuations: false
+            enforce_no_subject_trailing_period: true
+            enforce_single_lined_subject: true
+            type_scope_conventions:
+                types:
+                  - build
+                  - ci
+                  - chore
+                  - docs
+                  - feat
+                  - fix
+                  - perf
+                  - refactor
+                  - revert
+                  - style
+                  - test
+                scopes: []
+                subject_pattern: >-
+                    ([a-zA-Z-0-9-_ #@'\/\"]+)
+            max_body_width: 72
+            max_subject_width: 90
+            case_insensitive: true
+            multiline: true
+            additional_modifiers: ''
+
+        phpcs:
+            standard: PSR12
+            ignore_patterns: [./vendor/*]
+            whitelist_patterns: [/^app\/(.*)/]
+            encoding: UTF-8
+        
+        phpmd:
+            ruleset: ['cleancode', 'codesize', 'controversial', 'design', 'naming']
+            exclude: ['tests']
+            triggered_by: ['php']
+
+        phpstan:
+            configuration: "phpstan.neon"
+
+        phpunit:
+            config_file: "phpunit.xml"
+            testsuite: ~
+            group: []
+            always_execute: true
