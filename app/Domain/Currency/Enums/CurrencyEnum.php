@@ -6,7 +6,7 @@ namespace App\Domain\Currency\Enums;
 
 enum CurrencyEnum: string
 {
-    case REAL = 'BRL';
-    case DOLAR = 'USD';
-    case EURO = 'EUR';
+    case BRL = 'R$';
+    case USD = 'US$';
+    case EUR = '€';
 }

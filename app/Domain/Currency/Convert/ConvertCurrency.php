@@ -15,10 +15,12 @@ class ConvertCurrency
     ) {
     }
 
-    public function convert(float $value): ?float
+    public function convert(float $value): ?ConvertedCurrency
     {
-        if ($this->fromCurrency->value === 'BRL' && $this->toCurrency->value === 'USD') {
-            return round($value / $this->exchangeRate, 2);
+        if ($this->fromCurrency->name === 'BRL' && $this->toCurrency->name === 'USD') {
+            $convertedValue = round($value / $this->exchangeRate, 2);
+
+            return new ConvertedCurrency($this->toCurrency, $convertedValue);
         }
 
         return null;
