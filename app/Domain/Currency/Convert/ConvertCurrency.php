@@ -23,6 +23,12 @@ class ConvertCurrency
             return new ConvertedCurrency($this->toCurrency, $convertedValue);
         }
 
+        if ($this->fromCurrency->name === 'USD' && $this->toCurrency->name === 'BRL') {
+            $convertedValue = round($value * $this->exchangeRate, 2);
+
+            return new ConvertedCurrency($this->toCurrency, $convertedValue);
+        }
+
         return null;
     }
 }
