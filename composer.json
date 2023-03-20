@@ -1,7 +1,8 @@
 {
     "name": "otaodev/back-end-challenge",
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit",
+        "dev": "php -S localhost:9000 -t public/"
     },
     "autoload": {
         "psr-4": {
