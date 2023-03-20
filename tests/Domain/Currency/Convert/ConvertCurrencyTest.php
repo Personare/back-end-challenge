@@ -17,13 +17,14 @@ class ConvertCurrencyTest extends TestCase
     public function testConvertRealToDollar()
     {
         $convert = new ConvertCurrency(
-            CurrencyEnum::REAL,
-            CurrencyEnum::DOLAR,
+            CurrencyEnum::BRL,
+            CurrencyEnum::USD,
             5.28
         );
         $result = $convert->convert(10.0);
 
-        $this->assertEquals(1.89, $result);
+        $this->assertEquals(1.89, $result->getValue());
+        $this->assertEquals('US$ 1,89', $result->__toString());
     }
 
     
