@@ -43,5 +43,19 @@ class ConvertCurrencyTest extends TestCase
         $this->assertEquals('R$ 5.280,00', $result->__toString());
     }
 
-    
+    /**
+     * @covers
+     */
+    public function testConvertRealToEuro()
+    {
+        $convert = new ConvertCurrency(
+            CurrencyEnum::BRL,
+            CurrencyEnum::EUR,
+            5.6359664
+        );
+        $result = $convert->convert(10.0);
+
+        $this->assertEquals(1.77, $result->getValue());
+        $this->assertEquals('€ 1,77', $result->__toString());
+    }
 }
