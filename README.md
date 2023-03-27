@@ -8,7 +8,7 @@
 ## Calculo do número do ano pessoal
 Desenvolva uma API que calcule o número do ano pessoal e retorne a interpretação deste resultado, você deverá armazenar as interpretações em um banco de dados de sua escolha.
 * Artigo ensinando [como calcular o número do ano pessoal](https://www.personare.com.br/conteudo/como-calcular-ano-pessoal-m6523)
-* Artigo com as [interpretações de cada resultado](https://www.personare.com.br/conteudo/cores-para-ano-novo-m7576)
+* Planilha com as [interpretações de cada resultado](https://docs.google.com/spreadsheets/d/1rC3mrC3XR_PX46Cvqs2zj5-zb13vHKrO-iD-ye80kFA/edit?usp=sharing)
 
 * Payload do request:
 ```json
@@ -22,8 +22,8 @@ Desenvolva uma API que calcule o número do ano pessoal e retorne a interpretaç
 ```json
 {
     "personalNumber": 9,
-    "color": "golden",
-    "colorInterpretationText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend tellus volutpat mauris molestie, non tincidunt arcu ornare. Etiam fermentum nisl eu lobortis ornare. Nunc ligula ipsum, hendrerit sed felis vitae, euismod blandit risus. Nullam consequat viverra mauris, quis bibendum urna suscipit nec. Nam imperdiet mattis sapien mollis iaculis. Nunc tempor pulvinar vestibulum. Quisque vulputate, sem in hendrerit consequat, mi tortor commodo lorem, nec tincidunt magna ex id libero. Phasellus ut ante arcu. Nam a consectetur lacus, ut consectetur dolor."
+    "colors": ["golden", "red"],
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eleifend tellus volutpat mauris molestie, non tincidunt arcu ornare. Etiam fermentum nisl eu lobortis ornare. Nunc ligula ipsum, hendrerit sed felis vitae, euismod blandit risus. Nullam consequat viverra mauris, quis bibendum urna suscipit nec. Nam imperdiet mattis sapien mollis iaculis. Nunc tempor pulvinar vestibulum. Quisque vulputate, sem in hendrerit consequat, mi tortor commodo lorem, nec tincidunt magna ex id libero. Phasellus ut ante arcu. Nam a consectetur lacus, ut consectetur dolor."
 }
 ```
 
