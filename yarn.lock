@@ -338,6 +338,11 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.41.0.tgz#080321c3b68253522f7646b55b577dd99d2950b3"
   integrity sha512-LxcyMGxwmTh2lY9FwHPGWOHmYFCZvbrFCBZL4FzSSsxsRPuhrYUg/49/0KDfW8tnIEaEHtfmn6+NPN+1DqaNmA==
 
+"@everapi/currencyapi-js@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@everapi/currencyapi-js/-/currencyapi-js-1.0.6.tgz#189dc1999557256f2836238377034e16e60a335b"
+  integrity sha512-CJcsHpHepOT/FB8tNqXeryhv2AgDd8DvZUkBkdrTB2SvVJDtFt8b1KFaJpGbOvwK1mp9jgHqcSgwEb9NlrUMxg==
+
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"

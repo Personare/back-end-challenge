@@ -1,3 +1,3 @@
 export interface ConvertCurrency {
-    convertCurrency:  (currency: string) => 
+    convertCurrency:  (currency: string) => Promise<ExchangeResponse>
 }
