@@ -1,6 +1,7 @@
 import { type CurrencyModel } from '../../domain/models/currency'
 import { type ConvertCurrency, type Currency } from '../../domain/usecases/convert-price'
 import { MissingParamError } from '../errors/missing-param-error'
+import { ServerError } from '../errors/server-error'
 import { CotacaoController } from './cotacao'
 
 const makeConvertCurrency = (): ConvertCurrency => {
@@ -40,6 +41,36 @@ describe('Cotacao controller', () => {
     expect(httpResponse.statusCode).toBe(400)
   })
 
+  test('should calls convert with correct values', async () => {
+    const { sut, currencyStub } = makeSut()
+    const convertSpy = jest.spyOn(currencyStub, 'convert')
+    const httpRequest = {
+      params: {
+        symbol: 'any_symbol'
+      }
+    }
+
+    await sut.handle(httpRequest)
+    expect(convertSpy).toHaveBeenCalledWith('any_symbol')
+  })
+
+  test('should return 500 if convert throws exception', async () => {
+    const { sut, currencyStub } = makeSut()
+    const httpRequest = {
+      params: {
+        symbol: 'any_symbol'
+      }
+    }
+
+    jest.spyOn(currencyStub, 'convert').mockImplementationOnce(async () => {
+      return new Promise((resolve, reject) => reject(new Error()))
+    })
+
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(500)
+    expect(httpResponse?.body).toEqual(new ServerError())
+  })
+
   test('should return 200 if value is provided', async () => {
     const { sut } = makeSut()
     const httpRequest = {
@@ -55,18 +86,5 @@ describe('Cotacao controller', () => {
       updatedAt: 'any_date'
     })
     expect(httpResponse.statusCode).toBe(200)
-  })
-
-  test('should calls convert with correct values', async () => {
-    const { sut, currencyStub } = makeSut()
-    const convertSpy = jest.spyOn(currencyStub, 'convert')
-    const httpRequest = {
-      params: {
-        symbol: 'any_symbol'
-      }
-    }
-
-    await sut.handle(httpRequest)
-    expect(convertSpy).toHaveBeenCalledWith('any_symbol')
   })
 })
