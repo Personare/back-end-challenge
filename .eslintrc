@@ -21,6 +21,7 @@
         "no-useless-catch": "off",
         "@typescript-eslint/no-confusing-void-expression": "off",
         "@typescript-eslint/return-await": "off",
+        "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/no-unused-vars": "error"
     }
 }

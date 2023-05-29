@@ -1,5 +1,9 @@
 export interface CurrencyModel {
-  currency: string
-  price: string
-  updatedAt: string
+  base: string
+  date: string
+  rates: {
+    USD: number
+    EUR: number
+    BRL: number
+  }
 }

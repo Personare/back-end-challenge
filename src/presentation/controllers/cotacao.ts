@@ -15,7 +15,7 @@ export class CotacaoController implements Controller {
     try {
       const { symbol } = httpRequest.params
       if (!symbol) {
-        return badRequest(new MissingParamError('cotacao'))
+        return badRequest(new MissingParamError('symbol'))
       }
 
       const resultConvert = await this.convertCurrency.convert(symbol)

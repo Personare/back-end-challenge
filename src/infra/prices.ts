@@ -1,7 +1,22 @@
-import { type ConvertCurrencyModel, type ConvertCurrency } from '../domain/usecases/convert-price'
+import { type CurrencyModel } from '../domain/models/currency'
+import { type Currency } from '../domain/usecases/convert-price'
+import { http } from './configs/http'
+import { type ConvertPrices } from './protocols/prices-interface'
 
-export class Prices {
-  async convert (currency: ConvertCurrency): Promise<ConvertCurrencyModel> {
+export class Prices implements ConvertPrices {
+  async convert(currency: Currency): Promise<CurrencyModel> {
+    const {
+      data: {
+        base_code,
+        conversion_rates,
+        time_last_update_utc
+      }
+    } = await http.get('/')
 
+    return {
+      base: base_code,
+      rates: conversion_rates,
+      date: time_last_update_utc
+    }
   }
 }

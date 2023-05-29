@@ -8,9 +8,13 @@ const makeConvertCurrency = (): ConvertCurrency => {
   class CurrencyStub implements ConvertCurrency {
     async convert (currency: Currency): Promise<CurrencyModel> {
       const fakeCurrency = {
-        currency: 'any_currency',
-        price: 'any_price',
-        updatedAt: 'any_date'
+        base: 'any_base',
+        date: 'any_date',
+        rates: {
+          USD: 1,
+          EUR: 1,
+          BRL: 1
+        }
       }
       return await new Promise(resolve => resolve(fakeCurrency))
     }
@@ -32,12 +36,12 @@ describe('Cotacao controller', () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        cotacao: ''
+        symbol: ''
       }
     }
 
     const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse.body).toEqual(new MissingParamError('cotacao'))
+    expect(httpResponse.body).toEqual(new MissingParamError('symbol'))
     expect(httpResponse.statusCode).toBe(400)
   })
 
@@ -81,9 +85,13 @@ describe('Cotacao controller', () => {
 
     const httpResponse = await sut.handle(httpRequest)
     expect(httpResponse.body).toEqual({
-      currency: 'any_currency',
-      price: 'any_price',
-      updatedAt: 'any_date'
+      base: 'any_base',
+      date: 'any_date',
+      rates: {
+        USD: 1,
+        EUR: 1,
+        BRL: 1
+      }
     })
     expect(httpResponse.statusCode).toBe(200)
   })
