@@ -1,7 +1,7 @@
 import { type CurrencyModel } from '../../domain/models/currency'
 import {
   type ConvertCurrency,
-  type Currency,
+  type Currency
 } from '../../domain/usecases/convert-price'
 import { MissingParamError } from '../errors/missing-param-error'
 import { ServerError } from '../errors/server-error'
@@ -16,8 +16,8 @@ const makeConvertCurrency = (): ConvertCurrency => {
         rates: {
           USD: 1,
           EUR: 1,
-          BRL: 1,
-        },
+          BRL: 1
+        }
       }
       return await new Promise((resolve) => resolve(fakeCurrency))
     }
@@ -39,13 +39,18 @@ describe('Cotacao controller', () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'US',
-      },
+        symbol: 'US'
+      }
     }
 
-    const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse.body).toEqual(new MissingParamError('symbol'))
-    expect(httpResponse.statusCode).toBe(400)
+    const httpResponse = {
+      body: '',
+      statusCode: 1
+    }
+
+    const httpResponsePromise = await sut.handle(httpRequest, httpResponse)
+    expect(httpResponsePromise.body).toEqual(new MissingParamError('symbol'))
+    expect(httpResponsePromise.statusCode).toBe(400)
   })
 
   test('should calls convert with correct values', async () => {
@@ -53,49 +58,62 @@ describe('Cotacao controller', () => {
     const convertSpy = jest.spyOn(currencyStub, 'convert')
     const httpRequest = {
       params: {
-        symbol: 'USD',
-      },
+        symbol: 'USD'
+      }
     }
 
-    await sut.handle(httpRequest)
+    const httpResponse = {
+      body: '',
+      statusCode: 1
+    }
+
+    await sut.handle(httpRequest, httpResponse)
     expect(convertSpy).toHaveBeenCalledWith('USD')
   })
 
   test('should return 500 if convert throws exception', async () => {
     const { sut, currencyStub } = makeSut()
+    jest.spyOn(currencyStub, 'convert').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+
     const httpRequest = {
       params: {
-        symbol: 'USD',
-      },
+        symbol: 'USD'
+      }
     }
 
-    jest.spyOn(currencyStub, 'convert').mockImplementationOnce(async () => {
-      return new Promise((resolve, reject) => reject(new Error()))
-    })
+    const httpResponse = {
+      body: '',
+      statusCode: 1
+    }
 
-    const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse.statusCode).toBe(500)
-    expect(httpResponse?.body).toEqual(new ServerError())
+    const httpResponsePromise = await sut.handle(httpRequest, httpResponse)
+    expect(httpResponsePromise.statusCode).toBe(500)
+    expect(httpResponsePromise?.body).toEqual(new ServerError())
   })
 
   test('should return 200 if value is provided', async () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'USD',
-      },
+        symbol: 'USD'
+      }
     }
 
-    const httpResponse = await sut.handle(httpRequest)
-    expect(httpResponse.body).toEqual({
+    const httpResponse = {
+      body: '',
+      statusCode: 1
+    }
+
+    const httpResponsePromise = await sut.handle(httpRequest, httpResponse)
+    expect(httpResponsePromise.body).toEqual({
       base: 'any_base',
       date: 'any_date',
       rates: {
         USD: 1,
         EUR: 1,
-        BRL: 1,
-      },
+        BRL: 1
+      }
     })
-    expect(httpResponse.statusCode).toBe(200)
+    expect(httpResponsePromise.statusCode).toBe(200)
   })
 })

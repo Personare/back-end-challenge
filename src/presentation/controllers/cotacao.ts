@@ -11,7 +11,7 @@ export class CotacaoController implements Controller {
     this.convertCurrency = convertCurrency
   }
 
-  async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
+  async handle(httpRequest: HttpRequest, httpResponse: HttpResponse): Promise<HttpResponse> {
     try {
       const { symbol } = httpRequest.params
       if (!symbol || symbol.length !== 3) {
@@ -22,13 +22,13 @@ export class CotacaoController implements Controller {
 
       return {
         body: resultConvert,
-        statusCode: 200,
+        statusCode: 200
       }
     } catch (error) {
-      console.log(error)
+      console.error(error)
       return {
         statusCode: 500,
-        body: new ServerError(),
+        body: new ServerError()
       }
     }
   }
