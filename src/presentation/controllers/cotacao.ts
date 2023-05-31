@@ -7,7 +7,7 @@ import { type HttpRequest, type HttpResponse } from '../protocols/http'
 
 export class CotacaoController implements Controller {
   private readonly convertCurrency: ConvertCurrency
-  constructor (convertCurrency: ConvertCurrency) {
+  constructor(convertCurrency: ConvertCurrency) {
     this.convertCurrency = convertCurrency
   }
 
@@ -22,13 +22,13 @@ export class CotacaoController implements Controller {
 
       return {
         body: resultConvert,
-        statusCode: 200
+        statusCode: 200,
       }
     } catch (error) {
       console.log(error)
       return {
         statusCode: 500,
-        body: new ServerError()
+        body: new ServerError(),
       }
     }
   }

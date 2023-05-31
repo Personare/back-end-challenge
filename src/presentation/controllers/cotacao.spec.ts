@@ -1,22 +1,25 @@
 import { type CurrencyModel } from '../../domain/models/currency'
-import { type ConvertCurrency, type Currency } from '../../domain/usecases/convert-price'
+import {
+  type ConvertCurrency,
+  type Currency,
+} from '../../domain/usecases/convert-price'
 import { MissingParamError } from '../errors/missing-param-error'
 import { ServerError } from '../errors/server-error'
 import { CotacaoController } from './cotacao'
 
 const makeConvertCurrency = (): ConvertCurrency => {
   class CurrencyStub implements ConvertCurrency {
-    async convert (currency: Currency): Promise<CurrencyModel> {
+    async convert(currency: Currency): Promise<CurrencyModel> {
       const fakeCurrency = {
         base: 'any_base',
         date: 'any_date',
         rates: {
           USD: 1,
           EUR: 1,
-          BRL: 1
-        }
+          BRL: 1,
+        },
       }
-      return await new Promise(resolve => resolve(fakeCurrency))
+      return await new Promise((resolve) => resolve(fakeCurrency))
     }
   }
   return new CurrencyStub()
@@ -36,8 +39,8 @@ describe('Cotacao controller', () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'US'
-      }
+        symbol: 'US',
+      },
     }
 
     const httpResponse = await sut.handle(httpRequest)
@@ -50,8 +53,8 @@ describe('Cotacao controller', () => {
     const convertSpy = jest.spyOn(currencyStub, 'convert')
     const httpRequest = {
       params: {
-        symbol: 'USD'
-      }
+        symbol: 'USD',
+      },
     }
 
     await sut.handle(httpRequest)
@@ -62,8 +65,8 @@ describe('Cotacao controller', () => {
     const { sut, currencyStub } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'USD'
-      }
+        symbol: 'USD',
+      },
     }
 
     jest.spyOn(currencyStub, 'convert').mockImplementationOnce(async () => {
@@ -79,8 +82,8 @@ describe('Cotacao controller', () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'USD'
-      }
+        symbol: 'USD',
+      },
     }
 
     const httpResponse = await sut.handle(httpRequest)
@@ -90,8 +93,8 @@ describe('Cotacao controller', () => {
       rates: {
         USD: 1,
         EUR: 1,
-        BRL: 1
-      }
+        BRL: 1,
+      },
     })
     expect(httpResponse.statusCode).toBe(200)
   })
