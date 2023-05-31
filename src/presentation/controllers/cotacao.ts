@@ -14,7 +14,7 @@ export class CotacaoController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const { symbol } = httpRequest.params
-      if (!symbol) {
+      if (!symbol || symbol.length !== 3) {
         return badRequest(new MissingParamError('symbol'))
       }
 

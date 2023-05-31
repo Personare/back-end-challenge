@@ -36,7 +36,7 @@ describe('Cotacao controller', () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        symbol: ''
+        symbol: 'US'
       }
     }
 
@@ -50,19 +50,19 @@ describe('Cotacao controller', () => {
     const convertSpy = jest.spyOn(currencyStub, 'convert')
     const httpRequest = {
       params: {
-        symbol: 'any_symbol'
+        symbol: 'USD'
       }
     }
 
     await sut.handle(httpRequest)
-    expect(convertSpy).toHaveBeenCalledWith('any_symbol')
+    expect(convertSpy).toHaveBeenCalledWith('USD')
   })
 
   test('should return 500 if convert throws exception', async () => {
     const { sut, currencyStub } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'any_symbol'
+        symbol: 'USD'
       }
     }
 
@@ -79,7 +79,7 @@ describe('Cotacao controller', () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'any_symbol'
+        symbol: 'USD'
       }
     }
 
