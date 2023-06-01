@@ -11,7 +11,7 @@ export class CotacaoController implements Controller {
     this.convertCurrency = convertCurrency
   }
 
-  async handle(httpRequest: HttpRequest, httpResponse: HttpResponse): Promise<HttpResponse> {
+  async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const { symbol } = httpRequest.params
       if (!symbol || symbol.length !== 3) {

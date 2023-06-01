@@ -4,21 +4,19 @@ import { http } from './configs/http'
 import { type ConvertPrices } from './protocols/prices-interface'
 
 export class Prices implements ConvertPrices {
-  async convert({ symbol }: Currency): Promise<CurrencyModel> {
+  async convert(currency: Currency): Promise<CurrencyModel> {
     const {
-      data: { base_code, conversion_rates, time_last_update_utc },
-    } = await http.get(`/${symbol}`)
+      data: { base_code, conversion_rates, time_last_update_utc }
+    } = await http.get(`/${currency}`)
 
     return {
       base: base_code,
-      rates: conversion_rates,
-      date: time_last_update_utc,
+      rates: {
+        BRL: conversion_rates.BRL,
+        EUR: conversion_rates.EUR,
+        USD: conversion_rates.USD
+      },
+      date: time_last_update_utc
     }
-
-    // return {
-    //   base: 'base_code',
-    //   rates: { BRL: 1, EUR: 1, USD: 1 },
-    //   date: 'time_last_update_utc'
-    // }
   }
 }

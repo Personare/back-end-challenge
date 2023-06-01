@@ -9,12 +9,12 @@ describe('Convert Lib', () => {
       rates: {
         USD: 1,
         EUR: 1,
-        BRL: 1,
-      },
+        BRL: 1
+      }
     }
     jest
       .spyOn(sut, 'convert')
-      .mockReturnValueOnce(new Promise((resolve) => resolve(response)))
+      .mockReturnValueOnce(new Promise(resolve => resolve(response)))
 
     const currency = { symbol: 'any_currency' }
     const convertPromiseReturns = await sut.convert(currency)
@@ -26,7 +26,7 @@ describe('Convert Lib', () => {
     jest
       .spyOn(sut, 'convert')
       .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error())),
+        new Promise((resolve, reject) => reject(new Error()))
       )
 
     const currency = { symbol: 'any_currency' }

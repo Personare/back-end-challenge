@@ -19,7 +19,7 @@ const makeConvertCurrency = (): ConvertCurrency => {
           BRL: 1
         }
       }
-      return await new Promise((resolve) => resolve(fakeCurrency))
+      return await new Promise(resolve => resolve(fakeCurrency))
     }
   }
   return new CurrencyStub()
@@ -43,12 +43,7 @@ describe('Cotacao controller', () => {
       }
     }
 
-    const httpResponse = {
-      body: '',
-      statusCode: 1
-    }
-
-    const httpResponsePromise = await sut.handle(httpRequest, httpResponse)
+    const httpResponsePromise = await sut.handle(httpRequest)
     expect(httpResponsePromise.body).toEqual(new MissingParamError('symbol'))
     expect(httpResponsePromise.statusCode).toBe(400)
   })
@@ -62,18 +57,17 @@ describe('Cotacao controller', () => {
       }
     }
 
-    const httpResponse = {
-      body: '',
-      statusCode: 1
-    }
-
-    await sut.handle(httpRequest, httpResponse)
+    await sut.handle(httpRequest)
     expect(convertSpy).toHaveBeenCalledWith('USD')
   })
 
   test('should return 500 if convert throws exception', async () => {
     const { sut, currencyStub } = makeSut()
-    jest.spyOn(currencyStub, 'convert').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
+    jest
+      .spyOn(currencyStub, 'convert')
+      .mockReturnValueOnce(
+        new Promise((resolve, reject) => reject(new Error()))
+      )
 
     const httpRequest = {
       params: {
@@ -81,12 +75,7 @@ describe('Cotacao controller', () => {
       }
     }
 
-    const httpResponse = {
-      body: '',
-      statusCode: 1
-    }
-
-    const httpResponsePromise = await sut.handle(httpRequest, httpResponse)
+    const httpResponsePromise = await sut.handle(httpRequest)
     expect(httpResponsePromise.statusCode).toBe(500)
     expect(httpResponsePromise?.body).toEqual(new ServerError())
   })
@@ -99,12 +88,7 @@ describe('Cotacao controller', () => {
       }
     }
 
-    const httpResponse = {
-      body: '',
-      statusCode: 1
-    }
-
-    const httpResponsePromise = await sut.handle(httpRequest, httpResponse)
+    const httpResponsePromise = await sut.handle(httpRequest)
     expect(httpResponsePromise.body).toEqual({
       base: 'any_base',
       date: 'any_date',
