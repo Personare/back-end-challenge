@@ -10,6 +10,7 @@ export class CotacaoController implements Controller {
     this.convertCurrency = convertCurrency
   }
 
+  // Responsible to received the req, to handle and call forward
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
       const { baseCurrency, targetCurrency } = httpRequest.params

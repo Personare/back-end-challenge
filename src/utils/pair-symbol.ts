@@ -1,6 +1,8 @@
 interface PairSymbol {
   symbol: string
 }
+
+// Verifying the currency to return the correct symbol
 export const pairSymbolToCurrency = (targetCurrency: string): PairSymbol => {
   let pairSymboll = { symbol: '$' }
 

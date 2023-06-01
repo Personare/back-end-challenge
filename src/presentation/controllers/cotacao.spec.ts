@@ -7,6 +7,7 @@ import { MissingParamError } from '../errors/missing-param-error'
 import { ServerError } from '../errors/server-error'
 import { CotacaoController } from './cotacao'
 
+// Factory to create a instance of convert method from ConvertCurrency interface:
 const makeConvertCurrency = (): ConvertCurrency => {
   class CurrencyStub implements ConvertCurrency {
     async convert(currency: Currency): Promise<CurrencyModel> {
@@ -25,6 +26,8 @@ interface SutType {
   sut: CotacaoController
   currencyStub: ConvertCurrency
 }
+
+// Factory to create a SUT to make easy test
 const makeSut = (): SutType => {
   const currencyStub = makeConvertCurrency()
   const sut = new CotacaoController(currencyStub)
