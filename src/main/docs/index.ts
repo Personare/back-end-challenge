@@ -1,3 +1,6 @@
+import { cotacaoPath } from './paths/cotacao'
+import { badRequest, cotacaoSchema } from "./schemas/cotacao";
+
 export default {
     openapi: "3.0.0",
     info: {
@@ -11,11 +14,21 @@ export default {
         email: "wellington.pereira@al.forsoft.org.br",
       },
     },
-//     servers: [
-//       {
-//           url: "http://localhost:5050",
-//           description: 'Development server'
-//       },
-//     ],
+    servers: [
+      {
+          url: "http://localhost:5050/api",
+          description: 'Development server'
+      }
+    ],
+    tags: [{
+        name: 'Currency Rates'
+    }],
+    paths: {
+        '/cotacao/{baseCurrency}/{targetCurrency}': cotacaoPath
+    },
+    schemas: {
+        cotacaoSchema,
+        badRequest
+    }
 //   apis: ["./routes.ts"],
 };
