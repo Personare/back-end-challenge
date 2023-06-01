@@ -5,7 +5,7 @@
 # How can I run it?
 ## It's very simple, look this:
 
-- First: ```run npm install``` command 
+- First: run ```npm install``` command 
 - Second: run ```npm start``` command 
 - Third: If you want to see the [docs api], accesss (http://localhost:5050/api-docs).
 
