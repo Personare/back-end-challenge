@@ -1,9 +1,6 @@
 export interface CurrencyModel {
   base: string
+  target: string
+  conversion_rate: string
   date: string
-  rates: {
-    USD: number
-    EUR: number
-    BRL: number
-  }
 }

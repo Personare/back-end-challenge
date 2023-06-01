@@ -1,7 +1,8 @@
 import { type CurrencyModel } from '../models/currency'
 
 export interface Currency {
-  symbol: string
+  baseCurrency: string
+  targetCurrency: string
 }
 
 export interface ConvertCurrency {

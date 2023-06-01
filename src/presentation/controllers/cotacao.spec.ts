@@ -12,12 +12,9 @@ const makeConvertCurrency = (): ConvertCurrency => {
     async convert(currency: Currency): Promise<CurrencyModel> {
       const fakeCurrency = {
         base: 'any_base',
-        date: 'any_date',
-        rates: {
-          USD: 1,
-          EUR: 1,
-          BRL: 1
-        }
+        target: 'any_target',
+        conversion_rate: 'any_value',
+        date: 'any_date'
       }
       return await new Promise(resolve => resolve(fakeCurrency))
     }
@@ -35,16 +32,19 @@ const makeSut = (): SutType => {
 }
 
 describe('Cotacao controller', () => {
-  test('should return 400 if no value is provided', async () => {
+  test('should return 400 if value provided is different to USD, EUR or BRL', async () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'US'
+        baseCurrency: 'USD',
+        targetCurrency: 'fd'
       }
     }
 
     const httpResponsePromise = await sut.handle(httpRequest)
-    expect(httpResponsePromise.body).toEqual(new MissingParamError('symbol'))
+    expect(httpResponsePromise.body).toEqual(
+      new MissingParamError('The currency must be one of this: USD, EUR or BRL')
+    )
     expect(httpResponsePromise.statusCode).toBe(400)
   })
 
@@ -53,30 +53,30 @@ describe('Cotacao controller', () => {
     const convertSpy = jest.spyOn(currencyStub, 'convert')
     const httpRequest = {
       params: {
-        symbol: 'USD'
+        baseCurrency: 'USD',
+        targetCurrency: 'EUR'
       }
     }
 
     await sut.handle(httpRequest)
-    expect(convertSpy).toHaveBeenCalledWith('USD')
+    expect(convertSpy).toHaveBeenCalledWith(httpRequest.params)
   })
 
   test('should return 500 if convert throws exception', async () => {
     const { sut, currencyStub } = makeSut()
-    jest
-      .spyOn(currencyStub, 'convert')
-      .mockReturnValueOnce(
-        new Promise((resolve, reject) => reject(new Error()))
-      )
+    jest.spyOn(currencyStub, 'convert').mockImplementationOnce(() => {
+      throw new Error()
+    })
 
     const httpRequest = {
       params: {
-        symbol: 'USD'
+        baseCurrency: 'USD',
+        targetCurrency: 'EUR'
       }
     }
 
     const httpResponsePromise = await sut.handle(httpRequest)
-    expect(httpResponsePromise.statusCode).toBe(500)
+    expect(httpResponsePromise?.statusCode).toBe(500)
     expect(httpResponsePromise?.body).toEqual(new ServerError())
   })
 
@@ -84,19 +84,17 @@ describe('Cotacao controller', () => {
     const { sut } = makeSut()
     const httpRequest = {
       params: {
-        symbol: 'USD'
+        baseCurrency: 'USD',
+        targetCurrency: 'EUR'
       }
     }
 
     const httpResponsePromise = await sut.handle(httpRequest)
     expect(httpResponsePromise.body).toEqual({
       base: 'any_base',
-      date: 'any_date',
-      rates: {
-        USD: 1,
-        EUR: 1,
-        BRL: 1
-      }
+      target: 'any_target',
+      conversion_rate: 'any_value',
+      date: 'any_date'
     })
     expect(httpResponsePromise.statusCode).toBe(200)
   })

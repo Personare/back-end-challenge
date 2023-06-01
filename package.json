@@ -9,6 +9,7 @@
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
+    "test:coverage": "jest --passWithNoTests --runInBand --coverage",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
   "keywords": [],

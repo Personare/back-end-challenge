@@ -3,6 +3,8 @@ import app from '../config/app'
 
 describe('Cotacao routes', () => {
   test('should integrate with cotacao routes and return rates success', async () => {
-    await request(app).post('/api/cotacao/:symbol').expect(200)
+    const base = 'EUR'
+    const target = 'USD'
+    await request(app).get(`/api/cotacao/${base}/${target}`).expect(200)
   })
 })

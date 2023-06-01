@@ -5,18 +5,15 @@ describe('Convert Lib', () => {
     const sut = new Prices()
     const response = {
       base: 'any_base',
-      date: 'any_date',
-      rates: {
-        USD: 1,
-        EUR: 1,
-        BRL: 1
-      }
+      target: 'any_target',
+      conversion_rate: 'any_value',
+      date: 'any_date'
     }
     jest
       .spyOn(sut, 'convert')
       .mockReturnValueOnce(new Promise(resolve => resolve(response)))
 
-    const currency = { symbol: 'any_currency' }
+    const currency = { baseCurrency: 'any_base', targetCurrency: 'any_target' }
     const convertPromiseReturns = await sut.convert(currency)
     expect(convertPromiseReturns).toEqual(response)
   })
@@ -29,7 +26,7 @@ describe('Convert Lib', () => {
         new Promise((resolve, reject) => reject(new Error()))
       )
 
-    const currency = { symbol: 'any_currency' }
+    const currency = { baseCurrency: 'any_base', targetCurrency: 'any_target' }
 
     const convertRturnPromise = sut.convert(currency)
     await expect(convertRturnPromise).rejects.toThrow()

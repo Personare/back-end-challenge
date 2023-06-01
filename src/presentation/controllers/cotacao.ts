@@ -1,7 +1,6 @@
 import { type ConvertCurrency } from '../../domain/usecases/convert-price'
 import { MissingParamError } from '../errors/missing-param-error'
-import { ServerError } from '../errors/server-error'
-import { badRequest } from '../helper/http-helper'
+import { badRequest, serverError } from '../helper/http-helper'
 import { type Controller } from '../protocols/controller'
 import { type HttpRequest, type HttpResponse } from '../protocols/http'
 
@@ -13,12 +12,23 @@ export class CotacaoController implements Controller {
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const { symbol } = httpRequest.params
-      if (!symbol || symbol.length !== 3) {
-        return badRequest(new MissingParamError('symbol'))
+      const { baseCurrency, targetCurrency } = httpRequest.params
+      const requiredFields = ['BRL', 'USD', 'EUR']
+      if (
+        !requiredFields.includes(baseCurrency) ||
+        !requiredFields.includes(targetCurrency)
+      ) {
+        return badRequest(
+          new MissingParamError(
+            'The currency must be one of this: USD, EUR or BRL'
+          )
+        )
       }
 
-      const resultConvert = await this.convertCurrency.convert(symbol)
+      const resultConvert = await this.convertCurrency.convert({
+        baseCurrency,
+        targetCurrency
+      })
 
       return {
         body: resultConvert,
@@ -26,10 +36,7 @@ export class CotacaoController implements Controller {
       }
     } catch (error) {
       console.error(error)
-      return {
-        statusCode: 500,
-        body: new ServerError()
-      }
+      return serverError()
     }
   }
 }
