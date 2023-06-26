@@ -1,10 +1,10 @@
 import { type CurrencyModel } from '../domain/models/currency'
-import { type Currency } from '../domain/usecases/convert-price'
+import { type Currency, ConvertCurrency } from '../domain/usecases/convert-price'
 import { pairSymbolToCurrency } from '../utils/pair-symbol'
 import { http } from './configs/http'
-import { type ConvertPrices } from './protocols/prices-interface'
 
-export class Prices implements ConvertPrices {
+
+export class Prices implements ConvertCurrency {
     async convert(currency: Currency): Promise<CurrencyModel> {
         const {
             data: {

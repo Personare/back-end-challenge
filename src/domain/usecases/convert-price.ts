@@ -6,5 +6,5 @@ export interface Currency {
 }
 
 export interface ConvertCurrency {
-    convert: (currency: Currency) => Promise<CurrencyModel>
+    convert(currency: Currency): Promise<CurrencyModel>
 }
