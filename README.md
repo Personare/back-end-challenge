@@ -2,47 +2,12 @@
 
 > Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)
 
-## Introdução
+# How can I run it?
+## It's very simple, look this:
 
-A nossa Product Owner pensou em um produto fantástico para ser desenvolvido, porém é necessário realizar uma conversão de moedas para que tudo funcione perfeitamente e essa é a única feature que está faltando para entregarmos o projeto.
+- First: run ```npm install``` command 
+- Second: run ```npm start``` command 
+- Third: If you want to see the doc's api, accesss `http://localhost:5050/api-docs` when the app is running.
 
-**Então, essa é a sua missão!**
 
-É isso mesmo, você deverá criar uma API que realize conversão de moedas. 
-
-E as especificações são:
-
-- A requisição deve receber a cotação via parâmetro
-- A resposta deve conter o valor convertido e o símbolo da moeda
-- Conversões:
-    - De Real para Dólar
-    - De Dólar para Real
-    - De Real para Euro
-    - De Euro para Real
-
-## Instruções
-
-1. Efetue o **fork** deste repositório e crie um branch com o seu nome. (ex: caue-alves).
-2. Após finalizar o desafio, crie um **Pull Request**.
-3. Aguarde algum contribuidor realizar o code review.
-
-## Pré-requisitos
-
-- Você pode usar a linguagem que preferir. (Preferência para PHP >= 5.6, Javascript ou Python)
-- Orientado a objetos
-- Test Driven Development
-- A API deve retornar em formato de `json`
-
-## Diferenciais
-
-- S.O.L.I.D
-- Boa documentação
-- Não utilizar framework
-- Utilização de DDD (Domain Driven Design)
-- Implementar integração contínua
-
-## Dúvidas
-
-Se surgir alguma dúvida, consulte as [perguntas feitas anteriormente](https://github.com/Personare/back-end-challenge/labels/question).
-
-Caso não encontre a sua resposta, sinta-se à vontade para [abrir uma issue](https://github.com/Personare/back-end-challenge/issues/new) =]
+#### That's it! I think so it's over...

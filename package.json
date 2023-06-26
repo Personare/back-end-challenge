@@ -1,0 +1,51 @@
+{
+    "name": "back-end-challenge",
+    "version": "1.0.0",
+    "description": "> Desafio para os futuros back-end's do [@Personare](https://github.com/Personare)",
+    "main": "index.js",
+    "scripts": {
+        "start": "sucrase-node src/main/server.ts",
+        "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+        "test:verbose": "jest --passWithNoTests --runInBand",
+        "test:unit": "npm test -- --watch -c jest-unit-config.js",
+        "test:integration": "npm test -- --watch -c jest-integration-config.js",
+        "test:coverage": "jest --passWithNoTests --runInBand --coverage",
+        "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "GPL-3.0-or-later",
+    "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@types/express": "^4.17.17",
+        "@types/jest": "^29.5.1",
+        "@types/node": "^20.2.3",
+        "@types/supertest": "^2.0.12",
+        "@types/swagger-jsdoc": "^6.0.1",
+        "@types/swagger-ui-express": "^4.1.3",
+        "@typescript-eslint/eslint-plugin": "^5.59.7",
+        "@typescript-eslint/parser": "^5.59.7",
+        "dotenv": "^16.0.3",
+        "eslint": "^8.41.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-config-standard-with-typescript": "^34.0.1",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-n": "^15.7.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-promise": "^6.1.1",
+        "jest": "^29.5.0",
+        "prettier": "^2.8.8",
+        "sucrase": "^3.32.0",
+        "supertest": "^6.3.3",
+        "ts-jest": "^29.1.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "axios": "^1.4.0",
+        "express": "^4.18.2",
+        "fast-glob": "^3.2.12",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^4.6.3"
+    }
+}
